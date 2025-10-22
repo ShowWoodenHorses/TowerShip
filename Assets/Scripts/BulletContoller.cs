@@ -61,7 +61,7 @@ namespace Assets.Scripts
         {
             yield return new WaitForSeconds(lifeBeforeDestroy);
             PLaySoundEffect(soundShotWavePrefab);
-            SpawnEffect(effectShotInWater);
+            SpawnEffectShotInWater();
             Deactive();
         }
 
@@ -98,6 +98,19 @@ namespace Assets.Scripts
         {
             GameObject effect = EffectObjectPool.Instance.GetObject(effectObj);
             effect.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
+            EffectController effectController = effect.GetComponent<EffectController>();
+            if (effectController != null)
+            {
+                effectController.Initialize(effect);
+            }
+        }
+
+        private void SpawnEffectShotInWater()
+        {
+            GameObject effect = EffectObjectPool.Instance.GetObject(effectShotInWater);
+            Vector3 position = new Vector3(transform.position.x, 0f, transform.position.z);
+
+            effect.transform.SetPositionAndRotation(position, Quaternion.identity);
             EffectController effectController = effect.GetComponent<EffectController>();
             if (effectController != null)
             {

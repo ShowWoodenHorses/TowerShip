@@ -22,9 +22,9 @@ namespace Assets.Scripts
         [SerializeField] private CheckPLatform platform;
 
         [Header("Shop")]
-        [SerializeField] private ShopBulletController shopBulletController;
-        [SerializeField] private ShopShipController shopShipController;
-        [SerializeField] private ScoreManager scoreManager;
+        //[SerializeField] private ShopBulletController shopBulletController;
+        //[SerializeField] private ShopShipController shopShipController;
+        //[SerializeField] private ScoreManager scoreManager;
 
         [Header("Pool")]
         [SerializeField] private EnemyObjectPool enemyPool;
@@ -33,54 +33,54 @@ namespace Assets.Scripts
         [SerializeField] private SoundPoolManager soundPoolManager;
 
         [Header("Player")]
-        [SerializeField] private ShipManager shipManager;
-        [SerializeField] private ShipMovement shipMovement;
+        //[SerializeField] private ShipManager shipManager;
+        //[SerializeField] private ShipMovement shipMovement;
         [SerializeField] private Transform playerTransform;
 
         [Header("Spawner")]
         [SerializeField] private EnemySpawner enemySpawner;
 
         [Header("Generation")]
-        [SerializeField] private MapGeneration mapGeneration;
+        //[SerializeField] private MapGeneration mapGeneration;
 
         [Header("Save")]
-        [SerializeField] private SaveLifecycle saveLifecycle;
+        //[SerializeField] private SaveLifecycle saveLifecycle;
 
         [Header("Animation")]
         [SerializeField] private GameplayAnimationController gameplayAnimationController;
 
         [Header("Game")]
-        [SerializeField] private GameManager gameManager;
-        [SerializeField] private UIController uiController;
-        [SerializeField] private UIDisplayCannon uiDisplayCannon;
+        //[SerializeField] private GameManager gameManager;
+        //[SerializeField] private UIController uiController;
+        //[SerializeField] private UIDisplayCannon uiDisplayCannon;
 
         [Header("Sound")]
         [SerializeField] private AudioMixer mainMixer;
 
-        [Header("Ads")]
-        [SerializeField] private RewardsAds rewardsAds;
+        //[Header("Ads")]
+        //[SerializeField] private RewardsAds rewardsAds;
         private void Awake()
         {
             data = SaveSystem.Load();
             IShipInput shipInput = platform.CheckCurrentPlatform();
 
-            saveLifecycle.Initialize(data);
+            //saveLifecycle.Initialize(data);
 
             enemyPool.Initialize();
             bulletPool.Initialize();
             effectPool.Initialize();
 
-            shopBulletController.Initialize(data.ownedItems, data.selectedBulletId, saveLifecycle);
-            shopShipController.Initialize(data.ownedItems, data.selectedShipId, saveLifecycle);
-            scoreManager.Initialize(data.currentCoins, data.allCoins, saveLifecycle);
+            //shopBulletController.Initialize(data.ownedItems, data.selectedBulletId, saveLifecycle);
+            //shopShipController.Initialize(data.ownedItems, data.selectedShipId, saveLifecycle);
+            //scoreManager.Initialize(data.currentCoins, data.allCoins, saveLifecycle);
 
             soundPoolManager.Initialize(mainMixer);
 
-            rewardsAds.Initialize(scoreManager);
+            //rewardsAds.Initialize(scoreManager);
 
-            shipManager.Initialize(data.selectedShipId, data.selectedBulletId, gameplayAnimationController, uiDisplayCannon, shipInput);
-            gameManager.Initialize(uiController, scoreManager);
-            enemySpawner.Initialize(data.currentWaveEnemyId, playerTransform, gameplayAnimationController);
+            //shipManager.Initialize(data.selectedShipId, data.selectedBulletId, gameplayAnimationController, uiDisplayCannon, shipInput);
+            //gameManager.Initialize(uiController, scoreManager);
+            //enemySpawner.Initialize(data.currentWaveEnemyId, playerTransform, gameplayAnimationController);
 
             YG2.GameplayStart();
         }
