@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 622690264311783957}
   - component: {fileID: 8791634457952582299}
   - component: {fileID: -4271401157805053086}
+  - component: {fileID: 960830069217356838}
   m_Layer: 7
   m_Name: OceanTile
   m_TagString: Untagged
@@ -65,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 287f5c5596df8d94594c370c2a16aac8, type: 2}
+  - {fileID: 2100000, guid: 51a8d0908b798c54db040e89639c1726, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,3 +100,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa31187b046025b438858652ae1b298b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &960830069217356838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4809460415735467760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 485a9f713e4607d4e854bb6b5a081b44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseColor: {r: 0.1033731, g: 0.5308779, b: 0.9528302, a: 1}
+  waveColor: {r: 0.0764062, g: 0.42145526, b: 0.9528302, a: 1}
+  waveHeight: 0.5
+  waveSpeed: 1
+  waveFrequency: 1.5
+  waveSharpness: 2
+  specularPower: 0.5
+  updateInEditMode: 1
+  updateRate: 30
