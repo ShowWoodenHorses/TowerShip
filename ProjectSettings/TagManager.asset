@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Settings_Canvas
+  - Island
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Ocean
   - PLayer
   - Props
-  - 
+  - Island
   - 
   - 
   - 
