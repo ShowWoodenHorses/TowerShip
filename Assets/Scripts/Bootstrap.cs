@@ -45,7 +45,7 @@ namespace Assets.Scripts
         //[SerializeField] private MapGeneration mapGeneration;
 
         [Header("Save")]
-        //[SerializeField] private SaveLifecycle saveLifecycle;
+        [SerializeField] private SaveLifecycle saveLifecycle;
 
         [Header("Animation")]
         [SerializeField] private GameplayAnimationController gameplayAnimationController;
@@ -65,7 +65,7 @@ namespace Assets.Scripts
             data = SaveSystem.Load();
             //IShipInput shipInput = platform.CheckCurrentPlatform();
 
-            //saveLifecycle.Initialize(data);
+            saveLifecycle.Initialize(data);
 
             enemyPool.Initialize();
             bulletPool.Initialize();
@@ -73,7 +73,7 @@ namespace Assets.Scripts
 
             //shopBulletController.Initialize(data.ownedItems, data.selectedBulletId, saveLifecycle);
             //shopShipController.Initialize(data.ownedItems, data.selectedShipId, saveLifecycle);
-            //scoreManager.Initialize(data.currentCoins, data.allCoins, saveLifecycle);
+            scoreManager.Initialize(data.currentCoins, data.allCoins, saveLifecycle);
 
             soundPoolManager.Initialize(mainMixer);
 
@@ -82,7 +82,7 @@ namespace Assets.Scripts
             //shipManager.Initialize(data.selectedShipId, data.selectedBulletId, gameplayAnimationController, uiDisplayCannon, shipInput);
             playerManager.Initialize();
             gameManager.Initialize(uiController, scoreManager);
-            //enemySpawner.Initialize(data.currentWaveEnemyId, playerTransform, gameplayAnimationController);
+            enemySpawner.Initialize(data.currentWaveEnemyId, playerTransform, gameplayAnimationController);
 
             YG2.GameplayStart();
         }

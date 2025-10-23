@@ -590,11 +590,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  orbitRadius: 30
-  orbitPointsCount: 12
+  orbitRadius: 45
+  minOrbitRadius: 35
+  maxOrbitRadius: 55
+  orbitPointsCount: 20
   waypointAdvanceDistance: 5
-  enterOrbitDistance: 32
-  exitOrbitDistance: 40
+  enterOrbitDistance: 50
+  exitOrbitDistance: 100
   turnRateDegPerSec: 180
 --- !u!114 &97215329225786903
 MonoBehaviour:

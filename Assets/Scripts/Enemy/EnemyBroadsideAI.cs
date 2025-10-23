@@ -5,24 +5,29 @@ using UnityEngine.AI;
 public class EnemyBroadsideAI : EnemyMovementBase
 {
     [Header("Орбита вокруг игрока")]
-    public float orbitRadius = 22f;
+    public int orbitRadius = 35;
+    public int minOrbitRadius = 30;
+    public int maxOrbitRadius = 40;
     public int orbitPointsCount = 24;
     public float waypointAdvanceDistance = 5f;
-    public float enterOrbitDistance = 28f;
-    public float exitOrbitDistance = 40f;
+    public float enterOrbitDistance = 58f;
+    public float exitOrbitDistance = 100f;
     public float turnRateDegPerSec = 180f;
 
     private enum EnemyState { Pursuing, Orbiting }
     private EnemyState state = EnemyState.Pursuing;
 
     private Vector3[] orbitWaypoints;
-    private int currentWPIndex;
+    Vector3 minDistancePoint = Vector3.zero;
+    private int indexMinPoint = 0;
 
     protected override void Start()
     {
         base.Start();
+        orbitRadius = Random.Range(minOrbitRadius, maxOrbitRadius);
         orbitWaypoints = new Vector3[orbitPointsCount];
         UpdateOrbitWaypoints();
+        GetMinPointOrbitWaypoints();
     }
 
     protected override void HandleMovement()
@@ -35,7 +40,7 @@ public class EnemyBroadsideAI : EnemyMovementBase
         switch (state)
         {
             case EnemyState.Pursuing:
-                agent.SetDestination(target.position);
+                agent.SetDestination(minDistancePoint);
                 RotateTowardsAgentVelocity();
                 if (dist <= enterOrbitDistance) state = EnemyState.Orbiting;
                 break;
@@ -49,11 +54,11 @@ public class EnemyBroadsideAI : EnemyMovementBase
 
     void OrbitMovement()
     {
-        Vector3 wp = orbitWaypoints[currentWPIndex];
+        Vector3 wp = orbitWaypoints[indexMinPoint];
         agent.SetDestination(wp);
 
         if (Vector3.Distance(transform.position, wp) < waypointAdvanceDistance)
-            currentWPIndex = (currentWPIndex + 1) % orbitWaypoints.Length;
+            indexMinPoint = (indexMinPoint + 1) % orbitWaypoints.Length;
 
         Vector3 moveDir = (wp - transform.position).normalized;
         if (moveDir.sqrMagnitude > 0.01f)
@@ -81,6 +86,20 @@ public class EnemyBroadsideAI : EnemyMovementBase
             float angle = (360f / orbitPointsCount) * i;
             Vector3 offset = Quaternion.Euler(0, angle, 0) * Vector3.forward * orbitRadius;
             orbitWaypoints[i] = target.position + offset;
+        }
+    }
+
+    void GetMinPointOrbitWaypoints()
+    {
+        for(int i = 0; i < orbitWaypoints.Length; i++)
+        {
+            Vector3 currentPoint = orbitWaypoints[i];
+
+            if (Vector3.Distance(currentPoint, transform.position) < Vector3.Distance(minDistancePoint, transform.position))
+            {
+                minDistancePoint = currentPoint;
+                indexMinPoint = i;
+            }
         }
     }
 }

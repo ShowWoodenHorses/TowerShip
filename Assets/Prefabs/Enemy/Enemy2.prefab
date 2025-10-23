@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  stopRadius: 20
+  stopRadius: 40
   orbitSpeed: 5
   clockwise: 0
 --- !u!114 &3081732180796212935
