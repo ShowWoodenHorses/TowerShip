@@ -12,12 +12,14 @@ namespace Assets.Scripts.Player
 
         [Header("Settings")]
         [SerializeField] private float minDistance;
+        [SerializeField] private ShipAimLine shipAimLine;
 
         private float currentTimeReloading;
 
         private void Start()
         {
             currentTimeReloading = reloading;
+            shipAimLine.Initialize();
         }
 
         private void Update()
@@ -81,7 +83,15 @@ namespace Assets.Scripts.Player
             if(distance > minDistance)
             {
                 transform.rotation = Quaternion.LookRotation(direction);
+                UpdateLaserAndTrajectoryForSelected(mousePosition);
             }
+        }
+
+        void UpdateLaserAndTrajectoryForSelected(Vector3 mouseWorld)
+        {
+            Vector3 startPos = shootPosition.position;
+            Vector3 endPos = mouseWorld;
+            shipAimLine.DrawLine(startPos, endPos, true);
         }
     }
 }
