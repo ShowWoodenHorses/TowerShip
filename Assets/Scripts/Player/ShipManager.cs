@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scripts.UI;
 using Assets.Scripts.Interface;
+using Unity.VisualScripting.FullSerializer;
 
 namespace Assets.Scripts.Player
 {
@@ -39,8 +40,9 @@ namespace Assets.Scripts.Player
             this.uiDisplayCannon = uiDisplayCannon;
             this.gameplayAnimationController = gameplayAnimationController;
             this.shipInput = shipInput;
-            currentBulletPrefabId = bulletId;
-            UpgradeShip(shipId);
+            SetHealth();
+            //currentBulletPrefabId = bulletId;
+            //UpgradeShip(shipId);
         }
 
         public void UpgradeShip(string shipId)
@@ -72,36 +74,36 @@ namespace Assets.Scripts.Player
 
         private void SpawnShip(ShipConfig config)
         {
-            if (currentShipInstance != null)
-            {
-                gameplayAnimationController.DeleteAnimations(currentShipInstance);
-                Destroy(currentShipInstance);
-                uiDisplayCannon.ClearList();
-            }
+            //if (currentShipInstance != null)
+            //{
+            //    gameplayAnimationController.DeleteAnimations(currentShipInstance);
+            //    Destroy(currentShipInstance);
+            //    uiDisplayCannon.ClearList();
+            //}
 
-            currentShipInstance = Instantiate(config.shipPrefab, transform.position, transform.rotation, transform);
+            //currentShipInstance = Instantiate(config.shipPrefab, transform.position, transform.rotation, transform);
 
-            movement = GetComponent<ShipMovement>();
-            health = currentShipInstance.GetComponent<ShipHealth>();
-            cannons = currentShipInstance.GetComponent<ShipCannonMultiSide>();
-            sailController = currentShipInstance.GetComponent<SailController>();
-            shipWakeParticles = currentShipInstance.GetComponent<ShipWakeParticles>();
+            //movement = GetComponent<ShipMovement>();
+            health = GetComponent<ShipHealth>();
+            //cannons = currentShipInstance.GetComponent<ShipCannonMultiSide>();
+            //sailController = currentShipInstance.GetComponent<SailController>();
+            //shipWakeParticles = currentShipInstance.GetComponent<ShipWakeParticles>();
 
-            cannons.Initialize(shipInput, gameplayAnimationController, uiDisplayCannon);
+            //cannons.Initialize(shipInput, gameplayAnimationController, uiDisplayCannon);
 
-            gameplayAnimationController.ShipSway(currentShipInstance.transform, 5f, 2f);
-            gameplayAnimationController.LowerSails(sailController.sailDown, sailController.sailUp, sailController.transitionTime);
+            //gameplayAnimationController.ShipSway(currentShipInstance.transform, 5f, 2f);
+            //gameplayAnimationController.LowerSails(sailController.sailDown, sailController.sailUp, sailController.transitionTime);
 
-            if (movement != null)
-            {
-                movement.Initialize(
-                    config.acceleration,
-                    config.maxSpeed, 
-                    config.deceleration, 
-                    config.turnSpeed,
-                    shipInput
-                    );
-            }
+            //if (movement != null)
+            //{
+            //    movement.Initialize(
+            //        config.acceleration,
+            //        config.maxSpeed, 
+            //        config.deceleration, 
+            //        config.turnSpeed,
+            //        shipInput
+            //        );
+            //}
 
             if (health != null)
             {
@@ -110,9 +112,9 @@ namespace Assets.Scripts.Player
                 healthBarSlider.value = config.maxHealth;
             }
 
-            shipWakeParticles.Initialize(movement);
+            //shipWakeParticles.Initialize(movement);
 
-            UpgradeBullet(currentBulletPrefabId);
+            //UpgradeBullet(currentBulletPrefabId);
         }
 
         private void UpdateBullet(BulletConfig config)
@@ -134,6 +136,19 @@ namespace Assets.Scripts.Player
                 shipCannonMultiSide.UpdateBullet(currentBulletPrefab);
             }
             currentBulletPrefabId = config.id;
+        }
+
+        private void SetHealth()
+        {
+            health = GetComponent<ShipHealth>();
+
+            if (health != null)
+            {
+                int maxHealth = health.GetMaxHealth();
+                health.Initialize(maxHealth, healthBarSlider);
+                healthBarSlider.maxValue = maxHealth;
+                healthBarSlider.value = maxHealth;
+            }
         }
     }
 

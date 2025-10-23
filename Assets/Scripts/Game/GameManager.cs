@@ -23,15 +23,15 @@ namespace Assets.Scripts.Game
             this.uiController = uiController;
             this.scoreManager = scoreManager;
 
-            ShipHealth.OnPlayerDie += CheckPlayerHealth;
+            PLayerHealth.OnPlayerDie += CheckPlayerHealth;
 
-            foreach (var build in buildings)
-            {
-                build.Initialize();
-                build.OnBuildingDestroyed += CheckCurrentCountBuildings;
-            }
+            //foreach (var build in buildings)
+            //{
+            //    build.Initialize();
+            //    build.OnBuildingDestroyed += CheckCurrentCountBuildings;
+            //}
 
-            countDestroyedBuildingForWin = buildings.Count;
+            //countDestroyedBuildingForWin = buildings.Count;
         }
 
         private void CheckCurrentCountBuildings(BuildController buildController)
@@ -55,12 +55,12 @@ namespace Assets.Scripts.Game
 
         private void OnDisable()
         {
-            foreach (var build in buildings)
-            {
-                build.OnBuildingDestroyed -= CheckCurrentCountBuildings;
-            }
+            //foreach (var build in buildings)
+            //{
+            //    build.OnBuildingDestroyed -= CheckCurrentCountBuildings;
+            //}
 
-            ShipHealth.OnPlayerDie -= CheckPlayerHealth;
+            PLayerHealth.OnPlayerDie -= CheckPlayerHealth;
         }
         public void NewGame()
         {

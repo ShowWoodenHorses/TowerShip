@@ -24,7 +24,7 @@ namespace Assets.Scripts
         [Header("Shop")]
         //[SerializeField] private ShopBulletController shopBulletController;
         //[SerializeField] private ShopShipController shopShipController;
-        //[SerializeField] private ScoreManager scoreManager;
+        [SerializeField] private ScoreManager scoreManager;
 
         [Header("Pool")]
         [SerializeField] private EnemyObjectPool enemyPool;
@@ -35,6 +35,7 @@ namespace Assets.Scripts
         [Header("Player")]
         //[SerializeField] private ShipManager shipManager;
         //[SerializeField] private ShipMovement shipMovement;
+        [SerializeField] private PlayerManager playerManager;
         [SerializeField] private Transform playerTransform;
 
         [Header("Spawner")]
@@ -50,8 +51,8 @@ namespace Assets.Scripts
         [SerializeField] private GameplayAnimationController gameplayAnimationController;
 
         [Header("Game")]
-        //[SerializeField] private GameManager gameManager;
-        //[SerializeField] private UIController uiController;
+        [SerializeField] private GameManager gameManager;
+        [SerializeField] private UIController uiController;
         //[SerializeField] private UIDisplayCannon uiDisplayCannon;
 
         [Header("Sound")]
@@ -62,7 +63,7 @@ namespace Assets.Scripts
         private void Awake()
         {
             data = SaveSystem.Load();
-            IShipInput shipInput = platform.CheckCurrentPlatform();
+            //IShipInput shipInput = platform.CheckCurrentPlatform();
 
             //saveLifecycle.Initialize(data);
 
@@ -79,7 +80,8 @@ namespace Assets.Scripts
             //rewardsAds.Initialize(scoreManager);
 
             //shipManager.Initialize(data.selectedShipId, data.selectedBulletId, gameplayAnimationController, uiDisplayCannon, shipInput);
-            //gameManager.Initialize(uiController, scoreManager);
+            playerManager.Initialize();
+            gameManager.Initialize(uiController, scoreManager);
             //enemySpawner.Initialize(data.currentWaveEnemyId, playerTransform, gameplayAnimationController);
 
             YG2.GameplayStart();

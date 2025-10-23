@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.Player
 {
-    public class ShipHealth : MonoBehaviour, IDamagable
+    public class PLayerHealth : MonoBehaviour, IDamagable
     {
         [SerializeField] private int maxHealth;
         [SerializeField] private int currentHealth;
