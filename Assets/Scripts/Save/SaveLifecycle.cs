@@ -37,10 +37,10 @@ namespace Assets.Scripts.Save
             SaveSystem.Save(Data);
         }
 
-        public void SelectShip(string shipId)
+        public void SelectPlayer(string playerId)
         {
-            if(Data.selectedShipId != shipId)
-                Data.selectedShipId = shipId;
+            if(Data.selectedPLayerId != playerId)
+                Data.selectedPLayerId = playerId;
 
             SaveSystem.Save(Data);
         }

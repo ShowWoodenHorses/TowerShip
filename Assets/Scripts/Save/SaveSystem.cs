@@ -20,7 +20,7 @@ public static class SaveSystem
             version = 2,
             currentCoins = defaultConfig.currentCoins,
             allCoins = defaultConfig.allCoins,
-            selectedShipId = defaultConfig.selectedShipId,
+            selectedPLayerId = defaultConfig.selectedPLayerId,
             selectedBulletId = defaultConfig.selectedBulletId,
             currentWaveEnemyId = defaultConfig.currentWaveEnemyId,
             ownedItems = new List<string>(defaultConfig.ownedItems),
@@ -124,8 +124,8 @@ public static class SaveSystem
             {
                 data.ownedItems = new List<string>();
 
-                if (!string.IsNullOrEmpty(data.selectedShipId))
-                    data.ownedItems.Add(data.selectedShipId);
+                if (!string.IsNullOrEmpty(data.selectedPLayerId))
+                    data.ownedItems.Add(data.selectedPLayerId);
             }
 
             data.version = 2;

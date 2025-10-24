@@ -16,9 +16,10 @@ namespace Assets.Scripts.Player
 
         private float currentTimeReloading;
 
-        private void Start()
+        public void Initialize(ShipAimLine shipAimLine)
         {
             currentTimeReloading = reloading;
+            this.shipAimLine = shipAimLine;
             shipAimLine.Initialize();
         }
 

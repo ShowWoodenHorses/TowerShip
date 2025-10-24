@@ -13,7 +13,7 @@ namespace Assets.Scripts.UI
     public class ShopController : MonoBehaviour
     {
         [SerializeField] private protected ScoreManager scoreManager;
-        [SerializeField] private protected ShipManager shipManager;
+        [SerializeField] private protected PlayerManager playerManager;
 
         [SerializeField] private protected ShopItemConfig[] shopItemConfigs;
         [SerializeField] private protected List<string> avaliableItems; //Для сохранения

@@ -10,7 +10,7 @@ namespace Assets.Scripts.Save
         public int currentCoins = 0;
         public int allCoins = 0;
 
-        public string selectedShipId;
+        public string selectedPLayerId;
         public string selectedBulletId;
         public string currentWaveEnemyId;
 

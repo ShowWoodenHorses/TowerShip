@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
 using Assets.Scripts.Save;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets.Scripts.UI.Shop
 {
-    public class ShopBulletController : ShopController
+    public class ShopPlayerController : ShopController
     {
         public void Initialize(List<string> saveAvaliableItems, string currentItemsId, SaveLifecycle saveLifecycle)
         {
@@ -13,19 +15,19 @@ namespace Assets.Scripts.UI.Shop
         }
         public override void UpdateItem(string id)
         {
-            //shipManager.UpgradeBullet(id);
-            saveLifecycle.SelectBullet(id);
+            playerManager.UpgradePlayer(id);
+            saveLifecycle.SelectPlayer(id);
         }
 
         private void UpdateAvaliableItems(List<string> saveAvaliableItems, string currentItemsId)
         {
             foreach (string item in saveAvaliableItems)
             {
-                if(!avaliableItems.Contains(item))
+                if (!avaliableItems.Contains(item))
                     avaliableItems.Add(item);
             }
 
-            if(avaliableItems.Contains(currentItemsId))
+            if (avaliableItems.Contains(currentItemsId))
                 currentIdItem = currentItemsId;
         }
     }

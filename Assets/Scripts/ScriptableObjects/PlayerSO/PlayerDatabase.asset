@@ -9,14 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eabc07c22353d074cb23a5e52883bd67, type: 3}
-  m_Name: DefaultSaveConfig
+  m_Script: {fileID: 11500000, guid: d07909385664a224683797bf1c9908b4, type: 3}
+  m_Name: PlayerDatabase
   m_EditorClassIdentifier: 
-  currentCoins: 0
-  allCoins: 0
-  selectedPLayerId: player1
-  selectedBulletId: bullet1
-  currentWaveEnemyId: level1
-  ownedItems:
-  - player1
-  - bullet1
+  playerConfigs:
+  - {fileID: 11400000, guid: 6db1692cdd045e94ba7e55b1b8a081cd, type: 2}

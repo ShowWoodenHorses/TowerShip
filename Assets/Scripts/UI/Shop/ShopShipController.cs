@@ -13,8 +13,6 @@ namespace Assets.Scripts.UI.Shop
         }
         public override void UpdateItem(string id)
         {
-            shipManager.UpgradeShip(id);
-            saveLifecycle.SelectShip(id);
         }
 
         private void UpdateAvaliableItems(List<string> saveAvaliableItems, string currentItemsId)
