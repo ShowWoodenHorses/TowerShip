@@ -195,9 +195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef91d7b74c337154e9118bb4876fe700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
-  damageEnemy: 0
-  damageBuilding: 0
+  speed: 50
+  damageEnemy: 10
+  damageBuilding: 10
   lifeBeforeDestroy: 3
   effectShotInWater: {fileID: 199582, guid: 02e25b69473c97c4d9226857e0231c35, type: 3}
   effectShotInBuilding: {fileID: 199582, guid: 22f0c762fb1a0bf4bb4afec4df34ea56, type: 3}
