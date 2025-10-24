@@ -1,3 +1,4 @@
+using System;
 using System.Text;
 using Assets.Scripts;
 using Assets.Scripts.ObjectPool;
@@ -22,6 +23,9 @@ public class EnemyCannon : MonoBehaviour
     public Vector3 aimForwardLocal = Vector3.forward;
     public bool autoDetectAxis = true;
 
+    // Событие для уведомления системы оружия
+    public event Action<EnemyCannon> OnReadyToFire;
+
     [Header("Поворот и стрельба")]
     public float rotationSpeed = 60f;   // deg/sec
     public float maxLeftRotation = 45f;
@@ -29,11 +33,14 @@ public class EnemyCannon : MonoBehaviour
     public float fireRadius = 50f;
     public float reloadTime = 3f;
     public float aimToleranceDeg = 6f; // допустимая угловая погрешность прицеливания в градусах
+    public bool autoFire = false;
+
 
     // --- внутреннее состояние ---
     [SerializeField] private Transform _target;
     [SerializeField] private GameObject _projectilePrefab;
     private float _reloadTimer;
+    private bool _isReadyToFire = false;
 
     // pivot-related
     private Transform _pivot;
@@ -94,13 +101,38 @@ public class EnemyCannon : MonoBehaviour
 
     private void Update()
     {
-        if (_reloadTimer > 0f) _reloadTimer -= Time.deltaTime;
+        // Обновляем перезарядку
+        _reloadTimer -= Time.deltaTime;
+
+        // Проверяем, стала ли пушка готовой к стрельбе после перезарядки
+        if (_reloadTimer <= 0f && !_isReadyToFire && CanFire())
+        {
+            _isReadyToFire = true;
+            OnReadyToFire?.Invoke(this);
+        }
+
         if (_target == null) return;
 
         RotateToTarget();
-        TryFire();
 
-        
+        // Авто-стрельба
+        //if (autoFire && _reloadTimer <= 0f)
+        //{
+        //    TryFire();
+        //}
+    }
+
+    public bool CanFire()
+    {
+        if (_barrel == null || _target == null) return false;
+
+        float dist = Vector3.Distance(_barrel.position, _target.position);
+        if (dist > fireRadius) return false;
+
+        Vector3 dirToTarget = (_target.position - _barrel.position).normalized;
+        float worldAngle = Vector3.Angle(_barrel.forward, dirToTarget);
+
+        return worldAngle <= aimToleranceDeg;
     }
 
     private void RotateToTarget()
@@ -139,24 +171,18 @@ public class EnemyCannon : MonoBehaviour
         _pivot.localRotation = Quaternion.AngleAxis(clampedAngle, Vector3.up) * _initialLocalRot;
     }
 
-    private void TryFire()
+    public void TryFire()
     {
         if (_reloadTimer > 0f) return;
-        if (_barrel == null || _target == null) return;
+        if (!CanFire()) return;
 
-        float dist = Vector3.Distance(_barrel.position, _target.position);
-        if (dist > fireRadius) return;
+        Fire();
+    }
 
-        Vector3 dirToTarget = (_target.position - _barrel.position).normalized;
-        float worldAngle = Vector3.Angle(_barrel.forward, dirToTarget);
-
-        bool inAim = worldAngle <= aimToleranceDeg;
-
-        if (inAim)
-        {
-            EffectShot(_barrel.position, dirToTarget);
-            Fire();
-        }
+    public void ForceFire()
+    {
+        if (_reloadTimer > 0f) return;
+        Fire();
     }
 
     private void Fire()
@@ -174,7 +200,12 @@ public class EnemyCannon : MonoBehaviour
                 bulletController.Initialize(_barrel.forward);
             }
         }
+
+        EffectShot(_barrel.position, _barrel.forward);
+
+        // Перезарядка
         _reloadTimer = reloadTime;
+        _isReadyToFire = false;
     }
     private void EffectShot(Vector3 position, Vector3 direction)
     {
