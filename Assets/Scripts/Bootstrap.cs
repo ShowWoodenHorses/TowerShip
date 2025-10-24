@@ -24,6 +24,7 @@ namespace Assets.Scripts
         [Header("Shop")]
         //[SerializeField] private ShopBulletController shopBulletController;
         //[SerializeField] private ShopShipController shopShipController;
+        [SerializeField] private ShopPlayerController shopPlayerController;
         [SerializeField] private ScoreManager scoreManager;
 
         [Header("Pool")]
@@ -73,6 +74,7 @@ namespace Assets.Scripts
 
             //shopBulletController.Initialize(data.ownedItems, data.selectedBulletId, saveLifecycle);
             //shopShipController.Initialize(data.ownedItems, data.selectedShipId, saveLifecycle);
+            shopPlayerController.Initialize(data.ownedItems, data.selectedPLayerId, saveLifecycle);
             scoreManager.Initialize(data.currentCoins, data.allCoins, saveLifecycle);
 
             soundPoolManager.Initialize(mainMixer);
