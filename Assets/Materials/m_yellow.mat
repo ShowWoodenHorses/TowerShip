@@ -112,7 +112,7 @@ Material:
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
-    - _Glossiness: 0
+    - _Glossiness: 0.5023168
     - _GlossyReflections: 0
     - _Metallic: 0
     - _Mode: 0
@@ -137,7 +137,7 @@ Material:
     - _sin60: 0.866
     m_Colors:
     - _BaseColor: {r: 0.9433962, g: 0.7168292, b: 0.048949808, a: 1}
-    - _Color: {r: 0.9433962, g: 0.7168292, b: 0.048949808, a: 1}
+    - _Color: {r: 0.3490566, g: 0.2358849, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Light: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
