@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCoins: 0
   allCoins: 0
-  selectedPLayerId: player1
+  selectedPLayerId: player_cannon
   selectedBulletId: bullet1
   currentWaveEnemyId: level1
   ownedItems:
-  - player1
+  - player_cannon
   - bullet1

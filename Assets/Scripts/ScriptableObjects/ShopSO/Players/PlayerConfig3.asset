@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ea3d8317ec0bf488a6ce8ef65b07ff, type: 3}
   m_Name: PlayerConfig3
   m_EditorClassIdentifier: 
-  nameItemText: "\"\u041F\u0443\u0448\u043A\u0430 \u0431\u0435\u043B\u0430\u044F\""
-  nameItemText_EN: '"White"'
-  nameItemText_TR: '"White"'
+  nameItemText: "\"\u041A\u0430\u0442\u0430\u043F\u0443\u043B\u044C\u0442\u0430\""
+  nameItemText_EN: '"Katapulta"'
+  nameItemText_TR: '"Katapulta"'
   iconItem: {fileID: 21300000, guid: ec048dbce06d03b429a553f7dd8771f3, type: 3}
-  idItem: player3
+  idItem: player_katapulta
   costItem: 0
   description: 
   description_EN: 

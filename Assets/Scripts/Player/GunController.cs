@@ -11,15 +11,26 @@ namespace Assets.Scripts.Player
         [SerializeField] private Transform gunTransform;
         [SerializeField] private float reloading;
 
+        [Header("Angel")]
+        [SerializeField] private float minAngel = -45f;
+        [SerializeField] private float maxAngel = 45f;
+
         [Header("Settings")]
         [SerializeField] private float minDistance;
         [SerializeField] private ShipAimLine shipAimLine;
+        [SerializeField] private Transform aimLinePos;
 
         private float currentTimeReloading;
 
         public void Initialize(ShipAimLine shipAimLine)
         {
             currentTimeReloading = reloading;
+
+            if(aimLinePos == null)
+            {
+                aimLinePos = shootPosition;
+            }
+
             this.shipAimLine = shipAimLine;
             shipAimLine.Initialize();
         }
@@ -98,7 +109,7 @@ namespace Assets.Scripts.Player
             float angleX = -Mathf.Atan2(localDir.y, localDir.z) * Mathf.Rad2Deg;
 
             // Ограничиваем угол (по вкусу)
-            angleX = Mathf.Clamp(angleX, -45f, 45f);
+            angleX = Mathf.Clamp(angleX, minAngel, maxAngel);
 
             // Применяем только наклон по X
             gunTransform.localRotation = Quaternion.Euler(angleX, 0f, 0f);
@@ -109,7 +120,7 @@ namespace Assets.Scripts.Player
 
         void UpdateLaserAndTrajectoryForSelected(Vector3 mouseWorld)
         {
-            Vector3 startPos = shootPosition.position;
+            Vector3 startPos = aimLinePos.position;
             Vector3 endPos = mouseWorld;
             shipAimLine.DrawLine(startPos, endPos, true);
         }

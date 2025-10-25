@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f724a25f95ae0ea4ab30c76778c3b671, type: 3}
-  m_Name: Player_1
+  m_Name: Player_cannon
   m_EditorClassIdentifier: 
-  id: player1
-  displayName: Player_1
+  id: player_cannon
+  displayName: Player_cannon
   playerPrefab: {fileID: 1526697314070900640, guid: 9cf5ab9a7e4a55346b7fdaf4b6a96491, type: 3}

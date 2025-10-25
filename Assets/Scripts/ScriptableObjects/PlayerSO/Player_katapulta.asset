@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f724a25f95ae0ea4ab30c76778c3b671, type: 3}
-  m_Name: Player_2
+  m_Name: Player_katapulta
   m_EditorClassIdentifier: 
-  id: player2
-  displayName: Player_2
-  playerPrefab: {fileID: 262234718494840032, guid: aed0facf629338d4c9ae61989763ec34, type: 3}
+  id: player_katapulta
+  displayName: Player_katapulta
+  playerPrefab: {fileID: 6930317399789350885, guid: 68166449c537129408dc0d0852ce71ed, type: 3}

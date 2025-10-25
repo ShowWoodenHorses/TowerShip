@@ -9,9 +9,9 @@ namespace Assets.Scripts.Configs
         [Header("Стартовые значения")]
         public int currentCoins = 0;
         public int allCoins = 0;
-        public string selectedPLayerId = "player1";
+        public string selectedPLayerId = "player_cannon";
         public string selectedBulletId = "bullet_basic";
         public string currentWaveEnemyId = "wave_1";
-        public List<string> ownedItems = new() { "player1", "bullet_basic" };
+        public List<string> ownedItems = new() { "player_cannon", "bullet_basic" };
     }
 }
