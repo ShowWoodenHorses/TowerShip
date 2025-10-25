@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: player1
   displayName: Player_1
-  playerPrefab: {fileID: 262234718494840032, guid: 1bcf07c51e1304e43aef5d6d46e63a91, type: 3}
+  playerPrefab: {fileID: 1526697314070900640, guid: 9cf5ab9a7e4a55346b7fdaf4b6a96491, type: 3}
