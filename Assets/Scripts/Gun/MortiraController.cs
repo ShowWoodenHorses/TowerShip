@@ -1,32 +1,14 @@
 ﻿using System.Collections;
-using Assets.Scripts.Animation;
+using Assets.Scripts.Bullet;
+using Assets.Scripts.Player;
 using UnityEngine;
 
-namespace Assets.Scripts.Player
+namespace Assets.Scripts.Gun
 {
-    public class GunController : MonoBehaviour
+    public class MortiraController : GunController
     {
-        [Header("Shooting")]
-        [SerializeField] private protected GameObject bulletPrefab;
-        [SerializeField] private protected Transform shootPosition;
-        [SerializeField] private protected Transform gunTransform;
-        [SerializeField] private protected float reloading;
-
-        [Header("Angel")]
-        [SerializeField] private protected float minAngel = -45f;
-        [SerializeField] private protected float maxAngel = 45f;
-
-        [Header("Settings")]
-        [SerializeField] private protected float minDistance;
-        [SerializeField] private protected ShipAimLine shipAimLine;
-        [SerializeField] private protected Transform aimLinePos;
-
-        [Header("Animation")]
-        [SerializeField] private protected GunAnimation gunAnimation;
-
-        private protected float currentTimeReloading;
-
-        public virtual void Initialize(ShipAimLine shipAimLine)
+        [SerializeField] private float offsetAngle;
+        public override void Initialize(ShipAimLine shipAimLine)
         {
             currentTimeReloading = reloading;
             gunAnimation.InitializeAnim();
@@ -39,7 +21,6 @@ namespace Assets.Scripts.Player
             this.shipAimLine = shipAimLine;
             shipAimLine.Initialize();
         }
-
         private void Update()
         {
             currentTimeReloading -= Time.deltaTime;
@@ -47,14 +28,14 @@ namespace Assets.Scripts.Player
 
             if (Input.GetMouseButtonDown(0))
             {
-                if(currentTimeReloading <= 0f)
+                if (currentTimeReloading <= 0f)
                 {
                     Shoot();
                 }
             }
         }
 
-        public virtual void Shoot()
+        public override void Shoot()
         {
             Vector3 mousePosition = GetMousePosition();
             Vector3 direction = mousePosition - shootPosition.position;
@@ -70,10 +51,10 @@ namespace Assets.Scripts.Player
             GameObject bullet = BulletObjectPool.Instance.GetObject(bulletPrefab);
             bullet.transform.SetLocalPositionAndRotation(shootPosition.position, Quaternion.LookRotation(direction));
 
-            var bulletController = bullet.GetComponent<BulletContoller>();
+            var bulletController = bullet.GetComponent<MortiraCoreBullet>();
             if (bulletController != null)
             {
-                bulletController.InitializeWithTimer(direction.normalized, distance);
+                bulletController.InitializeCore(shootPosition.position, mousePosition);
 
                 gunAnimation.ResetAnim();
             }
@@ -81,20 +62,7 @@ namespace Assets.Scripts.Player
             currentTimeReloading = reloading;
         }
 
-        private protected Vector3 GetMousePosition()
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-            if(groundPlane.Raycast(ray, out float distance))
-            {
-                return ray.GetPoint(distance);
-            }
-
-            return ray.origin + ray.direction * 100f;
-        }
-
-        public virtual void HandleRotate()
+        public override void HandleRotate()
         {
             Vector3 mousePosition = GetMousePosition();
             Vector3 direction = mousePosition - transform.position;
@@ -115,23 +83,16 @@ namespace Assets.Scripts.Player
             Vector3 localDir = gunTransform.parent.InverseTransformDirection(gunDir.normalized);
 
             // Получаем угол наклона вверх/вниз (по оси X)
-            float angleX = -Mathf.Atan2(localDir.y, localDir.z) * Mathf.Rad2Deg;
+            float angleX = Mathf.Atan2(localDir.y, localDir.z) * Mathf.Rad2Deg;
 
             // Ограничиваем угол (по вкусу)
             angleX = Mathf.Clamp(angleX, minAngel, maxAngel);
 
             // Применяем только наклон по X
-            gunTransform.localRotation = Quaternion.Euler(angleX, 0f, 0f);
+            gunTransform.localRotation = Quaternion.Euler(angleX + offsetAngle, 0f, 0f);
 
             // --- 3. Обновляем прицел ---
             UpdateLaserAndTrajectoryForSelected(mousePosition);
-        }
-
-        private protected void UpdateLaserAndTrajectoryForSelected(Vector3 mouseWorld)
-        {
-            Vector3 startPos = aimLinePos.position;
-            Vector3 endPos = mouseWorld;
-            shipAimLine.DrawLine(startPos, endPos, true);
         }
     }
 }

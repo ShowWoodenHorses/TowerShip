@@ -12,25 +12,25 @@ namespace Assets.Scripts
     [RequireComponent(typeof(Rigidbody))]
     public class BulletContoller : MonoBehaviour
     {
-        [SerializeField] private float speed;
-        [SerializeField] private int damageEnemy;
-        [SerializeField] private int damageBuilding;
-        [SerializeField] private float lifeBeforeDestroy;
+        [SerializeField] private protected float speed;
+        [SerializeField] private protected int damageEnemy;
+        [SerializeField] private protected int damageBuilding;
+        [SerializeField] private protected float lifeBeforeDestroy;
 
-        [SerializeField] private GameObject effectShotInWater;
-        [SerializeField] private GameObject effectShotInBuilding;
-        [SerializeField] private GameObject effectShotInEnemy;
+        [SerializeField] private protected GameObject effectShotInWater;
+        [SerializeField] private protected GameObject effectShotInBuilding;
+        [SerializeField] private protected GameObject effectShotInEnemy;
 
         [Header("Sounds")]
-        [SerializeField] private AudioSource soundShotPrefab;
-        [SerializeField] private AudioSource soundShotWavePrefab;
-        [SerializeField] private AudioSource soundTakeDamagePrefab;
+        [SerializeField] private protected AudioSource soundShotPrefab;
+        [SerializeField] private protected AudioSource soundShotWavePrefab;
+        [SerializeField] private protected AudioSource soundTakeDamagePrefab;
 
-        [SerializeField] private BulletConfig bulletConfig;
+        [SerializeField] private protected BulletConfig bulletConfig;
 
-        private Rigidbody rb;
+        private protected Rigidbody rb;
 
-        private void Awake()
+        private protected void Awake()
         {
             rb = GetComponent<Rigidbody>();
         }
@@ -52,12 +52,12 @@ namespace Assets.Scripts
             StartCoroutine(LifeBeforeDestroy());
         }
 
-        private void Deactive()
+        private protected void Deactive()
         {
             BulletObjectPool.Instance.ReturnObject(gameObject);
         }
 
-        IEnumerator LifeBeforeDestroy()
+        private protected IEnumerator LifeBeforeDestroy()
         {
             yield return new WaitForSeconds(lifeBeforeDestroy);
             PLaySoundEffect(soundShotWavePrefab);
@@ -65,7 +65,7 @@ namespace Assets.Scripts
             Deactive();
         }
 
-        private void OnTriggerEnter(Collider other)
+        private protected void OnTriggerEnter(Collider other)
         {
             var objectForDamage = other.gameObject.GetComponent<IDamagable>();
             var building = other.gameObject.GetComponent<IObstaclable>();
@@ -94,7 +94,7 @@ namespace Assets.Scripts
             }
         }
 
-        private void SpawnEffect(GameObject effectObj)
+        private protected void SpawnEffect(GameObject effectObj)
         {
             GameObject effect = EffectObjectPool.Instance.GetObject(effectObj);
             effect.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
@@ -105,7 +105,7 @@ namespace Assets.Scripts
             }
         }
 
-        private void SpawnEffectShotInWater()
+        private protected void SpawnEffectShotInWater()
         {
             GameObject effect = EffectObjectPool.Instance.GetObject(effectShotInWater);
             Vector3 position = new Vector3(transform.position.x, 0f, transform.position.z);
@@ -118,7 +118,7 @@ namespace Assets.Scripts
             }
         }
 
-        private void PLaySoundEffect(AudioSource audioSource)
+        private protected void PLaySoundEffect(AudioSource audioSource)
         {
             SoundPoolManager.Instance.PlaySound(audioSource);
         }
