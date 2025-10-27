@@ -8,19 +8,6 @@ namespace Assets.Scripts.Gun
     public class MortiraController : GunController
     {
         [SerializeField] private float offsetAngle;
-        public override void Initialize(ShipAimLine shipAimLine)
-        {
-            currentTimeReloading = reloading;
-            gunAnimation.InitializeAnim();
-
-            if (aimLinePos == null)
-            {
-                aimLinePos = shootPosition;
-            }
-
-            this.shipAimLine = shipAimLine;
-            shipAimLine.Initialize();
-        }
         private void Update()
         {
             currentTimeReloading -= Time.deltaTime;
@@ -59,6 +46,7 @@ namespace Assets.Scripts.Gun
                 gunAnimation.ResetAnim();
             }
 
+
             currentTimeReloading = reloading;
         }
 
@@ -93,6 +81,22 @@ namespace Assets.Scripts.Gun
 
             // --- 3. Обновляем прицел ---
             UpdateLaserAndTrajectoryForSelected(mousePosition);
+        }
+
+        private void UpdateLaserAndTrajectoryForSelected(Vector3 mouseWorld)
+        {
+            Vector3 startPos = aimLinePos.position;
+            Vector3 endPos = mouseWorld;
+            if (Vector3.Distance(startPos, endPos) > minDistance)
+            {
+                shipAimLine.DrawLine(startPos, endPos, true);
+                circleNoFire.HideCircleNoFire();
+            }
+            else
+            {
+                shipAimLine.Hide();
+                circleNoFire.ShowCircleNoFire();
+            }
         }
     }
 }

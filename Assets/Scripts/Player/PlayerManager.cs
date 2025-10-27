@@ -11,6 +11,7 @@ namespace Assets.Scripts.Player
         [SerializeField] private PlayerDatabase playerDatabase;
         [SerializeField] private Slider healthBarSlider;
         [SerializeField] private ShipAimLine shipAimLine;
+        [SerializeField] private CircleNoFire circleNoFire;
 
         [Header("Место спавна")]
         [SerializeField] private Transform spawnPLayerPosition;
@@ -63,7 +64,7 @@ namespace Assets.Scripts.Player
             GunController gunController = currentPlayerInstance.GetComponent<GunController>();
             if(gunController != null)
             {
-                gunController.Initialize(shipAimLine);
+                gunController.Initialize(shipAimLine, circleNoFire);
             }
         }
 

@@ -53,8 +53,10 @@ MonoBehaviour:
   minAngel: -45
   maxAngel: 45
   minDistance: 50
+  distanceFireRadius: 65
   shipAimLine: {fileID: 0}
   aimLinePos: {fileID: 6559067513152413413}
+  circleNoFire: {fileID: 0}
   gunAnimation: {fileID: 4512561888083971895}
 --- !u!114 &4512561888083971895
 MonoBehaviour:

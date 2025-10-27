@@ -18,15 +18,17 @@ namespace Assets.Scripts.Player
 
         [Header("Settings")]
         [SerializeField] private protected float minDistance;
+        [SerializeField] private protected float distanceFireRadius;
         [SerializeField] private protected ShipAimLine shipAimLine;
         [SerializeField] private protected Transform aimLinePos;
+        [SerializeField] private protected CircleNoFire circleNoFire;
 
         [Header("Animation")]
         [SerializeField] private protected GunAnimation gunAnimation;
 
         private protected float currentTimeReloading;
 
-        public virtual void Initialize(ShipAimLine shipAimLine)
+        public virtual void Initialize(ShipAimLine shipAimLine, CircleNoFire circleNoFire)
         {
             currentTimeReloading = reloading;
             gunAnimation.InitializeAnim();
@@ -37,6 +39,9 @@ namespace Assets.Scripts.Player
             }
 
             this.shipAimLine = shipAimLine;
+            this.circleNoFire = circleNoFire;
+
+            circleNoFire.Initialize(distanceFireRadius);
             shipAimLine.Initialize();
         }
 
@@ -127,11 +132,20 @@ namespace Assets.Scripts.Player
             UpdateLaserAndTrajectoryForSelected(mousePosition);
         }
 
-        private protected void UpdateLaserAndTrajectoryForSelected(Vector3 mouseWorld)
+        private void UpdateLaserAndTrajectoryForSelected(Vector3 mouseWorld)
         {
             Vector3 startPos = aimLinePos.position;
             Vector3 endPos = mouseWorld;
-            shipAimLine.DrawLine(startPos, endPos, true);
+            if (Vector3.Distance(startPos, endPos) > minDistance)
+            {
+                shipAimLine.DrawLine(startPos, endPos, true);
+                circleNoFire.HideCircleNoFire();
+            }
+            else
+            {
+                shipAimLine.Hide();
+                circleNoFire.ShowCircleNoFire();
+            }
         }
     }
 }
