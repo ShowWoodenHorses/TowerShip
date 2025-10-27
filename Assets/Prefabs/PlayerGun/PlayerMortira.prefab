@@ -170,7 +170,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 9079957325069467876, guid: fb84a091825a97847b3dda903760d584, type: 3}
   shootPosition: {fileID: 2196668413361197568}
   gunTransform: {fileID: 8183832388221234344}
-  reloading: 2
+  reloading: 1
   minAngel: -45
   maxAngel: 25
   minDistance: 55
@@ -455,7 +455,7 @@ Transform:
   m_GameObject: {fileID: 6577987110624422287}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.042, z: 1.345}
+  m_LocalPosition: {x: 0, y: -0.042, z: 1.268}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
