@@ -6,23 +6,22 @@ namespace Assets.Scripts
 {
     public class EffectController : MonoBehaviour
     {
-        [SerializeField] private float lifeBeforeDestroy;
+        [SerializeField] private protected float lifeBeforeDestroy;
 
-        private GameObject refObj;
+        private protected GameObject refObj;
 
-        public void Initialize(GameObject obj)
+        public virtual void Initialize(GameObject obj)
         {
             refObj = obj;
             StartCoroutine(LifeBeforeDestroy());
         }
 
-        private void Deactive()
+        private protected void Deactive()
         {
             EffectObjectPool.Instance.ReturnObject(refObj);
-            Debug.Log("return: " + refObj);
         }
 
-        IEnumerator LifeBeforeDestroy()
+        private protected IEnumerator LifeBeforeDestroy()
         {
             yield return new WaitForSeconds(lifeBeforeDestroy);
             Deactive();

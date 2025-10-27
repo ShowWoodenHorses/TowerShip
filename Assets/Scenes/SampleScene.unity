@@ -27111,10 +27111,12 @@ MonoBehaviour:
     size: 3
   - prefab: {fileID: 4907689107591143649, guid: 3ec9d20305ad89f4eb1425444ac308a5, type: 3}
     size: 3
+  - prefab: {fileID: 7760085849738785313, guid: 0a38adfc780d87d48a71e3dea4f7b564, type: 3}
+    size: 1
+  - prefab: {fileID: 5400175842013465642, guid: bea05566c0edc8c4c934baf591375aa2, type: 3}
+    size: 5
   - prefab: {fileID: 9079957325069467876, guid: fb84a091825a97847b3dda903760d584, type: 3}
     size: 1
-  - prefab: {fileID: 2790606913629132722, guid: 50ccc1cae4b527d4a89eec83408b6676, type: 3}
-    size: 10
 --- !u!4 &1603085928
 Transform:
   m_ObjectHideFlags: 0

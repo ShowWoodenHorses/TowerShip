@@ -57,7 +57,7 @@ namespace Assets.Scripts
             BulletObjectPool.Instance.ReturnObject(gameObject);
         }
 
-        private protected IEnumerator LifeBeforeDestroy()
+        private protected virtual IEnumerator LifeBeforeDestroy()
         {
             yield return new WaitForSeconds(lifeBeforeDestroy);
             PLaySoundEffect(soundShotWavePrefab);
