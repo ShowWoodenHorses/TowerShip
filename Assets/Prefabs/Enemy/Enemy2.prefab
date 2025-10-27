@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3206822910078208521}
   - component: {fileID: 3464951327101443701}
   - component: {fileID: 7961742462243349647}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: SM_Prop_ShipWheel_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 3081732180796212935}
   - component: {fileID: 9083110661040360829}
   - component: {fileID: 6894143514689057979}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannonballPrefab: {fileID: 1739030181810302911, guid: b9cd5c4fb33c44941862672d207fe272, type: 3}
   projectileSpeed: 30
-  debugEnabled: 0
+  timeBetweenShots: 0.3
+  enableStaggeredFiring: 1
 --- !u!114 &2440041843223812448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,7 +264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7136103840133998054}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Attachments
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +305,7 @@ GameObject:
   - component: {fileID: 49136490725343843}
   - component: {fileID: 7210217598978880129}
   - component: {fileID: 6917288205256157706}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: SM_Veh_Extra_Barrel_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +404,7 @@ GameObject:
   - component: {fileID: 3534445356891651982}
   - component: {fileID: 3491358743468292448}
   - component: {fileID: 3181170280024593560}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: SM_Veh_Extra_Barrel_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +503,7 @@ GameObject:
   - component: {fileID: 6283566527434495599}
   - component: {fileID: 8412482531518093354}
   - component: {fileID: 3785024134525068494}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -604,7 +605,7 @@ GameObject:
   - component: {fileID: 6891257225594825376}
   - component: {fileID: 9150694911924432935}
   - component: {fileID: 4984636369493496485}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: SM_Veh_Extra_Barrel_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -703,7 +704,7 @@ GameObject:
   - component: {fileID: 4800822272763265998}
   - component: {fileID: 1435116859731873043}
   - component: {fileID: 2002913409700763401}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: SM_Veh_Extra_Barrel_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -802,7 +803,7 @@ GameObject:
   - component: {fileID: 5684902428351788822}
   - component: {fileID: 1235856210173399316}
   - component: {fileID: 8133002567061930684}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: SM_Veh_Boat_Medium_01_Sails_Up_Pirate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -901,7 +902,7 @@ GameObject:
   - component: {fileID: 8210702154232757616}
   - component: {fileID: 8918151928108076271}
   - component: {fileID: 3904950580405905031}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: SM_Veh_Boat_Medium_01_Mast_Pirate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1001,7 +1002,7 @@ GameObject:
   - component: {fileID: 5367821219690996300}
   - component: {fileID: 4302711507069641794}
   - component: {fileID: 9181108000732362158}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: SM_Veh_Extra_Barrel_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1100,7 +1101,7 @@ GameObject:
   - component: {fileID: 1741078604037404776}
   - component: {fileID: 4624007992948963125}
   - component: {fileID: 8878788964870855176}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: SM_Veh_Extra_Barrel_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1199,7 +1200,7 @@ GameObject:
   - component: {fileID: 539413627722386859}
   - component: {fileID: 3549302953948908395}
   - component: {fileID: 2187847273093697361}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: SM_Veh_Boat_Medium_01_Sails_Pirate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1298,6 +1299,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: effectMoveShip
       objectReference: {fileID: 0}
+    - target: {fileID: 113990, guid: 03e335e01be7c0f4a9bdf8df02b9757e, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 421344, guid: 03e335e01be7c0f4a9bdf8df02b9757e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -1373,6 +1378,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1232977096434394523}
     m_Modifications:
+    - target: {fileID: 40110371856212172, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 561383256020050749, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563871887725359695, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669465996853918678, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4137869085853864805, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1381,9 +1402,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6933634482433465296, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6985918726394134965, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
       propertyPath: m_Name
       value: HealthObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6985918726394134965, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7223370049347597160, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1425,6 +1454,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7419925195317063187, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301805645694478596, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1462,6 +1499,10 @@ PrefabInstance:
     - target: {fileID: 539719476892377869, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: m_Name
       value: EnemyGunObj
+      objectReference: {fileID: 0}
+    - target: {fileID: 539719476892377869, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 647493516926440470, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1502,6 +1543,14 @@ PrefabInstance:
     - target: {fileID: 647493516926440470, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201383550413842456, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873045405591684551, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: side

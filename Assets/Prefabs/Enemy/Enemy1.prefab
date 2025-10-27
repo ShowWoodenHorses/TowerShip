@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9075601499008934281}
   - component: {fileID: 3125195318411456006}
   - component: {fileID: 4181639346902669714}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SM_Veh_Boat_Rowing_01_Hull_Pirate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8817958284600050541}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 7784886049041464042}
   - component: {fileID: 7965614213416742567}
   - component: {fileID: 7538569126857253989}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannonballPrefab: {fileID: 1739030181810302911, guid: b9cd5c4fb33c44941862672d207fe272, type: 3}
   projectileSpeed: 30
-  debugEnabled: 1
+  timeBetweenShots: 0.3
+  enableStaggeredFiring: 1
 --- !u!114 &5964408647251105022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +306,7 @@ GameObject:
   - component: {fileID: 5515831117484701408}
   - component: {fileID: 2589553195862645022}
   - component: {fileID: 8428461305168092079}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SM_Veh_Boat_Medium_01_Mast_Pirate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +405,7 @@ GameObject:
   - component: {fileID: 6771878754402375108}
   - component: {fileID: 2836897236250879948}
   - component: {fileID: 5336371678005312414}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SM_Veh_Boat_Medium_01_Sails_Pirate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -499,6 +500,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 399502116741964868}
     m_Modifications:
+    - target: {fileID: 40110371856212172, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 561383256020050749, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563871887725359695, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669465996853918678, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4137869085853864805, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -507,9 +524,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6933634482433465296, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6985918726394134965, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
       propertyPath: m_Name
       value: HealthObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6985918726394134965, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7223370049347597160, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -551,6 +576,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7419925195317063187, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301805645694478596, guid: 8c5c8d006805d9243b2b42fd0fc581fe, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -588,6 +621,10 @@ PrefabInstance:
     - target: {fileID: 539719476892377869, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: m_Name
       value: EnemyGunObj
+      objectReference: {fileID: 0}
+    - target: {fileID: 539719476892377869, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 647493516926440470, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -628,6 +665,14 @@ PrefabInstance:
     - target: {fileID: 647493516926440470, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201383550413842456, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873045405591684551, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4434092979340602357, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -674,6 +719,10 @@ PrefabInstance:
     - target: {fileID: 113990, guid: 03e335e01be7c0f4a9bdf8df02b9757e, type: 3}
       propertyPath: m_Name
       value: effectMoveShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 113990, guid: 03e335e01be7c0f4a9bdf8df02b9757e, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 421344, guid: 03e335e01be7c0f4a9bdf8df02b9757e, type: 3}
       propertyPath: m_LocalScale.x
