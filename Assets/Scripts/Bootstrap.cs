@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Animation;
 using Assets.Scripts.Control;
 using Assets.Scripts.Game;
+using Assets.Scripts.Generation;
 using Assets.Scripts.Interface;
 using Assets.Scripts.ObjectPool;
 using Assets.Scripts.Player;
@@ -78,7 +79,6 @@ namespace Assets.Scripts
             scoreManager.Initialize(data.currentCoins, data.allCoins, saveLifecycle);
 
             soundPoolManager.Initialize(mainMixer);
-
             //rewardsAds.Initialize(scoreManager);
 
             //shipManager.Initialize(data.selectedShipId, data.selectedBulletId, gameplayAnimationController, uiDisplayCannon, shipInput);
