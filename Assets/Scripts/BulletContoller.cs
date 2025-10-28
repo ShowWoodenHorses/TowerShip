@@ -42,7 +42,7 @@ namespace Assets.Scripts
 
             StartCoroutine(LifeBeforeDestroy());
         }
-        public void InitializeWithTimer(Vector3 pos, float distance)
+        public virtual void InitializeWithTimer(Vector3 pos, float distance)
         {
             float time = distance / speed;
             lifeBeforeDestroy = time;

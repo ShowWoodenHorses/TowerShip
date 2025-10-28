@@ -29538,7 +29538,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 3000}
+  m_SizeDelta: {x: 0, y: 3600}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1458417940
 MonoBehaviour:
@@ -32022,6 +32022,8 @@ MonoBehaviour:
     size: 5
   - prefab: {fileID: 9079957325069467876, guid: fb84a091825a97847b3dda903760d584, type: 3}
     size: 1
+  - prefab: {fileID: 9079957325069467876, guid: fb84a091825a97847b3dda903760d584, type: 3}
+    size: 1
 --- !u!4 &1603085928
 Transform:
   m_ObjectHideFlags: 0
@@ -32135,6 +32137,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c688b0ad60e2dc346977650bf9979ce2, type: 2}
   - {fileID: 11400000, guid: e249ab5caba82bc47a324f8a35785738, type: 2}
   - {fileID: 11400000, guid: de51f529d45338b4eaba976953472ad2, type: 2}
+  - {fileID: 11400000, guid: 920ba2a5e3c3ebb49ab3efb128fdd535, type: 2}
   avaliableItems: []
   allItems: []
   prefabShopItem: {fileID: 4648295784192438448, guid: 7698aa595fa39d24cbcc223fbfc6a78b, type: 3}
