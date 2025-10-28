@@ -6,21 +6,21 @@ namespace Assets.Scripts.Bullet
 {
     public class MortiraCoreBullet : BulletContoller
     {
-        [SerializeField] private float coefSpeed = 2f;
-        [SerializeField] private GameObject trackImage;
+        [SerializeField] private protected float coefSpeed = 2f;
+        [SerializeField] private protected GameObject trackImage;
 
-        private Vector3 startPos;
-        private Vector3 targetPos;
-        private Vector3 highPoint;
-        private Vector3 mid1;
-        private Vector3 mid2;
+        private protected Vector3 startPos;
+        private protected Vector3 targetPos;
+        private protected Vector3 highPoint;
+        private protected Vector3 mid1;
+        private protected Vector3 mid2;
 
-        private float slowSpeed;
-        private float highSpeed;
+        private protected float slowSpeed;
+        private protected float highSpeed;
 
-        private float elapsedTime;
-        private float flightDuration;
-        private bool inFlight;
+        private protected float elapsedTime;
+        private protected float flightDuration;
+        private protected bool inFlight;
 
         private void FixedUpdate()
         {
@@ -48,7 +48,7 @@ namespace Assets.Scripts.Bullet
             }
         }
 
-        public void InitializeCore(Vector3 start, Vector3 target)
+        public virtual void InitializeCore(Vector3 start, Vector3 target)
         {
             gameObject.SetActive(false);
             startPos = start;
@@ -89,7 +89,7 @@ namespace Assets.Scripts.Bullet
         /// <summary>
         /// Четырехточечный Bezier для плавной траектории
         /// </summary>
-        private Vector3 GetBezierPoint(float t)
+        private protected Vector3 GetBezierPoint(float t)
         {
             // Линейные интерполяции между точками
             Vector3 a = Vector3.Lerp(startPos, mid1, t);

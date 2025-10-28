@@ -29538,7 +29538,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 2500}
+  m_SizeDelta: {x: 0, y: 3000}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1458417940
 MonoBehaviour:
@@ -32134,6 +32134,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 12919b4de253db14eb954525355d1673, type: 2}
   - {fileID: 11400000, guid: c688b0ad60e2dc346977650bf9979ce2, type: 2}
   - {fileID: 11400000, guid: e249ab5caba82bc47a324f8a35785738, type: 2}
+  - {fileID: 11400000, guid: de51f529d45338b4eaba976953472ad2, type: 2}
   avaliableItems: []
   allItems: []
   prefabShopItem: {fileID: 4648295784192438448, guid: 7698aa595fa39d24cbcc223fbfc6a78b, type: 3}
