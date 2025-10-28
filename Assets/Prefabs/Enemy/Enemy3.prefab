@@ -718,6 +718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  sails: {fileID: 8171224320309636820}
   orbitRadius: 35
   minOrbitRadius: 33
   maxOrbitRadius: 48
@@ -1097,7 +1098,7 @@ GameObject:
   - component: {fileID: 7714192196440525830}
   - component: {fileID: 7942112275875860849}
   m_Layer: 11
-  m_Name: SM_Veh_Boat_Medium_01_Sails_Pirate
+  m_Name: sails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

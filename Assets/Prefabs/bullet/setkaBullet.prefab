@@ -472,3 +472,4 @@ MonoBehaviour:
   startBullet: {fileID: 321368455623016011}
   finishBullet: {fileID: 362353351354210695}
   timeBeforeFinish: 1
+  brakingTime: 10
