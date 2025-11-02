@@ -3,52 +3,37 @@ using UnityEngine;
 
 namespace Assets.Scripts.TowerDefence
 {
+    [RequireComponent(typeof(Collider))]
     public class Tile : MonoBehaviour
     {
         [HideInInspector] public Tower tower;
-
-        public bool IsEmpty => tower == null;
-        private Renderer rend;
-        private Color defaultColor;
+        public Color baseColor = Color.white;
         public Color highlightColor = Color.green;
+        public Renderer rend;
 
         private void Awake()
         {
-            rend = GetComponent<Renderer>();
-            defaultColor = rend.material.color;
+            if (rend == null) rend = GetComponent<Renderer>();
+            if (rend != null) rend.material.color = baseColor;
         }
 
-        private void OnMouseEnter()
-        {
-            if (BuildManager.Instance.IsInBuildMode && IsEmpty)
-                rend.material.color = highlightColor;
-        }
+        public bool IsEmpty => tower == null;
 
-        private void OnMouseExit()
+        public void PlaceTower(Tower t)
         {
-            rend.material.color = defaultColor;
-        }
-
-        private void OnMouseDown()
-        {
-            if (BuildManager.Instance.IsInBuildMode)
-            {
-                BuildManager.Instance.TryBuildTowerOn(this);
-            }
-            else if (!IsEmpty)
-            {
-                TowerActionUI.Instance.OpenForTower(this);
-            }
-        }
-
-        public void PlaceTower(Tower tower)
-        {
-            this.tower = tower;
+            tower = t;
         }
 
         public void ClearTower()
         {
             tower = null;
+        }
+
+        // BuildManager вызывает это для подсветки всех пустых клеток
+        public void SetHighlight(bool on)
+        {
+            if (rend == null) return;
+            rend.material.color = on && IsEmpty ? highlightColor : baseColor;
         }
     }
 }

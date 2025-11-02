@@ -15,7 +15,7 @@ namespace Assets.Scripts.TowerDefence
 
         public void UpdateMoney()
         {
-            moneyText.text = $"💰 {BuildManager.Instance.playerMoney}$";
+            moneyText.text = $"{BuildManager.Instance.playerMoney}$";
         }
     }
 }

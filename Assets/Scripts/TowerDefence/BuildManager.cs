@@ -2,6 +2,7 @@
 using Assets.Scripts.TowerDefence.Configs;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.TowerDefence
 {
@@ -15,38 +16,89 @@ namespace Assets.Scripts.TowerDefence
         [Header("Grid")]
         public List<Tile> allTiles = new List<Tile>();
 
-        private TowerData selectedTowerData;
-        public bool IsInBuildMode => selectedTowerData != null;
-
         [Header("Ghost Settings")]
+        public Color ghostValidColor = new Color(0f, 1f, 0f, 0.5f);
+        public Color ghostInvalidColor = new Color(1f, 0f, 0f, 0.5f);
+        public LayerMask tileLayerMask; // установить в инспекторе на слой Tile
+
+        // runtime
+        private TowerData selectedTowerData;
         private GameObject ghostInstance;
         private Renderer[] ghostRenderers;
-        public Color ghostValidColor = new Color(0, 1, 0, 0.3f);
-        public Color ghostInvalidColor = new Color(1, 0, 0, 0.3f);
-
         private Tile hoveredTile;
 
-        private void Awake() => Instance = this;
+        private void Awake()
+        {
+            if (Instance != null && Instance != this) Destroy(gameObject);
+            Instance = this;
+        }
+
+        private void Start()
+        {
+            // Если не заполнил allTiles вручную — можно собрать автоматически:
+            if (allTiles == null || allTiles.Count == 0)
+            {
+                allTiles = new List<Tile>(FindObjectsOfType<Tile>());
+            }
+        }
 
         private void Update()
         {
-            if (!IsInBuildMode) return;
+            HandleHoverAndGhost();
+            HandleMouseInput();
+        }
 
-            // Наведение мыши для отображения призрака
+        private void HandleHoverAndGhost()
+        {
+            if (!IsInBuildMode())
+            {
+                if (ghostInstance != null && ghostInstance.activeSelf) ghostInstance.SetActive(false);
+                hoveredTile = null;
+                return;
+            }
+
+            // Рендерим луч от камеры к курсору и смотрим, попали ли в Tile (по layer)
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if (Physics.Raycast(ray, out RaycastHit hit, 1000f, tileLayerMask))
             {
                 Tile tile = hit.collider.GetComponent<Tile>();
                 hoveredTile = tile;
-
                 if (tile != null)
                 {
-                    UpdateGhost(tile);
+                    ShowGhostOn(tile);
+                }
+                else
+                {
+                    if (ghostInstance != null) ghostInstance.SetActive(false);
                 }
             }
-            else if (ghostInstance)
+            else
             {
-                ghostInstance.SetActive(false);
+                if (ghostInstance != null) ghostInstance.SetActive(false);
+                hoveredTile = null;
+            }
+        }
+
+        private void HandleMouseInput()
+        {
+            // не реагируем, если курсор над UI
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+                return;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                // если режим строительства — пробуем построить
+                if (IsInBuildMode())
+                {
+                    if (hoveredTile != null)
+                    {
+                        TryBuildTowerOn(hoveredTile);
+                    }
+                }
+                else
+                {
+                    // не в режиме строительства — клики по Tile обрабатываются Tile (или другим кодом)
+                }
             }
         }
 
@@ -59,94 +111,163 @@ namespace Assets.Scripts.TowerDefence
             }
 
             selectedTowerData = data;
-            HighlightAvailableTiles(true);
             CreateGhost();
+            HighlightAvailableTiles(true);
         }
 
         public void CancelBuildMode()
         {
             selectedTowerData = null;
-            HighlightAvailableTiles(false);
             DestroyGhost();
+            HighlightAvailableTiles(false);
         }
+
+        public bool IsInBuildMode() => selectedTowerData != null;
 
         public void TryBuildTowerOn(Tile tile)
         {
-            if (!tile.IsEmpty || selectedTowerData == null)
+            Debug.Log($"TryBuildTowerOn called. selectedTowerData={(selectedTowerData != null ? selectedTowerData.towerName : "null")}, tile.IsEmpty={tile.IsEmpty}, playerMoney={playerMoney}");
+
+            if (selectedTowerData == null)
                 return;
+
+            if (tile == null)
+                return;
+
+            if (!tile.IsEmpty)
+            {
+                Debug.Log("Tile is not empty. Can't build.");
+                return;
+            }
 
             if (playerMoney < selectedTowerData.baseCost)
+            {
+                Debug.Log("Not enough money to build.");
                 return;
+            }
 
+            // оплачиваем и ставим башню
             playerMoney -= selectedTowerData.baseCost;
 
             GameObject towerObj = Instantiate(selectedTowerData.prefab, tile.transform.position, Quaternion.identity);
             Tower tower = towerObj.GetComponent<Tower>();
-            tower.Initialize(selectedTowerData);
+            if (tower == null)
+            {
+                Debug.LogWarning("Prefab missing Tower component!");
+            }
+            else
+            {
+                tower.Initialize(selectedTowerData);
+                tile.PlaceTower(tower);
+                Debug.Log($"Built {selectedTowerData.towerName} at tile {tile.name}. Remaining money: {playerMoney}");
+            }
 
-            tile.PlaceTower(tower);
             UIManager.Instance.UpdateMoney();
+
+            // ghost остаётся (позволяет ставить ещё)
+            // если хочешь, чтобы после каждой постройки ghost проверял валидность (цвет)
+            UpdateGhostVisualForTile(tile);
         }
 
         private void HighlightAvailableTiles(bool enable)
         {
             foreach (var tile in allTiles)
             {
-                var rend = tile.GetComponent<Renderer>();
+                if (tile == null) continue;
                 if (enable && tile.IsEmpty)
-                    rend.material.color = Color.green;
+                    tile.SetHighlight(true);
                 else
-                    rend.material.color = Color.white;
+                    tile.SetHighlight(false);
             }
         }
 
-        #region GHOST
+        #region Ghost
 
         private void CreateGhost()
         {
-            if (ghostInstance != null)
-                Destroy(ghostInstance);
+            DestroyGhost();
 
+            if (selectedTowerData == null)
+                return;
+
+            // Instantiate активный объект (в случае root inactive, явно включаем)
             ghostInstance = Instantiate(selectedTowerData.prefab);
-            ghostInstance.name = "GhostTower";
+            ghostInstance.name = "Ghost_" + selectedTowerData.towerName;
+            ghostInstance.SetActive(true);
+
+            // Получаем рендереры и применяем полупрозрачные материалы
             ghostRenderers = ghostInstance.GetComponentsInChildren<Renderer>();
             foreach (var r in ghostRenderers)
             {
-                r.material = new Material(r.material);
+                // клонируем материал чтобы не менять оригинал префаба
+                r.material = new Material(r.sharedMaterial);
                 r.material.color = ghostInvalidColor;
             }
 
-            DisableTowerScripts(ghostInstance);
+            // Отключаем скрипты и коллайдеры (чтобы ghost не мешал физике и не реагировал)
+            DisableBehaviorAndColliders(ghostInstance);
+
+            // Опционально: поместить ghost в отдельный слой (Ignore Raycast) чтобы он не мешал кликам
+            SetLayerRecursively(ghostInstance, LayerMask.NameToLayer("Ignore Raycast"));
         }
 
-        private void UpdateGhost(Tile tile)
+        private void ShowGhostOn(Tile tile)
         {
+            if (ghostInstance == null) CreateGhost();
             if (ghostInstance == null) return;
+
             ghostInstance.SetActive(true);
             ghostInstance.transform.position = tile.transform.position;
 
             bool canBuild = tile.IsEmpty && playerMoney >= selectedTowerData.baseCost;
 
-            foreach (var r in ghostRenderers)
-                r.material.color = canBuild ? ghostValidColor : ghostInvalidColor;
+            Color c = canBuild ? ghostValidColor : ghostInvalidColor;
+            if (ghostRenderers != null)
+            {
+                foreach (var r in ghostRenderers)
+                {
+                    if (r == null) continue;
+                    r.material.color = c;
+                }
+            }
+        }
+
+        private void UpdateGhostVisualForTile(Tile tile)
+        {
+            // если после постройки нужно обновить подсветку для всех клеток и цвет ghost
+            HighlightAvailableTiles(true);
+            if (hoveredTile != null && ghostInstance != null)
+                ShowGhostOn(hoveredTile);
         }
 
         private void DestroyGhost()
         {
             if (ghostInstance != null)
+            {
                 Destroy(ghostInstance);
+                ghostInstance = null;
+                ghostRenderers = null;
+            }
         }
 
-        private void DisableTowerScripts(GameObject tower)
+        private void DisableBehaviorAndColliders(GameObject go)
         {
-            foreach (var mono in tower.GetComponentsInChildren<MonoBehaviour>())
+            foreach (var mb in go.GetComponentsInChildren<MonoBehaviour>())
             {
-                mono.enabled = false;
+                mb.enabled = false;
             }
-            foreach (var collider in tower.GetComponentsInChildren<Collider>())
+            foreach (var col in go.GetComponentsInChildren<Collider>())
             {
-                collider.enabled = false;
+                col.enabled = false;
             }
+        }
+
+        private void SetLayerRecursively(GameObject obj, int layer)
+        {
+            if (obj == null) return;
+            obj.layer = layer;
+            foreach (Transform t in obj.transform)
+                SetLayerRecursively(t.gameObject, layer);
         }
 
         #endregion
