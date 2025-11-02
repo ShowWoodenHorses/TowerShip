@@ -2,6 +2,7 @@
 using Assets.Scripts.Bullet;
 using Assets.Scripts.Player;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.Gun
 {
@@ -24,6 +25,11 @@ namespace Assets.Scripts.Gun
 
         public override void Shoot()
         {
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+
             Vector3 mousePosition = GetMousePosition();
             Vector3 direction = mousePosition - shootPosition.position;
             float distance = Vector3.Distance(mousePosition, transform.position);

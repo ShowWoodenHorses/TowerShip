@@ -2,6 +2,7 @@
 using Assets.Scripts.Interface;
 using Assets.Scripts.Player;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.Gun
 {
@@ -56,6 +57,11 @@ namespace Assets.Scripts.Gun
 
         private void StartFire()
         {
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+
             if (isFiring) return;
                 isFiring = true;
 
