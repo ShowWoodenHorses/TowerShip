@@ -3,6 +3,7 @@ using Assets.Scripts.TowerDefence.Configs;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Assets.Scripts.TowerDefence.UI;
 
 namespace Assets.Scripts.TowerDefence
 {
@@ -33,13 +34,11 @@ namespace Assets.Scripts.TowerDefence
             Instance = this;
         }
 
-        private void Start()
+        [ContextMenu("Init Tiles")]
+        public void initTiles()
         {
-            // Если не заполнил allTiles вручную — можно собрать автоматически:
-            if (allTiles == null || allTiles.Count == 0)
-            {
-                allTiles = new List<Tile>(FindObjectsOfType<Tile>());
-            }
+            allTiles.Clear();
+            allTiles = new List<Tile>(FindObjectsByType<Tile>(FindObjectsSortMode.None));
         }
 
         private void Update()
@@ -104,6 +103,7 @@ namespace Assets.Scripts.TowerDefence
 
         public void SelectTowerType(TowerData data)
         {
+            TowerActionUI.Instance?.Close();
             if (selectedTowerData == data)
             {
                 CancelBuildMode();
