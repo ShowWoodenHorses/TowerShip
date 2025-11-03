@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 7801413505340603855}
   - component: {fileID: 3901116640150785052}
   - component: {fileID: 1165040281378297141}
-  - component: {fileID: 5042569560239223272}
+  - component: {fileID: 1929472501475742043}
   m_Layer: 0
   m_Name: TowerCannon
   m_TagString: Untagged
@@ -423,9 +423,9 @@ MonoBehaviour:
     m_Bits: 2048
   detectionInterval: 0.2
   rotationSpeed: 10
-  gunAnimation: {fileID: 5042569560239223272}
+  gunAnimation: {fileID: 1929472501475742043}
   shotEffect: {fileID: 5850910016648804130}
---- !u!114 &5042569560239223272
+--- !u!114 &1929472501475742043
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -434,12 +434,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5643410134133757770}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e4b5584a8fb380429065fb9c2788f08, type: 3}
+  m_Script: {fileID: 11500000, guid: f0d85599f977759408378cbf0952db3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultState: {fileID: 691131040085114033}
-  shootState: {fileID: 3462249591995593324}
+  defaultState: {fileID: 0}
+  shootState: {fileID: 0}
   delayResetAnim: 0.3
+  recoilDistance: 1.5
+  recoilDuration: 0.3
+  returnDuration: 0.5
 --- !u!1 &6350098913941305030
 GameObject:
   m_ObjectHideFlags: 0

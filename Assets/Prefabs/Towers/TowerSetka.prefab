@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 3689826226042068288}
   - component: {fileID: 709890242510869057}
   - component: {fileID: 210422576521223543}
-  - component: {fileID: 4003076150164944486}
+  - component: {fileID: -7311577708991565380}
   m_Layer: 0
   m_Name: TowerSetka
   m_TagString: Untagged
@@ -133,9 +133,9 @@ MonoBehaviour:
     m_Bits: 2048
   detectionInterval: 0.2
   rotationSpeed: 10
-  gunAnimation: {fileID: 4003076150164944486}
+  gunAnimation: {fileID: -7311577708991565380}
   shotEffect: {fileID: 4517885110457665076}
---- !u!114 &4003076150164944486
+--- !u!114 &-7311577708991565380
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,12 +144,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3869257196057302911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e4b5584a8fb380429065fb9c2788f08, type: 3}
+  m_Script: {fileID: 11500000, guid: f0d85599f977759408378cbf0952db3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultState: {fileID: 5082435656323585041}
-  shootState: {fileID: 4051586579415349581}
+  defaultState: {fileID: 0}
+  shootState: {fileID: 0}
   delayResetAnim: 0.3
+  recoilDistance: 1.5
+  recoilDuration: 0.3
+  returnDuration: 0.5
 --- !u!1 &4051586579415349581
 GameObject:
   m_ObjectHideFlags: 0

@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 3988117023013588609}
   - component: {fileID: 5916317116445955570}
   - component: {fileID: 4207370845751822709}
-  - component: {fileID: 2204762052586936771}
+  - component: {fileID: -2735658665662662828}
   m_Layer: 0
   m_Name: TowerMortira
   m_TagString: Untagged
@@ -458,13 +458,13 @@ MonoBehaviour:
     m_Bits: 2048
   detectionInterval: 0.2
   rotationSpeed: 10
-  gunAnimation: {fileID: 2204762052586936771}
+  gunAnimation: {fileID: -2735658665662662828}
   shotEffect: {fileID: 6262132173266108503}
   gunTransform: {fileID: 6646162847755172167}
   offset: {x: 0, y: 0, z: 0}
   minAngel: -45
   maxAngel: 25
---- !u!114 &2204762052586936771
+--- !u!114 &-2735658665662662828
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -473,12 +473,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7528530426142328708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e4b5584a8fb380429065fb9c2788f08, type: 3}
+  m_Script: {fileID: 11500000, guid: f0d85599f977759408378cbf0952db3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultState: {fileID: 1095756303516329215}
-  shootState: {fileID: 3722881080621893000}
+  defaultState: {fileID: 0}
+  shootState: {fileID: 0}
   delayResetAnim: 0.3
+  recoilDistance: 1.5
+  recoilDuration: 0.5
+  returnDuration: 1
 --- !u!1 &7699560047805531691
 GameObject:
   m_ObjectHideFlags: 0

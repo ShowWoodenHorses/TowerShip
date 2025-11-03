@@ -915,7 +915,7 @@ GameObject:
   - component: {fileID: 4646958982216417609}
   - component: {fileID: 2002781641569077168}
   - component: {fileID: 2212719248359402168}
-  - component: {fileID: 1427956268438311140}
+  - component: {fileID: 2385420918811915063}
   m_Layer: 0
   m_Name: TowerMinomet
   m_TagString: Untagged
@@ -977,13 +977,13 @@ MonoBehaviour:
     m_Bits: 2048
   detectionInterval: 0.2
   rotationSpeed: 10
-  gunAnimation: {fileID: 1427956268438311140}
+  gunAnimation: {fileID: 2385420918811915063}
   shotEffect: {fileID: 3309333899329306441}
   gunTransform: {fileID: 720017635625129818}
   offset: {x: 7, y: 0, z: 7}
   minAngel: -45
   maxAngel: 25
---- !u!114 &1427956268438311140
+--- !u!114 &2385420918811915063
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -992,12 +992,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8576572307983309258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e4b5584a8fb380429065fb9c2788f08, type: 3}
+  m_Script: {fileID: 11500000, guid: f0d85599f977759408378cbf0952db3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultState: {fileID: 5414023887635037247}
-  shootState: {fileID: 3865992450284324841}
+  defaultState: {fileID: 0}
+  shootState: {fileID: 0}
   delayResetAnim: 0.3
+  recoilDistance: 1.5
+  recoilDuration: 0.3
+  returnDuration: 0.5
 --- !u!1 &8713233759017588413
 GameObject:
   m_ObjectHideFlags: 0
