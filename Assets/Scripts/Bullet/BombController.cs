@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Assets.Scripts.Interface;
 using Assets.Scripts.ObjectPool;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Assets.Scripts.Bullet
@@ -16,9 +17,16 @@ namespace Assets.Scripts.Bullet
         [Header("Effect")]
         [SerializeField] private GameObject effectObj;
 
+        [Header("Animation")]
+        [SerializeField] private float wobbleAmount;
+        [SerializeField] private float wobbleDuration;
+
+        private Tween anim;
+
         public void InitializeBomb(Vector3 startPos)
         {
             transform.position = new Vector3(startPos.x, posY, startPos.z);
+            Animation();
             StartCoroutine(LifeBeforeDestroy());
         }
 
@@ -46,6 +54,7 @@ namespace Assets.Scripts.Bullet
         private IEnumerator LifeBeforeDestroy()
         {
             yield return new WaitForSeconds(lifeBeforeDestroy);
+            SpawnEffect();
             Deactive();
         }
 
@@ -62,6 +71,20 @@ namespace Assets.Scripts.Bullet
             {
                 effectController.Initialize(effect);
             }
+        }
+
+        private void Animation()
+        {
+            anim = transform
+                .DOLocalRotate(new Vector3(0, 0, wobbleAmount), wobbleDuration)
+                .SetEase(Ease.InOutSine)
+                .SetLoops(-1, LoopType.Yoyo);
+        }
+
+        private void OnDisable()
+        {
+            if (anim != null)
+                anim.Kill();
         }
     }
 }
