@@ -167,5 +167,15 @@ namespace Assets.Scripts.Player
             this.canShoot = canShoot;
             shipAimLine.gameObject.SetActive(canShoot);
         }
+
+        public float GetCurrentReloadTime()
+        {
+            return currentTimeReloading;
+        }
+
+        public float GetStartReloadTime()
+        {
+            return reloading;
+        }
     }
 }

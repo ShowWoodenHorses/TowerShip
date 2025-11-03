@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Assets.Scripts.Configs;
+using Assets.Scripts.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,13 +13,14 @@ namespace Assets.Scripts.Player
         [SerializeField] private Slider healthBarSlider;
         [SerializeField] private ShipAimLine shipAimLine;
         [SerializeField] private CircleNoFire circleNoFire;
+        [SerializeField] private GunController gunController;
 
         [Header("Место спавна")]
         [SerializeField] private Transform spawnPLayerPosition;
         [SerializeField] private Transform parentPosition;
 
-        [Header("Для отключения стрельбы")]
-        [SerializeField] private GunController gunController;
+        [Header("UI")]
+        [SerializeField] private ReloadPlayerUI reloadPlayerUI;
 
         private GameObject currentPlayerInstance;
         private PLayerHealth health;
@@ -65,9 +67,10 @@ namespace Assets.Scripts.Player
 
             currentPlayerInstance = Instantiate(config.playerPrefab, spawnPLayerPosition.position, transform.rotation, parentPosition);
             GunController gunController = currentPlayerInstance.GetComponent<GunController>();
-            this.gunController = gunController;
             if (gunController != null)
             {
+                this.gunController = gunController;
+                reloadPlayerUI.Initialize(gunController);
                 gunController.Initialize(shipAimLine, circleNoFire);
             }
         }

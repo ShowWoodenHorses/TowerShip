@@ -355,7 +355,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2790606913629132722, guid: 50ccc1cae4b527d4a89eec83408b6676, type: 3}
   shootPosition: {fileID: 7162981568789239599}
   gunTransform: {fileID: 5839485299857204884}
-  reloading: 0.1
+  reloading: 0
   minAngel: -45
   maxAngel: 45
   minDistance: 60
@@ -364,6 +364,7 @@ MonoBehaviour:
   aimLinePos: {fileID: 7162981568789239599}
   circleNoFire: {fileID: 0}
   gunAnimation: {fileID: 3446693816934989700}
+  shotEffect: {fileID: 0}
   flameEffect: {fileID: 4633395504598007949}
   smokeEffect: {fileID: 3923291800399791170}
   damage: 20
