@@ -55,7 +55,14 @@ namespace Assets.Scripts.TowerDefence.Controllers
             }
 
             if (target != null)
+            {
                 RotateToTarget();
+                if (target.position.y < 0f)
+                {
+                    target = null;
+                    return;
+                }
+            }
 
             if (target != null)
             {
