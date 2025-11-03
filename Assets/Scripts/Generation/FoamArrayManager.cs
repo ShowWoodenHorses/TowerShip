@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 namespace Assets.Scripts.Generation
 {
@@ -7,13 +8,28 @@ namespace Assets.Scripts.Generation
     {
         [Header("Настройки пены")]
         [SerializeField] private Material waterMaterial;
+
+        [Tooltip("Максимум точек, где будет появляться пена (оптимум 16–32)")]
         [SerializeField, Range(1, 64)] private int maxFoamObjects = 16;
+
+        [Tooltip("Цвет пены")]
         [SerializeField] private Color foamColor = Color.white;
+
+        [Tooltip("Глобальная интенсивность пены")]
         [SerializeField, Range(0, 1)] private float foamGlobalIntensity = 1f;
+
+        [Tooltip("Автоматически искать все ShoreFoamTrigger в сцене")]
         [SerializeField] private bool autoFindTriggers = true;
 
-        private Vector4[] foamDataArray;
+        private Vector4[] foamPosArray;
+        private Vector4[] foamNormalArray;
         private ShoreFoamTrigger[] triggers;
+
+        private static readonly int FoamCountID = Shader.PropertyToID("_FoamCount");
+        private static readonly int FoamPosArrayID = Shader.PropertyToID("_FoamPosArray");
+        private static readonly int FoamNormalArrayID = Shader.PropertyToID("_FoamNormalArray");
+        private static readonly int FoamColorID = Shader.PropertyToID("_FoamColor");
+        private static readonly int FoamGlobalIntensityID = Shader.PropertyToID("_FoamGlobalIntensity");
 
         private void Awake()
         {
@@ -22,15 +38,17 @@ namespace Assets.Scripts.Generation
 
         private void OnValidate()
         {
-            // Автообновление в редакторе
             if (!Application.isPlaying)
                 Initialize();
         }
 
         private void Initialize()
         {
-            if (foamDataArray == null || foamDataArray.Length != maxFoamObjects)
-                foamDataArray = new Vector4[maxFoamObjects];
+            if (foamPosArray == null || foamPosArray.Length != maxFoamObjects)
+                foamPosArray = new Vector4[maxFoamObjects];
+
+            if (foamNormalArray == null || foamNormalArray.Length != maxFoamObjects)
+                foamNormalArray = new Vector4[maxFoamObjects];
 
             if (autoFindTriggers)
                 FindAllTriggers();
@@ -43,7 +61,9 @@ namespace Assets.Scripts.Generation
 
         private void Update()
         {
-            if (waterMaterial == null) return;
+            if (waterMaterial == null)
+                return;
+
             if (triggers == null || triggers.Length == 0)
             {
                 if (autoFindTriggers)
@@ -60,18 +80,25 @@ namespace Assets.Scripts.Generation
                 if (t == null) continue;
 
                 Vector3 pos = t.transform.position;
-                foamDataArray[i] = new Vector4(pos.x, pos.y, pos.z, t.foamRadius);
+                foamPosArray[i] = new Vector4(pos.x, pos.y, pos.z, t.foamRadius);
+
+                Vector3 normal = t.foamNormal.sqrMagnitude > 0.001f ? t.foamNormal.normalized : t.transform.forward;
+                foamNormalArray[i] = new Vector4(normal.x, normal.y, normal.z, 0);
             }
 
-            // Заполняем оставшиеся элементы нулями
+            // Очистка неиспользуемых элементов
             for (int i = count; i < maxFoamObjects; i++)
-                foamDataArray[i] = Vector4.zero;
+            {
+                foamPosArray[i] = Vector4.zero;
+                foamNormalArray[i] = Vector4.zero;
+            }
 
-            // Передаём данные в материал
-            waterMaterial.SetInt("_FoamCount", count);
-            waterMaterial.SetVectorArray("_FoamPosArray", foamDataArray);
-            waterMaterial.SetColor("_FoamColor", foamColor);
-            waterMaterial.SetFloat("_FoamGlobalIntensity", foamGlobalIntensity);
+            // Передаём данные в шейдер
+            waterMaterial.SetInt(FoamCountID, count);
+            waterMaterial.SetVectorArray(FoamPosArrayID, foamPosArray);
+            waterMaterial.SetVectorArray(FoamNormalArrayID, foamNormalArray);
+            waterMaterial.SetColor(FoamColorID, foamColor);
+            waterMaterial.SetFloat(FoamGlobalIntensityID, foamGlobalIntensity);
         }
     }
 }

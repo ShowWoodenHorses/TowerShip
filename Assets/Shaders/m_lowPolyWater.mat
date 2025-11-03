@@ -72,7 +72,7 @@ Material:
     - _FoamGlobalIntensity: 1
     - _FoamIntensity: 1
     - _FoamNoiseScale: 2
-    - _FoamNoiseStrength: 0.53
+    - _FoamNoiseStrength: 1
     - _FoamSmoothness: 1
     - _FoamThickness: 1
     - _FoamThreshold: 0.8

@@ -1,18 +1,22 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Generation
 {
-    [ExecuteAlways]
     public class ShoreFoamTrigger : MonoBehaviour
     {
-        [Tooltip("Радиус пены вокруг острова")]
-        public float foamRadius = 5f;
+        [Tooltip("Радиус области пены вокруг берега")]
+        public float foamRadius = 3f;
 
-        [Tooltip("Толщина кольца пены (0.1 - узкое, 2 - широкое)")]
-        [Range(0.1f, 2f)] public float foamThickness = 0.5f;
+        [Tooltip("Направление, куда пена должна растекаться (обычно от берега в воду)")]
+        public Vector3 foamNormal = Vector3.forward;
 
-        [Tooltip("Интенсивность пены (0-1)")]
-        [Range(0, 1)] public float foamIntensity = 1f;
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.white;
+            Gizmos.DrawWireSphere(transform.position, foamRadius);
+
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawLine(transform.position, transform.position + foamNormal.normalized * foamRadius);
+        }
     }
 }

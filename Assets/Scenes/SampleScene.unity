@@ -23743,9 +23743,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae79daa7a59ca3e449f0389568e80bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foamRadius: 19.7
-  foamThickness: 0.5
-  foamIntensity: 1
+  foamRadius: 20
+  foamNormal: {x: 0, y: 50, z: 1}
 --- !u!1001 &1675011608
 PrefabInstance:
   m_ObjectHideFlags: 0

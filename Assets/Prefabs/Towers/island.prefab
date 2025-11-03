@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 2009563982253382808}
   - component: {fileID: 7672198976598527621}
   - component: {fileID: 8545776802916791790}
+  - component: {fileID: 917087278324083022}
   m_Layer: 10
   m_Name: island
   m_TagString: Untagged
@@ -154,7 +155,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5703944179992013338}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 96.6, y: -1.5, z: -57.3}
   m_LocalScale: {x: 1, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
@@ -268,3 +269,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50f077fa805b22e48803f79a268201f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &917087278324083022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5703944179992013338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae79daa7a59ca3e449f0389568e80bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foamRadius: 8
+  foamNormal: {x: 0, y: 50, z: 1}
