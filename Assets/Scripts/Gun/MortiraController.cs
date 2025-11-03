@@ -40,6 +40,7 @@ namespace Assets.Scripts.Gun
             }
 
             gunAnimation.PlayAnim();
+            shotEffect.Play();
 
             GameObject bullet = BulletObjectPool.Instance.GetObject(bulletPrefab);
             bullet.transform.SetLocalPositionAndRotation(shootPosition.position, Quaternion.LookRotation(direction));

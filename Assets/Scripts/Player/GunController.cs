@@ -27,6 +27,9 @@ namespace Assets.Scripts.Player
         [Header("Animation")]
         [SerializeField] private protected GunAnimation gunAnimation;
 
+        [Header("Effect")]
+        [SerializeField] private protected ParticleSystem shotEffect;
+
         private protected float currentTimeReloading;
         private protected bool canShoot;
 
@@ -46,6 +49,8 @@ namespace Assets.Scripts.Player
             circleNoFire.Initialize(distanceFireRadius);
             shipAimLine.Initialize();
             CanShoot(true);
+            if(shotEffect != null)
+                shotEffect.Stop();
         }
 
         private void Update()
@@ -79,6 +84,7 @@ namespace Assets.Scripts.Player
             }
 
             gunAnimation.PlayAnim();
+            shotEffect.Play();
 
             GameObject bullet = BulletObjectPool.Instance.GetObject(bulletPrefab);
             bullet.transform.SetLocalPositionAndRotation(shootPosition.position, Quaternion.LookRotation(direction));
