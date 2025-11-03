@@ -92,10 +92,14 @@ namespace Assets.Scripts
             enemySpawner.Initialize(data.currentWaveEnemyId, playerTransform, gameplayAnimationController);
 
             towerBuild.Initialize();
-            TowerActionUI.Instance.Initialize(scoreManager);
-            BuildManager.Instance.Initizlixe(scoreManager);
 
             YG2.GameplayStart();
+        }
+
+        private void Start()
+        {
+            TowerActionUI.Instance.Initialize(scoreManager);
+            BuildManager.Instance.Initizlixe(scoreManager);
         }
     }
 }
