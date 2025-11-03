@@ -4,15 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Assets.Scripts.TowerDefence.UI;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.TowerDefence
 {
     public class BuildManager : MonoBehaviour
     {
         public static BuildManager Instance;
-
-        [Header("Economy")]
-        public int playerMoney = 500;
 
         [Header("Grid")]
         public List<Tile> allTiles = new List<Tile>();
@@ -22,11 +20,22 @@ namespace Assets.Scripts.TowerDefence
         public Color ghostInvalidColor = new Color(1f, 0f, 0f, 0.5f);
         public LayerMask tileLayerMask; // установить в инспекторе на слой Tile
 
+        public GameObject towerList;
+
         // runtime
         private TowerData selectedTowerData;
         private GameObject ghostInstance;
         private Renderer[] ghostRenderers;
         private Tile hoveredTile;
+
+        private ScoreManager scoreManager;
+
+        [ContextMenu("Init Tiles")]
+        public void initTiles()
+        {
+            allTiles.Clear();
+            allTiles = new List<Tile>(FindObjectsByType<Tile>(FindObjectsSortMode.None));
+        }
 
         private void Awake()
         {
@@ -34,11 +43,9 @@ namespace Assets.Scripts.TowerDefence
             Instance = this;
         }
 
-        [ContextMenu("Init Tiles")]
-        public void initTiles()
+        public void Initizlixe(ScoreManager scoreManager)
         {
-            allTiles.Clear();
-            allTiles = new List<Tile>(FindObjectsByType<Tile>(FindObjectsSortMode.None));
+            this.scoreManager = scoreManager;
         }
 
         private void Update()
@@ -126,7 +133,7 @@ namespace Assets.Scripts.TowerDefence
 
         public void TryBuildTowerOn(Tile tile)
         {
-            Debug.Log($"TryBuildTowerOn called. selectedTowerData={(selectedTowerData != null ? selectedTowerData.towerName : "null")}, tile.IsEmpty={tile.IsEmpty}, playerMoney={playerMoney}");
+            Debug.Log($"TryBuildTowerOn called. selectedTowerData={(selectedTowerData != null ? selectedTowerData.towerName : "null")}, tile.IsEmpty={tile.IsEmpty}, playerMoney={scoreManager.GetCurrentMoney()}");
 
             if (selectedTowerData == null)
                 return;
@@ -140,14 +147,14 @@ namespace Assets.Scripts.TowerDefence
                 return;
             }
 
-            if (playerMoney < selectedTowerData.baseCost)
+            if (scoreManager.GetCurrentMoney() < selectedTowerData.baseCost)
             {
                 Debug.Log("Not enough money to build.");
                 return;
             }
 
             // оплачиваем и ставим башню
-            playerMoney -= selectedTowerData.baseCost;
+            scoreManager.RemoveMoney(selectedTowerData.baseCost);
 
             GameObject towerObj = Instantiate(selectedTowerData.prefab, tile.transform.position, Quaternion.identity);
             Tower tower = towerObj.GetComponent<Tower>();
@@ -159,10 +166,8 @@ namespace Assets.Scripts.TowerDefence
             {
                 tower.Initialize(selectedTowerData);
                 tile.PlaceTower(tower);
-                Debug.Log($"Built {selectedTowerData.towerName} at tile {tile.name}. Remaining money: {playerMoney}");
+                Debug.Log($"Built {selectedTowerData.towerName} at tile {tile.name}. Remaining money: {scoreManager.GetCurrentMoney()}");
             }
-
-            UIManager.Instance.UpdateMoney();
 
             // ghost остаётся (позволяет ставить ещё)
             // если хочешь, чтобы после каждой постройки ghost проверял валидность (цвет)
@@ -219,7 +224,7 @@ namespace Assets.Scripts.TowerDefence
             ghostInstance.SetActive(true);
             ghostInstance.transform.position = tile.transform.position;
 
-            bool canBuild = tile.IsEmpty && playerMoney >= selectedTowerData.baseCost;
+            bool canBuild = tile.IsEmpty && scoreManager.GetCurrentMoney() >= selectedTowerData.baseCost;
 
             Color c = canBuild ? ghostValidColor : ghostInvalidColor;
             if (ghostRenderers != null)

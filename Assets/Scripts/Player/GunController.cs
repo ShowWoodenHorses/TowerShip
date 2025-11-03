@@ -28,6 +28,7 @@ namespace Assets.Scripts.Player
         [SerializeField] private protected GunAnimation gunAnimation;
 
         private protected float currentTimeReloading;
+        private protected bool canShoot;
 
         public virtual void Initialize(ShipAimLine shipAimLine, CircleNoFire circleNoFire)
         {
@@ -44,6 +45,7 @@ namespace Assets.Scripts.Player
 
             circleNoFire.Initialize(distanceFireRadius);
             shipAimLine.Initialize();
+            CanShoot(true);
         }
 
         private void Update()
@@ -51,7 +53,7 @@ namespace Assets.Scripts.Player
             currentTimeReloading -= Time.deltaTime;
             HandleRotate();
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && canShoot)
             {
                 if(currentTimeReloading <= 0f)
                 {
@@ -152,6 +154,12 @@ namespace Assets.Scripts.Player
                 shipAimLine.Hide();
                 circleNoFire.ShowCircleNoFire();
             }
+        }
+
+        public void CanShoot(bool canShoot)
+        {
+            this.canShoot = canShoot;
+            shipAimLine.gameObject.SetActive(canShoot);
         }
     }
 }

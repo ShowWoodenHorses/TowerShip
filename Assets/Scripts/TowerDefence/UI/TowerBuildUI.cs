@@ -11,7 +11,7 @@ namespace Assets.Scripts.TowerDefence.UI
         public Transform buttonContainer;
         public TowerData[] towerOptions;
 
-        private void Start()
+        public void Initialize()
         {
             foreach (var tower in towerOptions)
             {

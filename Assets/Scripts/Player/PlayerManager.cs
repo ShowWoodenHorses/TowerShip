@@ -17,6 +17,9 @@ namespace Assets.Scripts.Player
         [SerializeField] private Transform spawnPLayerPosition;
         [SerializeField] private Transform parentPosition;
 
+        [Header("Для отключения стрельбы")]
+        [SerializeField] private GunController gunController;
+
         private GameObject currentPlayerInstance;
         private PLayerHealth health;
 
@@ -62,10 +65,23 @@ namespace Assets.Scripts.Player
 
             currentPlayerInstance = Instantiate(config.playerPrefab, spawnPLayerPosition.position, transform.rotation, parentPosition);
             GunController gunController = currentPlayerInstance.GetComponent<GunController>();
-            if(gunController != null)
+            this.gunController = gunController;
+            if (gunController != null)
             {
                 gunController.Initialize(shipAimLine, circleNoFire);
             }
+        }
+
+        public void SetCanShoot()
+        {
+            if(gunController != null)
+                gunController.CanShoot(true);
+        }
+
+        public void SetDisableShoot()
+        {
+            if (gunController != null)
+                gunController.CanShoot(false);
         }
 
     }

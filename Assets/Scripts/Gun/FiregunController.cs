@@ -43,7 +43,7 @@ namespace Assets.Scripts.Gun
         {
             HandleRotate();
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && canShoot)
                 StartFire();
 
             if (Input.GetMouseButtonUp(0))

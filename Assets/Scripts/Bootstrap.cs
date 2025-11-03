@@ -7,6 +7,8 @@ using Assets.Scripts.ObjectPool;
 using Assets.Scripts.Player;
 using Assets.Scripts.Save;
 using Assets.Scripts.Sound;
+using Assets.Scripts.TowerDefence;
+using Assets.Scripts.TowerDefence.UI;
 using Assets.Scripts.UI;
 using Assets.Scripts.UI.Shop;
 using UnityEngine;
@@ -62,6 +64,9 @@ namespace Assets.Scripts
 
         //[Header("Ads")]
         //[SerializeField] private RewardsAds rewardsAds;
+
+        [Header("Towers")]
+        [SerializeField] private TowerBuildUI towerBuild; 
         private void Awake()
         {
             data = SaveSystem.Load();
@@ -85,6 +90,10 @@ namespace Assets.Scripts
             playerManager.Initialize(data.selectedPLayerId);
             gameManager.Initialize(uiController, scoreManager);
             enemySpawner.Initialize(data.currentWaveEnemyId, playerTransform, gameplayAnimationController);
+
+            towerBuild.Initialize();
+            TowerActionUI.Instance.Initialize(scoreManager);
+            BuildManager.Instance.Initizlixe(scoreManager);
 
             YG2.GameplayStart();
         }

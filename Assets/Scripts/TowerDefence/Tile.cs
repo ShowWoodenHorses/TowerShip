@@ -36,16 +36,12 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        // Если сейчас режим строительства — игнорируем клики по башням
-        if (BuildManager.Instance != null && !BuildManager.Instance.IsInBuildMode())
-            return;
-
         // Игнорируем клики, когда курсор над UI
         if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
             return;
 
         // Если на клетке есть башня — открыть меню действий
-        if (!IsEmpty && TowerActionUI.Instance != null)
+        if (!IsEmpty && TowerActionUI.Instance != null && BuildManager.Instance.towerList.activeInHierarchy)
         {
             TowerActionUI.Instance.OpenForTower(this);
         }

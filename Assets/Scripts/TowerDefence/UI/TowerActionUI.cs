@@ -23,6 +23,7 @@ namespace Assets.Scripts.TowerDefence.UI
 
         private Tile currentTile;
         private Camera mainCamera;
+        private ScoreManager scoreManager;
         private bool isVisible => panel.activeSelf;
 
         private void Awake()
@@ -35,6 +36,11 @@ namespace Assets.Scripts.TowerDefence.UI
             Instance = this;
             mainCamera = Camera.main;
             Close();
+        }
+
+        public void Initialize(ScoreManager scoreManager)
+        {
+            this.scoreManager = scoreManager;
         }
 
         private void Update()
@@ -111,9 +117,8 @@ namespace Assets.Scripts.TowerDefence.UI
             Tower tower = currentTile.tower;
             if (tower == null) return;
 
-            if (tower.TryUpgrade(ref BuildManager.Instance.playerMoney))
+            if (tower.TryUpgrade(scoreManager))
             {
-                UIManager.Instance.UpdateMoney();
                 OpenForTower(currentTile); // обновляем данные
             }
         }
@@ -126,12 +131,10 @@ namespace Assets.Scripts.TowerDefence.UI
             if (tower == null) return;
 
             int refund = tower.GetSellValue();
-            BuildManager.Instance.playerMoney += refund;
+            scoreManager.AddMoney(refund);
 
             Destroy(tower.gameObject);
             currentTile.ClearTower();
-
-            UIManager.Instance.UpdateMoney();
             Close();
         }
 

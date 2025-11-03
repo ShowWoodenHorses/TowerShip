@@ -20,13 +20,14 @@ namespace Assets.Scripts.TowerDefence
         public int GetUpgradeCost() =>
             Mathf.RoundToInt(data.baseCost * Mathf.Pow(data.upgradeMultiplier, level));
 
-        public bool TryUpgrade(ref int playerMoney)
+        public bool TryUpgrade(ScoreManager scoreManager)
         {
+            int playerMoney = scoreManager.GetCurrentMoney();
             int cost = GetUpgradeCost();
             if (playerMoney < cost)
                 return false;
 
-            playerMoney -= cost;
+            scoreManager.RemoveMoney(cost);
             level++;
             TotalCost += cost;
             return true;
