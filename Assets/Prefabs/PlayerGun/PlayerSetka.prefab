@@ -311,7 +311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1330234028326359977}
   - component: {fileID: 6941675883967313689}
-  - component: {fileID: 2596922718715304583}
+  - component: {fileID: 2204756596592063822}
   m_Layer: 0
   m_Name: PlayerSetka
   m_TagString: Untagged
@@ -358,8 +358,8 @@ MonoBehaviour:
   shipAimLine: {fileID: 0}
   aimLinePos: {fileID: 1122112973898101127}
   circleNoFire: {fileID: 0}
-  gunAnimation: {fileID: 2596922718715304583}
---- !u!114 &2596922718715304583
+  gunAnimation: {fileID: 2204756596592063822}
+--- !u!114 &2204756596592063822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -368,9 +368,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8647992000151917113}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e4b5584a8fb380429065fb9c2788f08, type: 3}
+  m_Script: {fileID: 11500000, guid: f0d85599f977759408378cbf0952db3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultState: {fileID: 1511967345010494308}
-  shootState: {fileID: 3957042313577694494}
+  defaultState: {fileID: 0}
+  shootState: {fileID: 0}
   delayResetAnim: 0.3
+  recoilDistance: 1.5
+  recoilDuration: 0.3
+  returnDuration: 0.5

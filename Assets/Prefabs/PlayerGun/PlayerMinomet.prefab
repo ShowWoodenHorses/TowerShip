@@ -451,7 +451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3747102202599742563}
   - component: {fileID: 4352456317431725684}
-  - component: {fileID: 7770821351895593028}
+  - component: {fileID: 6703692368961950574}
   m_Layer: 0
   m_Name: PlayerMinomet
   m_TagString: Untagged
@@ -501,9 +501,9 @@ MonoBehaviour:
   shipAimLine: {fileID: 0}
   aimLinePos: {fileID: 220219981055390935}
   circleNoFire: {fileID: 0}
-  gunAnimation: {fileID: 7770821351895593028}
+  gunAnimation: {fileID: 6703692368961950574}
   offsetAngle: 0
---- !u!114 &7770821351895593028
+--- !u!114 &6703692368961950574
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -512,12 +512,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4619263866738935240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e4b5584a8fb380429065fb9c2788f08, type: 3}
+  m_Script: {fileID: 11500000, guid: f0d85599f977759408378cbf0952db3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultState: {fileID: 1735833604481907891}
-  shootState: {fileID: 7956076861595054426}
+  defaultState: {fileID: 0}
+  shootState: {fileID: 0}
   delayResetAnim: 0.3
+  recoilDistance: 1.5
+  recoilDuration: 0.3
+  returnDuration: 0.5
 --- !u!1 &4880636609674208061
 GameObject:
   m_ObjectHideFlags: 0

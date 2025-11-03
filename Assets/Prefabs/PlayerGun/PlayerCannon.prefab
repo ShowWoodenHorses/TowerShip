@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7540489449637872661}
   - component: {fileID: 7827934376188418764}
-  - component: {fileID: 6414657426652214937}
+  - component: {fileID: 1699570814746310902}
   m_Layer: 0
   m_Name: PlayerCannon
   m_TagString: Untagged
@@ -176,8 +176,8 @@ MonoBehaviour:
   shipAimLine: {fileID: 0}
   aimLinePos: {fileID: 1999742353458696816}
   circleNoFire: {fileID: 0}
-  gunAnimation: {fileID: 6414657426652214937}
---- !u!114 &6414657426652214937
+  gunAnimation: {fileID: 1699570814746310902}
+--- !u!114 &1699570814746310902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,12 +186,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1526697314070900640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e4b5584a8fb380429065fb9c2788f08, type: 3}
+  m_Script: {fileID: 11500000, guid: f0d85599f977759408378cbf0952db3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultState: {fileID: 1438084546349607566}
-  shootState: {fileID: 1537456113155270369}
+  defaultState: {fileID: 0}
+  shootState: {fileID: 0}
   delayResetAnim: 0.3
+  recoilDistance: 1.5
+  recoilDuration: 0.3
+  returnDuration: 0.5
 --- !u!1 &1537456113155270369
 GameObject:
   m_ObjectHideFlags: 0

@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3397854936797271347}
   - component: {fileID: 1688094481460281961}
-  - component: {fileID: 4306279877174367451}
+  - component: {fileID: 1058270667437627543}
   m_Layer: 0
   m_Name: PlayerMortira
   m_TagString: Untagged
@@ -178,9 +178,9 @@ MonoBehaviour:
   shipAimLine: {fileID: 0}
   aimLinePos: {fileID: 2196668413361197568}
   circleNoFire: {fileID: 0}
-  gunAnimation: {fileID: 4306279877174367451}
+  gunAnimation: {fileID: 1058270667437627543}
   offsetAngle: 0
---- !u!114 &4306279877174367451
+--- !u!114 &1058270667437627543
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,12 +189,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1624269785886709776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e4b5584a8fb380429065fb9c2788f08, type: 3}
+  m_Script: {fileID: 11500000, guid: f0d85599f977759408378cbf0952db3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultState: {fileID: 6154558119061181425}
-  shootState: {fileID: 5334494772299275796}
+  defaultState: {fileID: 0}
+  shootState: {fileID: 0}
   delayResetAnim: 0.3
+  recoilDistance: 1
+  recoilDuration: 0.5
+  returnDuration: 1
 --- !u!1 &2542884862778885860
 GameObject:
   m_ObjectHideFlags: 0
