@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Animation;
+using Assets.Scripts.CameraControl;
 using Assets.Scripts.Control;
 using Assets.Scripts.Game;
 using Assets.Scripts.Generation;
@@ -59,6 +60,10 @@ namespace Assets.Scripts
         [SerializeField] private UIController uiController;
         //[SerializeField] private UIDisplayCannon uiDisplayCannon;
 
+        [Header("Camera")]
+        [SerializeField] private CameraController cameraController;
+        [SerializeField] private MoveCameraToggle moveCameraToggle;
+
         [Header("Sound")]
         [SerializeField] private AudioMixer mainMixer;
 
@@ -92,6 +97,7 @@ namespace Assets.Scripts
             enemySpawner.Initialize(data.currentWaveEnemyId, playerTransform, gameplayAnimationController);
 
             towerBuild.Initialize();
+            moveCameraToggle.Initialize(cameraController, playerManager);
 
             YG2.GameplayStart();
         }

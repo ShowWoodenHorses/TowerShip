@@ -23,19 +23,32 @@ namespace Assets.Scripts.CameraControl
         private Vector3 lastPanPosition;
         private int panFingerId; // для тачей
 
+        [Header("Movement Bounds")]
+        public bool useBounds = true;
+        public Vector2 minBounds = new Vector2(-50f, -50f);
+        public Vector2 maxBounds = new Vector2(50f, 50f);
+
+        private float positionnY;
+        private Vector3 startPosition;
+        private bool canMove = false;
+
         void Start()
         {
             if (cam == null)
                 cam = Camera.main;
 
             targetFov = cam.fieldOfView;
+
+            positionnY = transform.position.y;
+            startPosition = transform.position;
         }
 
         void Update()
         {
 #if UNITY_STANDALONE || UNITY_WEBGL || UNITY_EDITOR
             HandleMouseZoom();
-            //HandleMouseDrag();
+            if(canMove)
+                HandleMouseDrag();
 #elif UNITY_ANDROID || UNITY_IOS
         HandleTouchZoom();
         HandleTouchDrag();
@@ -45,6 +58,21 @@ namespace Assets.Scripts.CameraControl
             cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetFov, Time.deltaTime * zoomLerpSpeed);
         }
 
+        public void SetActiveMoving()
+        {
+            canMove = true;
+        }
+
+        public void SetDisableMoving()
+        {
+            canMove = false;
+            SetStartPosition();
+        }
+        
+        void SetStartPosition()
+        {
+            transform.position = startPosition;
+        }
         // --- ПК ЗУМ ---
         void HandleMouseZoom()
         {
@@ -74,6 +102,8 @@ namespace Assets.Scripts.CameraControl
                     delta.y * dragSpeedMouse * direction,
                     0
                 );
+
+                ClampCameraPosition();
             }
         }
 
@@ -122,6 +152,28 @@ namespace Assets.Scripts.CameraControl
                     );
                 }
             }
+        }
+
+        void ClampCameraPosition()
+        {
+            if (!useBounds) return;
+
+            Vector3 pos = cam.transform.position;
+
+            float zoomFactor = (cam.fieldOfView - minFov) / (maxFov - minFov);
+            float extraRange = Mathf.Lerp(0f, 10f, zoomFactor);
+
+            float minX = minBounds.x - extraRange;
+            float maxX = maxBounds.x + extraRange;
+            float minZ = minBounds.y - extraRange;
+            float maxZ = maxBounds.y + extraRange;
+
+            pos.x = Mathf.Clamp(pos.x, minX, maxX);
+            pos.z = Mathf.Clamp(pos.z, minZ, maxZ);
+
+            pos.y = positionnY;
+
+            cam.transform.position = pos;
         }
     }
 }
