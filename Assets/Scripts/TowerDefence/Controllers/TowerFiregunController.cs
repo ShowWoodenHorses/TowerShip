@@ -1,10 +1,5 @@
-﻿using System.Collections;
-using Assets.Scripts.Interface;
-using Assets.Scripts.Player;
-using UnityEditor.PackageManager;
+﻿using Assets.Scripts.Interface;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem.HID;
 
 namespace Assets.Scripts.TowerDefence.Controllers
 {

@@ -18,6 +18,9 @@ namespace Assets.Scripts.TowerDefence.Controllers
         [Header("Animation")]
         [SerializeField] private protected GunAnimation gunAnimation;
 
+        [Header("Effect")]
+        [SerializeField] private protected ParticleSystem shotEffect;
+
         private protected Transform target;
         private protected float currentReloadTime;
         private protected float detectionTimer;
@@ -32,6 +35,7 @@ namespace Assets.Scripts.TowerDefence.Controllers
 
             gunAnimation.InitializeAnim();
             currentReloadTime = 0f;
+            shotEffect.Stop();
         }
 
         private protected void Update()
@@ -114,6 +118,7 @@ namespace Assets.Scripts.TowerDefence.Controllers
             float distance = Vector3.Distance(target.position, transform.position);
 
             gunAnimation.PlayAnim();
+            shotEffect.Play();
 
             GameObject bullet = BulletObjectPool.Instance.GetObject(bulletPrefab);
             bullet.transform.SetPositionAndRotation(bulletPos.position, Quaternion.LookRotation(direction));

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Assets.Scripts.Bullet;
+﻿using Assets.Scripts.Bullet;
 using UnityEngine;
 
 namespace Assets.Scripts.TowerDefence.Controllers
@@ -20,6 +19,7 @@ namespace Assets.Scripts.TowerDefence.Controllers
             Vector3 direction = target.position - bulletPos.position;
 
             gunAnimation.PlayAnim();
+            shotEffect.Play();
 
             GameObject bullet = BulletObjectPool.Instance.GetObject(bulletPrefab);
             bullet.transform.SetLocalPositionAndRotation(bulletPos.position, Quaternion.LookRotation(direction));
