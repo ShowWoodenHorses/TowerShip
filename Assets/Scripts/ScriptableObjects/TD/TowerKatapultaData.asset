@@ -14,9 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerName: Katapulta
   prefab: {fileID: 3124763881611811682, guid: eba2b63ab18b9e043b94413bceeff605, type: 3}
+  maxLevel: 3
   baseCost: 300
   upgradeMultiplier: 1.5
   sellRefundFactor: 0.6
-  baseDamage: 10
-  range: 3
-  fireRate: 1
+  damage_level_1: 35
+  reload_level_1: 3
+  minDistance_level_1: 60
+  maxDistance_level_1: 100
+  damage_level_2: 50
+  reload_level_2: 3.5
+  minDistance_level_2: 60
+  maxDistance_level_2: 130
+  damage_level_3: 100
+  reload_level_3: 4.5
+  minDistance_level_3: 60
+  maxDistance_level_3: 150

@@ -43,6 +43,7 @@ public class Tile : MonoBehaviour
         // Если на клетке есть башня — открыть меню действий
         if (!IsEmpty && TowerActionUI.Instance != null && BuildManager.Instance.towerList.activeInHierarchy)
         {
+            TowerActionUI.Instance.Close();
             TowerActionUI.Instance.OpenForTower(this);
         }
     }

@@ -2,6 +2,8 @@
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using Assets.Scripts.TowerDefence.Controllers;
+using Assets.Scripts.Player;
 
 namespace Assets.Scripts.TowerDefence.UI
 {
@@ -25,6 +27,8 @@ namespace Assets.Scripts.TowerDefence.UI
         private Camera mainCamera;
         private ScoreManager scoreManager;
         private bool isVisible => panel.activeSelf;
+        [SerializeField] private protected CircleNoFire minDistanceCircle;
+        [SerializeField] private protected CircleNoFire maxDistanceCircle;
 
         private void Awake()
         {
@@ -100,6 +104,20 @@ namespace Assets.Scripts.TowerDefence.UI
             Vector3 screenPos = mainCamera.WorldToScreenPoint(tile.transform.position + worldOffset);
             panel.transform.position = screenPos;
 
+            TowerController towerController = tower.GetTowerController();
+
+            if (towerController != null)
+            {
+                minDistanceCircle.transform.position = currentTile.transform.position;
+                maxDistanceCircle.transform.position = currentTile.transform.position;
+
+                minDistanceCircle.Initialize(towerController.GetMinDistance() * 2f);
+                maxDistanceCircle.Initialize(towerController.GetMaxDistance() * 2f);
+
+                minDistanceCircle.ShowCircleNoFire();
+                maxDistanceCircle.ShowCircleNoFire();
+            }
+
             // Активируем панель
             panel.SetActive(true);
 
@@ -109,6 +127,13 @@ namespace Assets.Scripts.TowerDefence.UI
 
             upgradeButton.onClick.AddListener(OnUpgrade);
             sellButton.onClick.AddListener(OnSell);
+
+            if(tower.GetCurrentLevel() >= tower.GetMaxLEvel())
+            {
+                upgradeButton.gameObject.SetActive(false);
+            }
+
+            Debug.Log(tower.GetCurrentLevel());
         }
 
         public void OnUpgrade()
@@ -141,7 +166,11 @@ namespace Assets.Scripts.TowerDefence.UI
         public void Close()
         {
             panel.SetActive(false);
+            upgradeButton.gameObject.SetActive(true);
             currentTile = null;
+
+            minDistanceCircle.HideCircleNoFire();
+            maxDistanceCircle.HideCircleNoFire();
         }
     }
 }

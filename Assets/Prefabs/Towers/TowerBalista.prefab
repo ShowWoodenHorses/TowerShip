@@ -530,8 +530,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ca35e4dbeaa1d459c92dbe244becd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadTime: 1
-  range: 70
   bulletPrefab: {fileID: 4907689107591143649, guid: 3ec9d20305ad89f4eb1425444ac308a5, type: 3}
   bulletPos: {fileID: 200377708784916600}
   layerMask:
@@ -541,6 +539,10 @@ MonoBehaviour:
   rotationSpeed: 10
   gunAnimation: {fileID: 3968793464035914364}
   shotEffect: {fileID: 5569112935825770537}
+  reloadTime: 1
+  maxDistance: 0
+  minDistance: 0
+  damage: 0
 --- !u!114 &3968793464035914364
 MonoBehaviour:
   m_ObjectHideFlags: 0

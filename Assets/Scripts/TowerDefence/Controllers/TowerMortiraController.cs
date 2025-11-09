@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Bullet;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Assets.Scripts.TowerDefence.Controllers
@@ -17,6 +18,10 @@ namespace Assets.Scripts.TowerDefence.Controllers
                 return;
 
             Vector3 direction = target.position - bulletPos.position;
+            float distance = Vector3.Distance(target.position, transform.position);
+
+            if (distance < minDistance)
+                return;
 
             gunAnimation.PlayAnim();
             shotEffect.Play();
@@ -27,7 +32,7 @@ namespace Assets.Scripts.TowerDefence.Controllers
             var bulletController = bullet.GetComponent<MortiraCoreBullet>();
             if (bulletController != null)
             {
-                bulletController.InitializeCore(bulletPos.position, target.position + offset);
+                bulletController.InitializeCoreWithDamage(bulletPos.position, target.position + offset, damage);
 
                 gunAnimation.ResetAnim();
             }

@@ -14,9 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerName: Cannon
   prefab: {fileID: 5643410134133757770, guid: 7e59f32d955d14b4c8de46144bd48a00, type: 3}
+  maxLevel: 3
   baseCost: 100
   upgradeMultiplier: 1.5
   sellRefundFactor: 0.6
-  baseDamage: 10
-  range: 3
-  fireRate: 1
+  damage_level_1: 20
+  reload_level_1: 2
+  minDistance_level_1: 20
+  maxDistance_level_1: 50
+  damage_level_2: 30
+  reload_level_2: 2.5
+  minDistance_level_2: 25
+  maxDistance_level_2: 65
+  damage_level_3: 40
+  reload_level_3: 3
+  minDistance_level_3: 30
+  maxDistance_level_3: 80

@@ -51,6 +51,16 @@ namespace Assets.Scripts
 
             StartCoroutine(LifeBeforeDestroy());
         }
+        public virtual void InitializeWithTimerAndDamage(Vector3 pos, float distance, int damage)
+        {
+            float time = distance / speed;
+            lifeBeforeDestroy = time;
+            rb.linearVelocity = pos * speed;
+            damageEnemy = damage;
+            SoundPoolManager.Instance.PlaySound(soundShotPrefab);
+
+            StartCoroutine(LifeBeforeDestroy());
+        }
 
         private protected void Deactive()
         {

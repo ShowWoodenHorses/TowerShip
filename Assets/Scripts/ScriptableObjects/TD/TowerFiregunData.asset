@@ -14,9 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerName: Firegun
   prefab: {fileID: 4296271657542014579, guid: 63720ce4deeed07459fb2e40bee82f7f, type: 3}
+  maxLevel: 3
   baseCost: 700
   upgradeMultiplier: 1.5
   sellRefundFactor: 0.6
-  baseDamage: 10
-  range: 3
-  fireRate: 1
+  damage_level_1: 5
+  reload_level_1: 0
+  minDistance_level_1: 0
+  maxDistance_level_1: 30
+  damage_level_2: 10
+  reload_level_2: 0
+  minDistance_level_2: 0
+  maxDistance_level_2: 45
+  damage_level_3: 20
+  reload_level_3: 0
+  minDistance_level_3: 0
+  maxDistance_level_3: 55

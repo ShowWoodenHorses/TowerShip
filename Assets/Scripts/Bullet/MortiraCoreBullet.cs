@@ -86,6 +86,45 @@ namespace Assets.Scripts.Bullet
             StartCoroutine(LifeBeforeDestroy());
         }
 
+        public virtual void InitializeCoreWithDamage(Vector3 start, Vector3 target, int damage)
+        {
+            damageEnemy = damage;
+            gameObject.SetActive(false);
+            startPos = start;
+            targetPos = target;
+            elapsedTime = 0f;
+            inFlight = true;
+            trackImage.SetActive(true);
+
+            slowSpeed = speed - coefSpeed;
+            highSpeed = speed + coefSpeed;
+
+            // Верхняя точка
+            highPoint = new Vector3(
+                (start.x + target.x) / 2,
+                Mathf.Max(start.y, target.y) + 15f, // поднимаем выше старта/цели
+                (start.z + target.z) / 2
+            );
+
+            // Дополнительные промежуточные точки для плавного перехода
+            mid1 = Vector3.Lerp(start, highPoint, 0.5f);
+            mid2 = Vector3.Lerp(highPoint, target, 0.5f);
+
+            // Расчет общей дистанции для определения времени полета
+            float distance = Vector3.Distance(start, mid1) +
+                             Vector3.Distance(mid1, highPoint) +
+                             Vector3.Distance(highPoint, mid2) +
+                             Vector3.Distance(mid2, target);
+
+            flightDuration = distance / ((slowSpeed + highSpeed) / 2);
+            lifeBeforeDestroy = flightDuration;
+
+            gameObject.SetActive(true);
+            SoundPoolManager.Instance.PlaySound(soundShotPrefab);
+
+            StartCoroutine(LifeBeforeDestroy());
+        }
+
         /// <summary>
         /// Четырехточечный Bezier для плавной траектории
         /// </summary>

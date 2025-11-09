@@ -6,8 +6,6 @@ namespace Assets.Scripts.TowerDefence.Controllers
     public class TowerFiregunController : TowerController
     {
         //[SerializeField] private AudioSource flameSound;
-        [Header("Attack")]
-        [SerializeField] private int damage;
 
         [Header("Flamethrower Settings")]
         [SerializeField] private GameObject effectsObject;
@@ -76,6 +74,9 @@ namespace Assets.Scripts.TowerDefence.Controllers
             isFiring = true;
 
             float distance = Vector3.Distance(target.position, transform.position);
+
+            if (distance < minDistance)
+                return;
 
             flameEffect.transform.position = bulletPos.position;
             flameEffect.transform.rotation = bulletPos.rotation;

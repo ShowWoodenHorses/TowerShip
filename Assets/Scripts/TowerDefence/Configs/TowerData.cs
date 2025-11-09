@@ -8,15 +8,29 @@ namespace Assets.Scripts.TowerDefence.Configs
     {
         public string towerName;
         public GameObject prefab;
+        public int maxLevel = 3;
 
         [Header("Economy")]
         public int baseCost = 100;
         public float upgradeMultiplier = 1.5f;
         public float sellRefundFactor = 0.6f;
 
-        [Header("Stats")]
-        public float baseDamage = 10f;
-        public float range = 3f;
-        public float fireRate = 1f;
+        [Header("Level 1")]
+        public int damage_level_1;
+        public float reload_level_1;
+        public float minDistance_level_1;
+        public float maxDistance_level_1;
+
+        [Header("Level 2")]
+        public int damage_level_2;
+        public float reload_level_2;
+        public float minDistance_level_2;
+        public float maxDistance_level_2;
+
+        [Header("Level 3")]
+        public int damage_level_3;
+        public float reload_level_3;
+        public float minDistance_level_3;
+        public float maxDistance_level_3;
     }
 }

@@ -1,12 +1,11 @@
 ﻿using Assets.Scripts.Animation;
+using Assets.Scripts.Player;
 using UnityEngine;
 
 namespace Assets.Scripts.TowerDefence.Controllers
 {
     public class TowerController : MonoBehaviour
     {
-        [SerializeField] private protected float reloadTime;
-        [SerializeField] private protected float range;
         [SerializeField] private protected GameObject bulletPrefab;
         [SerializeField] private protected Transform bulletPos;
         [SerializeField] private protected LayerMask layerMask;
@@ -25,6 +24,12 @@ namespace Assets.Scripts.TowerDefence.Controllers
         private protected float currentReloadTime;
         private protected float detectionTimer;
         private protected Collider[] enemies = new Collider[16];
+
+        [Header("Settings")]
+        [SerializeField] private protected float reloadTime;
+        [SerializeField] private protected float maxDistance;
+        [SerializeField] private protected float minDistance;
+        [SerializeField] private protected int damage;
 
         private protected void Start()
         {
@@ -71,7 +76,7 @@ namespace Assets.Scripts.TowerDefence.Controllers
 
         private protected void CheckTarget()
         {
-            int found = Physics.OverlapSphereNonAlloc(transform.position, range, enemies, layerMask);
+            int found = Physics.OverlapSphereNonAlloc(transform.position, maxDistance, enemies, layerMask);
 
             Transform nearest = null;
             float nearestSqr = float.MaxValue;
@@ -102,7 +107,7 @@ namespace Assets.Scripts.TowerDefence.Controllers
 
             // Если цель дальше, чем range (любой вариант - для простоты проверим расстояние до позиции)
             float sqrDist = (target.position - transform.position).sqrMagnitude;
-            if (sqrDist > range * range)
+            if (sqrDist > maxDistance * maxDistance)
             {
                 target = null;
                 return;
@@ -124,6 +129,9 @@ namespace Assets.Scripts.TowerDefence.Controllers
             Vector3 direction = target.position - bulletPos.position;
             float distance = Vector3.Distance(target.position, transform.position);
 
+            if (distance < minDistance)
+                return;
+
             gunAnimation.PlayAnim();
             shotEffect.Play();
 
@@ -133,7 +141,7 @@ namespace Assets.Scripts.TowerDefence.Controllers
             var bulletController = bullet.GetComponent<BulletContoller>();
             if(bulletController != null)
             {
-                bulletController.InitializeWithTimer(direction.normalized, distance);
+                bulletController.InitializeWithTimerAndDamage(direction.normalized, distance, damage);
                 gunAnimation.ResetAnim();
             }
         }
@@ -152,7 +160,25 @@ namespace Assets.Scripts.TowerDefence.Controllers
         private protected void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, range);
+            Gizmos.DrawWireSphere(transform.position, maxDistance);
+        }
+
+        public void SetSettings(float reload, float minDistance, float maxDistance, int damage)
+        {
+            this.reloadTime = reload;
+            this.minDistance = minDistance;
+            this.maxDistance = maxDistance;
+            this.damage = damage;
+        }
+
+        public float GetMinDistance()
+        {
+            return minDistance;
+        }
+
+        public float GetMaxDistance()
+        {
+            return maxDistance;
         }
     }
 }

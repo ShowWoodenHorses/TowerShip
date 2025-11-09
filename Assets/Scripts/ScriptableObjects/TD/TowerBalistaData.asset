@@ -14,9 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerName: Balista
   prefab: {fileID: 4718646296728496833, guid: dd7b21f6d19a04e499538077f3e2aa1a, type: 3}
+  maxLevel: 3
   baseCost: 150
   upgradeMultiplier: 1.5
   sellRefundFactor: 0.6
-  baseDamage: 10
-  range: 3
-  fireRate: 1
+  damage_level_1: 10
+  reload_level_1: 1
+  minDistance_level_1: 20
+  maxDistance_level_1: 70
+  damage_level_2: 20
+  reload_level_2: 1.5
+  minDistance_level_2: 30
+  maxDistance_level_2: 85
+  damage_level_3: 30
+  reload_level_3: 2
+  minDistance_level_3: 35
+  maxDistance_level_3: 100
