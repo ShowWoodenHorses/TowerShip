@@ -105,7 +105,7 @@ namespace Assets.Scripts
         private void Start()
         {
             TowerActionUI.Instance.Initialize(scoreManager);
-            BuildManager.Instance.Initizlixe(scoreManager);
+            BuildManager.Instance.Initizlixe(scoreManager, saveLifecycle);
         }
     }
 }

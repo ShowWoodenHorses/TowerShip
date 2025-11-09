@@ -2,6 +2,7 @@
 using Assets.Scripts.TowerDefence;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Assets.Scripts.Save;
 
 public class Tile : MonoBehaviour
 {
@@ -9,6 +10,14 @@ public class Tile : MonoBehaviour
     public Color baseColor = Color.white;
     public Color highlightColor = Color.green;
     public Renderer rend;
+    public int index;
+
+    private SaveLifecycle saveLifecycle;
+
+    public void Initialize(SaveLifecycle saveLifecycle)
+    {
+        this.saveLifecycle = saveLifecycle;
+    }
 
     private void Awake()
     {
@@ -26,6 +35,7 @@ public class Tile : MonoBehaviour
     public void ClearTower()
     {
         tower = null;
+        saveLifecycle.DestroyTower(index);
     }
 
     public void SetHighlight(bool on)

@@ -17,13 +17,14 @@ public static class SaveSystem
     {
         return new SaveData()
         {
-            version = 2,
+            version = 3,
             currentCoins = defaultConfig.currentCoins,
             allCoins = defaultConfig.allCoins,
             selectedPLayerId = defaultConfig.selectedPLayerId,
             selectedBulletId = defaultConfig.selectedBulletId,
             currentWaveEnemyId = defaultConfig.currentWaveEnemyId,
             ownedItems = new List<string>(defaultConfig.ownedItems),
+            ownedTowersDict = new List<SaveTileData>(defaultConfig.ownedTowersDict),
         };
     }
 

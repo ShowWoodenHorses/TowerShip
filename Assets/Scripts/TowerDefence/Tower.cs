@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Assets.Scripts.Save;
 using Assets.Scripts.TowerDefence.Configs;
 using Assets.Scripts.TowerDefence.Controllers;
 using UnityEngine;
@@ -12,12 +13,17 @@ namespace Assets.Scripts.TowerDefence
         public int TotalCost { get; private set; }
 
         private TowerController towerController;
+        private SaveLifecycle saveLifecycle;
 
-        public void Initialize(TowerData towerData)
+        private int indexTile;
+
+        public void Initialize(SaveLifecycle saveLifecycle, TowerData towerData, int indexTile, int level = 1)
         {
             towerController = GetComponent<TowerController>();
+            this.saveLifecycle = saveLifecycle;
             data = towerData;
-            level = 1;
+            this.indexTile = indexTile;
+            this.level = level;
             UpdateSettings();
             TotalCost = data.baseCost;
         }
@@ -35,6 +41,7 @@ namespace Assets.Scripts.TowerDefence
             scoreManager.RemoveMoney(cost);
             level++;
             UpdateSettings();
+            SaveSettings();
             TotalCost += cost;
             return true;
         }
@@ -73,6 +80,11 @@ namespace Assets.Scripts.TowerDefence
         public TowerController GetTowerController()
         {
             return towerController;
+        }
+
+        private void SaveSettings()
+        {
+            saveLifecycle.UpdateTileTower(indexTile, data.towerName, level);
         }
     }
 }

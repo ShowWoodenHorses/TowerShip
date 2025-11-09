@@ -132,8 +132,6 @@ namespace Assets.Scripts.TowerDefence.UI
             {
                 upgradeButton.gameObject.SetActive(false);
             }
-
-            Debug.Log(tower.GetCurrentLevel());
         }
 
         public void OnUpgrade()

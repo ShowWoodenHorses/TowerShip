@@ -1,5 +1,8 @@
 ﻿using System.Collections;
+using NUnit.Framework;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Assets.Scripts.Save
 {
@@ -74,6 +77,34 @@ namespace Assets.Scripts.Save
                 Data.currentWaveEnemyId = waveEnemyId;
 
             SaveSystem.Save(Data);
+        }
+
+        public void UpdateTileTower(int indexTile, string towerName, int level = 1)
+        {
+            SaveTileData newTowerData = new() { tileId = indexTile, towerName = towerName, level = level};
+
+            int foundIndex = Data.ownedTowersDict.FindIndex(t => t.tileId == indexTile);
+
+            if(foundIndex >= 0)
+            {
+                Data.ownedTowersDict[foundIndex] = newTowerData;
+            }
+            else
+            {
+                Data.ownedTowersDict.Add(newTowerData);
+            }
+
+            SaveSystem.Save(Data);
+        }
+
+        public void DestroyTower(int indexTile)
+        {
+            int foundIndex = Data.ownedTowersDict.FindIndex(t => t.tileId == indexTile);
+
+            if (foundIndex >= 0)
+            {
+                Data.ownedTowersDict.RemoveAt(foundIndex);
+            }
         }
     }
 }

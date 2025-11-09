@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Assets.Scripts.TowerDefence.UI;
 using UnityEngine.SceneManagement;
+using Assets.Scripts.Save;
+using System.Linq;
 
 namespace Assets.Scripts.TowerDefence
 {
@@ -14,6 +16,9 @@ namespace Assets.Scripts.TowerDefence
 
         [Header("Grid")]
         public List<Tile> allTiles = new List<Tile>();
+
+        [Header("TowersData")]
+        public List<TowerData> allTowersData = new List<TowerData>();
 
         [Header("Ghost Settings")]
         public Color ghostValidColor = new Color(0f, 1f, 0f, 0.5f);
@@ -28,7 +33,10 @@ namespace Assets.Scripts.TowerDefence
         private Renderer[] ghostRenderers;
         private Tile hoveredTile;
 
+        private Dictionary<string, TowerData> towerDataByName;
+
         private ScoreManager scoreManager;
+        private SaveLifecycle saveLifecycle;
 
         [ContextMenu("Init Tiles")]
         public void initTiles()
@@ -41,11 +49,48 @@ namespace Assets.Scripts.TowerDefence
         {
             if (Instance != null && Instance != this) Destroy(gameObject);
             Instance = this;
+
+            towerDataByName = allTowersData.ToDictionary(t => t.towerName);
         }
 
-        public void Initizlixe(ScoreManager scoreManager)
+        public void Initizlixe(ScoreManager scoreManager, SaveLifecycle saveLifecycle)
         {
             this.scoreManager = scoreManager;
+            this.saveLifecycle = saveLifecycle;
+            InitializeFromSave();
+        }
+        private void InitializeFromSave()
+        {
+            var towersByTile = SaveLifecycle.Data.ownedTowersDict.ToDictionary(t => t.tileId);
+
+            foreach(var tile in allTiles)
+            {
+                tile.Initialize(saveLifecycle);
+
+                if(towersByTile.TryGetValue(tile.index, out var saveTile))
+                {
+                    TowerData towerData = GetTowerDataForName(saveTile.towerName);
+                    if (towerData != null)
+                    {
+                        GameObject towerObj = Instantiate(towerData.prefab, tile.transform.position, Quaternion.identity);
+                        Tower tower = towerObj.GetComponent<Tower>();
+                        if (tower == null)
+                        {
+                            Debug.LogWarning("Prefab missing Tower component!");
+                        }
+                        else
+                        {
+                            tower.Initialize(saveLifecycle, towerData, tile.index, saveTile.level);
+                            tile.PlaceTower(tower);
+                        }
+                    }
+                }
+            }
+        }
+
+        private TowerData GetTowerDataForName(string towerName)
+        {
+            return towerDataByName.TryGetValue(towerName, out var towerData) ? towerData : null;
         }
 
         private void Update()
@@ -164,8 +209,9 @@ namespace Assets.Scripts.TowerDefence
             }
             else
             {
-                tower.Initialize(selectedTowerData);
+                tower.Initialize(saveLifecycle, selectedTowerData, tile.index);
                 tile.PlaceTower(tower);
+                saveLifecycle.UpdateTileTower(tile.index, selectedTowerData.towerName);
                 Debug.Log($"Built {selectedTowerData.towerName} at tile {tile.name}. Remaining money: {scoreManager.GetCurrentMoney()}");
             }
 

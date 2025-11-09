@@ -1,5 +1,6 @@
 using System;                                
 using System.Collections.Generic;
+using Assets.Scripts.TowerDefence;
 
 namespace Assets.Scripts.Save
 {
@@ -15,5 +16,14 @@ namespace Assets.Scripts.Save
         public string currentWaveEnemyId;
 
         public List<string> ownedItems = new();
+        public List<SaveTileData> ownedTowersDict = new();
+    }
+
+    [Serializable]
+    public class SaveTileData
+    {
+        public int tileId;
+        public string towerName;
+        public int level;
     }
 }
