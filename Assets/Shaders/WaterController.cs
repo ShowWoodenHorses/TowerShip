@@ -29,27 +29,27 @@ public class WaterController : MonoBehaviour
         InitializeWater();
     }
 
-    private void OnValidate()
-    {
-        if (waterMaterial != null)
-        {
-            UpdateMaterialProperties();
-        }
-    }
+    //private void OnValidate()
+    //{
+    //    if (waterMaterial != null)
+    //    {
+    //        UpdateMaterialProperties();
+    //    }
+    //}
 
-    private void Update()
-    {
-        if (!Application.isPlaying && !updateInEditMode) return;
+    //private void Update()
+    //{
+    //    if (!Application.isPlaying && !updateInEditMode) return;
 
-        if (Time.time - lastUpdateTime < 1f / updateRate)
-            return;
+    //    if (Time.time - lastUpdateTime < 1f / updateRate)
+    //        return;
 
-        if (waterMaterial != null)
-        {
-            UpdateMaterialProperties();
-            lastUpdateTime = Time.time;
-        }
-    }
+    //    if (waterMaterial != null)
+    //    {
+    //        UpdateMaterialProperties();
+    //        lastUpdateTime = Time.time;
+    //    }
+    //}
 
     private void InitializeWater()
     {

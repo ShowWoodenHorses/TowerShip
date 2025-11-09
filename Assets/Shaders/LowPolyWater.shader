@@ -1,4 +1,4 @@
-Shader "Custom/LowPolyWaterFoamShoreline"
+Shader "Custom/LowPolyWaterFoamShoreline_NoGlow"
 {
     Properties
     {
@@ -8,11 +8,10 @@ Shader "Custom/LowPolyWaterFoamShoreline"
         _WaveSpeed ("Wave Speed", Range(0, 5)) = 1.0
         _WaveFrequency ("Wave Frequency", Range(0, 10)) = 1.5
         _Sharpness ("Wave Sharpness", Range(0.1, 5)) = 2.0
-        _SpecularPower ("Specular Power", Range(0, 1)) = 0.5
 
         // --- FOAM SETTINGS ---
         _FoamColor ("Foam Color", Color) = (1,1,1,1)
-        _FoamGlobalIntensity ("Foam Intensity", Range(0,1)) = 1.0
+        _FoamGlobalIntensity ("Foam Intensity", Range(0,2)) = 1.0
         _FoamThickness ("Foam Width", Range(0.01, 2)) = 0.3
         _FoamNoiseScale ("Foam Noise Scale", Range(0.1, 5)) = 1.5
         _FoamNoiseStrength ("Foam Noise Strength", Range(0,1)) = 0.4
@@ -24,7 +23,7 @@ Shader "Custom/LowPolyWaterFoamShoreline"
         LOD 200
 
         CGPROGRAM
-        #pragma surface surf Lambert vertex:vert addshadow
+        #pragma surface surf Lambert vertex:vert addshadow noforwardadd
         #pragma target 3.0
 
         fixed4 _BaseColor;
@@ -33,9 +32,7 @@ Shader "Custom/LowPolyWaterFoamShoreline"
         float _WaveSpeed;
         float _WaveFrequency;
         float _Sharpness;
-        float _SpecularPower;
 
-        // --- FOAM ARRAYS ---
         #define MAX_FOAM_ARRAY 32
         float4 _FoamPosArray[MAX_FOAM_ARRAY];
         float4 _FoamNormalArray[MAX_FOAM_ARRAY];
@@ -53,7 +50,6 @@ Shader "Custom/LowPolyWaterFoamShoreline"
             float waveSlope;
         };
 
-        // === SIMPLE NOISE ===
         float hash(float2 p)
         {
             return frac(sin(dot(p, float2(127.1, 311.7))) * 43758.5453);
@@ -67,11 +63,10 @@ Shader "Custom/LowPolyWaterFoamShoreline"
             float b = hash(i + float2(1, 0));
             float c = hash(i + float2(0, 1));
             float d = hash(i + float2(1, 1));
-            float2 u = f * f * (3.0 - 2.0 * f);
-            return lerp(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
+            float2 u = f*f*(3.0-2.0*f);
+            return lerp(a, b, u.x) + (c-a)*u.y*(1.0-u.x) + (d-b)*u.x*u.y;
         }
 
-        // === VERTEX WAVE DISPLACEMENT ===
         void vert(inout appdata_full v, out Input o)
         {
             UNITY_INITIALIZE_OUTPUT(Input, o);
@@ -82,7 +77,7 @@ Shader "Custom/LowPolyWaterFoamShoreline"
             float waveZ = cos(worldPos.z * _WaveFrequency * 0.7 + _Time.y * _WaveSpeed * 0.9);
             float combined = (waveX + waveZ) * 0.5;
 
-            combined = pow(combined * 0.5 + 0.5, _Sharpness) * 2.0 - 1.0;
+            combined = pow(combined*0.5 + 0.5, _Sharpness) * 2.0 - 1.0;
 
             v.vertex.y += combined * _WaveHeight;
 
@@ -90,41 +85,28 @@ Shader "Custom/LowPolyWaterFoamShoreline"
             o.worldPos = worldPos;
         }
 
-        // === SURFACE FUNCTION ===
         void surf(Input IN, inout SurfaceOutput o)
         {
-            // Базовый цвет воды
-            fixed4 waterColor = lerp(_BaseColor, _WaveColor, IN.waveSlope);
+            // Волны без свечения
+            fixed4 waterColor = _BaseColor;
 
             // --- FOAM CALCULATION ---
             float foamMask = 0;
-
             for (int i = 0; i < _FoamCount; i++)
             {
                 float3 foamPos = _FoamPosArray[i].xyz;
                 float radius = _FoamPosArray[i].w;
                 float3 normal = normalize(_FoamNormalArray[i].xyz);
 
-                // Вектор от берега к текущей точке
                 float3 dir = IN.worldPos - foamPos;
-
-                // Расстояние вдоль нормали (вглубь воды)
                 float distForward = dot(dir, normal);
-
-                // Поперечное расстояние вдоль линии берега
                 float lateralDist = length(dir - normal * distForward);
 
-                // Только со стороны воды (в направлении нормали)
                 if (distForward > 0)
                 {
-                    // Базовая маска толщины пены
                     float foamBand = smoothstep(radius, 0.0, distForward);
-
-                    // Мягкий спад вдоль берега
-                    float width = saturate(1.0 - (lateralDist / (radius * 2.0)));
-
-                    // Шумовое искажение края
-                    float n = noise(IN.worldPos.xz * _FoamNoiseScale + i * 15.3 + _Time.y * 0.5);
+                    float width = saturate(1.0 - (lateralDist / (radius*2.0)));
+                    float n = noise(IN.worldPos.xz * _FoamNoiseScale + i*15.3 + _Time.y*0.5);
                     foamBand *= (0.7 + n * _FoamNoiseStrength);
                     foamBand *= width;
 
@@ -132,15 +114,16 @@ Shader "Custom/LowPolyWaterFoamShoreline"
                 }
             }
 
-            // Итоговый цвет
-            float foamIntensity = saturate(foamMask * _FoamGlobalIntensity);
-            waterColor.rgb = lerp(waterColor.rgb, _FoamColor.rgb, foamIntensity);
+            float foamIntensity = saturate(foamMask * _FoamGlobalIntensity * 0.8); // приглушаем белый
+            waterColor.rgb = lerp(waterColor.rgb, _FoamColor.rgb * 0.8, foamIntensity);
 
+            // Без спекуляра и блеска
             o.Albedo = waterColor.rgb;
             o.Alpha = 1.0;
-            o.Specular = _SpecularPower;
-            o.Gloss = IN.waveSlope * _SpecularPower;
+            o.Specular = 0.0;
+            o.Gloss = 0.0;
         }
+
         ENDCG
     }
 

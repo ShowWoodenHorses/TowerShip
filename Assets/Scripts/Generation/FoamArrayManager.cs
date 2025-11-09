@@ -16,7 +16,7 @@ namespace Assets.Scripts.Generation
         [SerializeField] private Color foamColor = Color.white;
 
         [Tooltip("Глобальная интенсивность пены")]
-        [SerializeField, Range(0, 1)] private float foamGlobalIntensity = 1f;
+        [SerializeField, Range(0, 2)] private float foamGlobalIntensity = 1f;
 
         [Tooltip("Автоматически искать все ShoreFoamTrigger в сцене")]
         [SerializeField] private bool autoFindTriggers = true;
