@@ -25,11 +25,19 @@ namespace Assets.Scripts.TowerDefence
             this.indexTile = indexTile;
             this.level = level;
             UpdateSettings();
-            TotalCost = data.baseCost;
+            UpdateCost();
         }
 
-        public int GetUpgradeCost() =>
-            Mathf.RoundToInt(data.baseCost * Mathf.Pow(data.upgradeMultiplier, level));
+        public int GetUpgradeCost()
+        {
+            switch (level)
+            {
+                case 1:
+                    return data.cost_level_2;
+                default:
+                    return data.cost_level_3;
+            }
+        }
 
         public bool TryUpgrade(ScoreManager scoreManager)
         {
@@ -42,7 +50,7 @@ namespace Assets.Scripts.TowerDefence
             level++;
             UpdateSettings();
             SaveSettings();
-            TotalCost += cost;
+            UpdateCost();
             return true;
         }
 
@@ -85,6 +93,22 @@ namespace Assets.Scripts.TowerDefence
         private void SaveSettings()
         {
             saveLifecycle.UpdateTileTower(indexTile, data.towerName, level);
+        }
+
+        private void UpdateCost()
+        {
+            switch (level)
+            {
+                case 1:
+                    TotalCost = data.cost_level_1;
+                    break;
+                case 2:
+                    TotalCost = data.cost_level_2;
+                    break;
+                default:
+                    TotalCost = data.cost_level_3;
+                    break;
+            }
         }
     }
 }

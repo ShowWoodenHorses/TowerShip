@@ -59,39 +59,6 @@ namespace Assets.Scripts.TowerDefence
             this.saveLifecycle = saveLifecycle;
             InitializeFromSave();
         }
-        private void InitializeFromSave()
-        {
-            var towersByTile = SaveLifecycle.Data.ownedTowersDict.ToDictionary(t => t.tileId);
-
-            foreach(var tile in allTiles)
-            {
-                tile.Initialize(saveLifecycle);
-
-                if(towersByTile.TryGetValue(tile.index, out var saveTile))
-                {
-                    TowerData towerData = GetTowerDataForName(saveTile.towerName);
-                    if (towerData != null)
-                    {
-                        GameObject towerObj = Instantiate(towerData.prefab, tile.transform.position, Quaternion.identity);
-                        Tower tower = towerObj.GetComponent<Tower>();
-                        if (tower == null)
-                        {
-                            Debug.LogWarning("Prefab missing Tower component!");
-                        }
-                        else
-                        {
-                            tower.Initialize(saveLifecycle, towerData, tile.index, saveTile.level);
-                            tile.PlaceTower(tower);
-                        }
-                    }
-                }
-            }
-        }
-
-        private TowerData GetTowerDataForName(string towerName)
-        {
-            return towerDataByName.TryGetValue(towerName, out var towerData) ? towerData : null;
-        }
 
         private void Update()
         {
@@ -230,6 +197,39 @@ namespace Assets.Scripts.TowerDefence
                 else
                     tile.SetHighlight(false);
             }
+        }
+        private void InitializeFromSave()
+        {
+            var towersByTile = SaveLifecycle.Data.ownedTowersDict.ToDictionary(t => t.tileId);
+
+            foreach (var tile in allTiles)
+            {
+                tile.Initialize(saveLifecycle);
+
+                if (towersByTile.TryGetValue(tile.index, out var saveTile))
+                {
+                    TowerData towerData = GetTowerDataForName(saveTile.towerName);
+                    if (towerData != null)
+                    {
+                        GameObject towerObj = Instantiate(towerData.prefab, tile.transform.position, Quaternion.identity);
+                        Tower tower = towerObj.GetComponent<Tower>();
+                        if (tower == null)
+                        {
+                            Debug.LogWarning("Prefab missing Tower component!");
+                        }
+                        else
+                        {
+                            tower.Initialize(saveLifecycle, towerData, tile.index, saveTile.level);
+                            tile.PlaceTower(tower);
+                        }
+                    }
+                }
+            }
+        }
+
+        private TowerData GetTowerDataForName(string towerName)
+        {
+            return towerDataByName.TryGetValue(towerName, out var towerData) ? towerData : null;
         }
 
         #region Ghost

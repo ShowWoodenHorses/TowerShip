@@ -20,17 +20,20 @@ namespace Assets.Scripts.TowerDefence.Configs
         public float reload_level_1;
         public float minDistance_level_1;
         public float maxDistance_level_1;
+        public int cost_level_1;
 
         [Header("Level 2")]
         public int damage_level_2;
         public float reload_level_2;
         public float minDistance_level_2;
         public float maxDistance_level_2;
+        public int cost_level_2;
 
         [Header("Level 3")]
         public int damage_level_3;
         public float reload_level_3;
         public float minDistance_level_3;
         public float maxDistance_level_3;
+        public int cost_level_3;
     }
 }

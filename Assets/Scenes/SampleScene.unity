@@ -25455,6 +25455,14 @@ MonoBehaviour:
   - {fileID: 221241213}
   - {fileID: 380612981}
   - {fileID: 692951556}
+  allTowersData:
+  - {fileID: 11400000, guid: 85fea5d89cb01594a92ae95bf1083cdc, type: 2}
+  - {fileID: 11400000, guid: 0303dbe72cd12a1429d4eaf02fb7ea55, type: 2}
+  - {fileID: 11400000, guid: 5de7ad8acf568e14dabfb49a0a48fbb8, type: 2}
+  - {fileID: 11400000, guid: 73dbdb9a73d274d40962666d6ff3cb53, type: 2}
+  - {fileID: 11400000, guid: c2da30a0362a6794c8e3cd9386ede5a4, type: 2}
+  - {fileID: 11400000, guid: 33661d9637473604fb663708a920fc41, type: 2}
+  - {fileID: 11400000, guid: caf0541e93038a24e8d07b87387716a0, type: 2}
   ghostValidColor: {r: 0, g: 1, b: 0, a: 0.3}
   ghostInvalidColor: {r: 1, g: 0, b: 0, a: 0.3}
   tileLayerMask:

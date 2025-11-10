@@ -94,12 +94,6 @@ namespace Assets.Scripts.TowerDefence.UI
                 return;
             }
 
-            // Обновляем информацию
-            towerInfoText.text =
-                $"{tower.data.towerName} L{tower.level}\n" +
-                $"Upgrade: {tower.GetUpgradeCost()}$\n" +
-                $"Sell: {tower.GetSellValue()}$";
-
             // Устанавливаем позицию UI над башней
             Vector3 screenPos = mainCamera.WorldToScreenPoint(tile.transform.position + worldOffset);
             panel.transform.position = screenPos;
@@ -131,6 +125,17 @@ namespace Assets.Scripts.TowerDefence.UI
             if(tower.GetCurrentLevel() >= tower.GetMaxLEvel())
             {
                 upgradeButton.gameObject.SetActive(false);
+                towerInfoText.text =
+                    $"{tower.data.towerName} L{tower.level}\n" +
+                    $"Sell: {tower.GetSellValue()}$";
+            }
+            else
+            {
+                // Обновляем информацию
+                towerInfoText.text =
+                    $"{tower.data.towerName} L{tower.level}\n" +
+                    $"Upgrade: {tower.GetUpgradeCost()}$\n" +
+                    $"Sell: {tower.GetSellValue()}$";
             }
         }
 
