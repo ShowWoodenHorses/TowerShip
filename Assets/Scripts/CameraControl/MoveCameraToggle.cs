@@ -33,9 +33,22 @@ namespace Assets.Scripts.CameraControl
 
         public void SwitchToggleOnDisableMove()
         {
+            if (!canMove)
+                return;
+
             canMove = false;
             cameraController.SetDisableMoving();
             playerManager.SetCanShoot();
+        }
+
+        public void SwitchToggleOnActiveMove()
+        {
+            if (canMove)
+                return;
+
+            canMove = true;
+            cameraController.SetActiveMoving();
+            playerManager.SetDisableShoot();
         }
     }
 }
