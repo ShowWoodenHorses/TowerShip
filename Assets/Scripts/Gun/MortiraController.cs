@@ -49,6 +49,7 @@ namespace Assets.Scripts.Gun
             if (bulletController != null)
             {
                 bulletController.InitializeCore(shootPosition.position, mousePosition);
+                bulletController.InitializeStatData(saveLifecycle, gunId);
 
                 gunAnimation.ResetAnim();
             }

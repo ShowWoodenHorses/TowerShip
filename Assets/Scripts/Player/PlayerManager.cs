@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Assets.Scripts.Configs;
+using Assets.Scripts.Save;
 using Assets.Scripts.UI;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,10 +25,12 @@ namespace Assets.Scripts.Player
 
         private GameObject currentPlayerInstance;
         private PLayerHealth health;
+        private SaveLifecycle saveLifecycle;
 
-        public void Initialize(string playerId)
+        public void Initialize(string playerId, SaveLifecycle saveLifecycle)
         {
             SetHealth();
+            this.saveLifecycle = saveLifecycle;
             UpgradePlayer(playerId);
         }
 
@@ -71,7 +74,7 @@ namespace Assets.Scripts.Player
             {
                 this.gunController = gunController;
                 reloadPlayerUI.Initialize(gunController);
-                gunController.Initialize(shipAimLine, circleNoFire);
+                gunController.Initialize(shipAimLine, circleNoFire, saveLifecycle, config.id);
             }
         }
 

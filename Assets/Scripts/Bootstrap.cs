@@ -92,7 +92,7 @@ namespace Assets.Scripts
             //rewardsAds.Initialize(scoreManager);
 
             //shipManager.Initialize(data.selectedShipId, data.selectedBulletId, gameplayAnimationController, uiDisplayCannon, shipInput);
-            playerManager.Initialize(data.selectedPLayerId);
+            playerManager.Initialize(data.selectedPLayerId, saveLifecycle);
             gameManager.Initialize(uiController, scoreManager);
             enemySpawner.Initialize(data.currentWaveEnemyId, playerTransform, gameplayAnimationController);
 

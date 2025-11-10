@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Assets.Scripts.Animation;
+using Assets.Scripts.Save;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -33,7 +34,11 @@ namespace Assets.Scripts.Player
         private protected float currentTimeReloading;
         private protected bool canShoot;
 
-        public virtual void Initialize(ShipAimLine shipAimLine, CircleNoFire circleNoFire)
+        [Header("Stat")]
+        private protected SaveLifecycle saveLifecycle;
+        private protected string gunId;
+
+        public virtual void Initialize(ShipAimLine shipAimLine, CircleNoFire circleNoFire, SaveLifecycle saveLifecycle, string gunId)
         {
             currentTimeReloading = reloading;
             gunAnimation.InitializeAnim();
@@ -45,6 +50,9 @@ namespace Assets.Scripts.Player
 
             this.shipAimLine = shipAimLine;
             this.circleNoFire = circleNoFire;
+
+            this.saveLifecycle = saveLifecycle;
+            this.gunId = gunId;
 
             circleNoFire.Initialize(distanceFireRadius);
             shipAimLine.Initialize();
@@ -93,6 +101,7 @@ namespace Assets.Scripts.Player
             if (bulletController != null)
             {
                 bulletController.InitializeWithTimer(direction.normalized, distance);
+                bulletController.InitializeStatData(saveLifecycle, gunId);
 
                 gunAnimation.ResetAnim();
             }

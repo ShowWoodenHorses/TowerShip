@@ -78,6 +78,11 @@ public class BulletObjectPool : MonoBehaviour
     public void ReturnObject(GameObject obj)
     {
         obj.SetActive(false);
+        BulletContoller bulletController = obj.GetComponent<BulletContoller>();
+        if (bulletController != null)
+        {
+            bulletController.SetSettings();
+        }
         // Возвращаем объект в его соответствующий пул
         foreach (var pool in poolDictionary)
         {

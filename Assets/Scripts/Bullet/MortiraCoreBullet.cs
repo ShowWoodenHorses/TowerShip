@@ -50,6 +50,7 @@ namespace Assets.Scripts.Bullet
 
         public virtual void InitializeCore(Vector3 start, Vector3 target)
         {
+            setStat = true;
             gameObject.SetActive(false);
             startPos = start;
             targetPos = target;
@@ -88,6 +89,7 @@ namespace Assets.Scripts.Bullet
 
         public virtual void InitializeCoreWithDamage(Vector3 start, Vector3 target, int damage)
         {
+            setStat = false;
             damageEnemy = damage;
             gameObject.SetActive(false);
             startPos = start;

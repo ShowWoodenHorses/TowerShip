@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Assets.Scripts.Interface;
 using Assets.Scripts.Player;
+using Assets.Scripts.Save;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -30,9 +31,9 @@ namespace Assets.Scripts.Gun
         private bool isFiring;
         private float damageTimer;
 
-        public override void Initialize(ShipAimLine shipAimLine, CircleNoFire circleNoFire)
+        public override void Initialize(ShipAimLine shipAimLine, CircleNoFire circleNoFire, SaveLifecycle saveLifecycle, string gunId)
         {
-            base.Initialize(shipAimLine, circleNoFire);
+            base.Initialize(shipAimLine, circleNoFire, saveLifecycle, gunId);
             isFiring = false;
 
             flameEffect.Stop();
@@ -118,7 +119,10 @@ namespace Assets.Scripts.Gun
                     {
                         var health = hitInfo.collider.GetComponent<IDamagable>();
                         if (health != null)
+                        {
                             health.TakeDamage(damage);
+                            saveLifecycle.UpdateGunDamageStatistic(gunId, damage);
+                        }
                     }
                 }
             }

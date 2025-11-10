@@ -105,6 +105,38 @@ namespace Assets.Scripts.Save
             {
                 Data.ownedTowersDict.RemoveAt(foundIndex);
             }
+
+            SaveSystem.Save(Data);
+        }
+
+        public void UpdateGunDamageStatistic(string gunId, int damage)
+        {
+            SaveGunStatData gunData = new() { gunId = gunId, damage = damage, countKill = 0 };
+
+            int foundIndex = Data.ownedGunStatDict.FindIndex(g => g.gunId == gunId);
+
+            if(foundIndex >= 0)
+            {
+                Data.ownedGunStatDict[foundIndex].damage += damage;
+            }
+            else
+            {
+                Data.ownedGunStatDict.Add(gunData);
+            }
+
+            SaveSystem.Save(Data);
+        }
+
+        public void UpdateGunKillStatistic(string gunId)
+        {
+            int foundIndex = Data.ownedGunStatDict.FindIndex(g => g.gunId == gunId);
+
+            if (foundIndex >= 0)
+            {
+                Data.ownedGunStatDict[foundIndex].countKill++;
+            }
+
+            SaveSystem.Save(Data);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Assets.Scripts.Interface;
 using Assets.Scripts.ObjectPool;
+using Assets.Scripts.Save;
 using DG.Tweening;
 using UnityEngine;
 
@@ -21,13 +22,26 @@ namespace Assets.Scripts.Bullet
         [SerializeField] private float wobbleAmount;
         [SerializeField] private float wobbleDuration;
 
+        private SaveLifecycle saveLifecycle;
+        private string gunIdStat;
+        private int damageStat;
+        private bool setStat = false;
+
         private Tween anim;
 
-        public void InitializeBomb(Vector3 startPos)
+        public void InitializeBomb(Vector3 startPos, bool isSetStat)
         {
+            setStat = isSetStat;
             transform.position = new Vector3(startPos.x, posY, startPos.z);
             Animation();
             StartCoroutine(LifeBeforeDestroy());
+        }
+
+        public void InitializeStatData(SaveLifecycle saveLifecycle, string gunId)
+        {
+            this.saveLifecycle = saveLifecycle;
+            this.gunIdStat = gunId;
+            damageStat = damageEnemy;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -45,6 +59,10 @@ namespace Assets.Scripts.Bullet
             foreach (Collider hit in hits)
             {
                 hit.gameObject.GetComponent<IDamagable>()?.TakeDamage(damageEnemy);
+                if (setStat)
+                {
+                    SetStatData();
+                }
             }
 
             SpawnEffect();
@@ -85,6 +103,14 @@ namespace Assets.Scripts.Bullet
         {
             if (anim != null)
                 anim.Kill();
+        }
+
+        private void SetStatData()
+        {
+            if (saveLifecycle == null)
+                return;
+
+            saveLifecycle.UpdateGunDamageStatistic(gunIdStat, damageStat);
         }
     }
 }

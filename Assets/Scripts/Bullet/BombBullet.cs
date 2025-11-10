@@ -75,7 +75,8 @@ namespace Assets.Scripts.Bullet
                 var bomb = obj.GetComponent<BombController>();
                 if(bomb != null)
                 {
-                    bomb.InitializeBomb(position);
+                    bomb.InitializeBomb(position, setStat);
+                    bomb.InitializeStatData(saveLifecycle, gunIdStat);
                 }
             }
         }

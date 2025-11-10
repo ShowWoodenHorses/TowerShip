@@ -25,6 +25,7 @@ public static class SaveSystem
             currentWaveEnemyId = defaultConfig.currentWaveEnemyId,
             ownedItems = new List<string>(defaultConfig.ownedItems),
             ownedTowersDict = new List<SaveTileData>(defaultConfig.ownedTowersDict),
+            ownedGunStatDict = new List<SaveGunStatData>(defaultConfig.ownedGunStatDict),
         };
     }
 

@@ -1,6 +1,5 @@
 using System;                                
 using System.Collections.Generic;
-using Assets.Scripts.TowerDefence;
 
 namespace Assets.Scripts.Save
 {
@@ -17,6 +16,7 @@ namespace Assets.Scripts.Save
 
         public List<string> ownedItems = new();
         public List<SaveTileData> ownedTowersDict = new();
+        public List<SaveGunStatData> ownedGunStatDict = new();
     }
 
     [Serializable]
@@ -25,5 +25,13 @@ namespace Assets.Scripts.Save
         public int tileId;
         public string towerName;
         public int level;
+    }
+
+    [Serializable]
+    public class SaveGunStatData
+    {
+        public string gunId;
+        public int damage;
+        public int countKill;
     }
 }

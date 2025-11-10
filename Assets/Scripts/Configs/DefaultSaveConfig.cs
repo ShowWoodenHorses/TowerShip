@@ -15,5 +15,6 @@ namespace Assets.Scripts.Configs
         public string currentWaveEnemyId = "wave_1";
         public List<string> ownedItems = new() { "player_cannon", "bullet_basic" };
         public List<SaveTileData> ownedTowersDict = new() { };
+        public List<SaveGunStatData> ownedGunStatDict = new() { };
     }
 }

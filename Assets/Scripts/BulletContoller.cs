@@ -2,6 +2,7 @@
 using Assets.Scripts.Configs;
 using Assets.Scripts.Interface;
 using Assets.Scripts.ObjectPool;
+using Assets.Scripts.Save;
 using Assets.Scripts.Sound;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -30,6 +31,11 @@ namespace Assets.Scripts
 
         private protected Rigidbody rb;
 
+        private protected SaveLifecycle saveLifecycle;
+        private protected string gunIdStat;
+        private protected int damageStat;
+        private protected bool setStat = false;
+
         private protected void Awake()
         {
             rb = GetComponent<Rigidbody>();
@@ -53,6 +59,7 @@ namespace Assets.Scripts
         }
         public virtual void InitializeWithTimerAndDamage(Vector3 pos, float distance, int damage)
         {
+            setStat = false;
             float time = distance / speed;
             lifeBeforeDestroy = time;
             rb.linearVelocity = pos * speed;
@@ -60,6 +67,14 @@ namespace Assets.Scripts
             SoundPoolManager.Instance.PlaySound(soundShotPrefab);
 
             StartCoroutine(LifeBeforeDestroy());
+        }
+
+        public void InitializeStatData(SaveLifecycle saveLifecycle, string gunId)
+        {
+            setStat = true;
+            this.saveLifecycle = saveLifecycle;
+            this.gunIdStat = gunId;
+            damageStat = damageEnemy;
         }
 
         private protected void Deactive()
@@ -93,6 +108,12 @@ namespace Assets.Scripts
                 PLaySoundEffect(soundTakeDamagePrefab);
                 SpawnEffect(effectShotInEnemy);
                 objectForDamage.TakeDamage(damageEnemy);
+
+                if (setStat)
+                {
+                    SetStatData();
+                }
+
                 Deactive();
             }
 
@@ -131,6 +152,11 @@ namespace Assets.Scripts
         private protected void PLaySoundEffect(AudioSource audioSource)
         {
             SoundPoolManager.Instance.PlaySound(audioSource);
+        }
+
+        private void SetStatData()
+        {
+            saveLifecycle.UpdateGunDamageStatistic(gunIdStat, damageStat);
         }
 
         public void SetSettings()
