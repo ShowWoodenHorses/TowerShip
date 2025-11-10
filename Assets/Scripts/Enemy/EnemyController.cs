@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour, IDamagable, IReward
     public event Action<GameObject> OnEnemyDeath;
 
     private bool isDead = false;
+    private bool checkDiedEnemy = false;
 
     // Пример здоровья (можно заменить своей системой)
     public int maxHealth = 100;
@@ -55,6 +56,7 @@ public class EnemyController : MonoBehaviour, IDamagable, IReward
 
         currentHealth = maxHealth;
         isDead = false;
+        checkDiedEnemy = false;
         InitializeSliderHealth();
     }
 
@@ -80,6 +82,14 @@ public class EnemyController : MonoBehaviour, IDamagable, IReward
 
         // Важно: сам объект не уничтожаем, он вернётся в пул из EnemySpawner
         StartCoroutine(DestroyEnemy());
+    }
+
+    public bool IsDiedEnemy() => isDead;
+    public bool CheckDiedEnemy() => checkDiedEnemy;
+
+    public void SetCheckDiedEnemy()
+    {
+        checkDiedEnemy = true;
     }
 
     public int GetReward()

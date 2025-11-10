@@ -73,6 +73,7 @@ namespace Assets.Scripts.Enemy
         {
             return reward;
         }
+        public bool IsDiedEnemy() => isDestroy;
 
         private IEnumerator ShowHealth()
         {
@@ -87,6 +88,16 @@ namespace Assets.Scripts.Enemy
             HealthObject.SetActive(false);
             healthSlider.maxValue = maxHealth;
             healthSlider.value = maxHealth;
+        }
+
+        public bool CheckDiedEnemy()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetCheckDiedEnemy()
+        {
+            throw new NotImplementedException();
         }
     }
 }

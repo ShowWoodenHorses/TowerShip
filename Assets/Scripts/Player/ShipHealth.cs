@@ -6,13 +6,12 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.Player
 {
-    public class ShipHealth : MonoBehaviour, IDamagable
+    public class ShipHealth : MonoBehaviour
     {
         [SerializeField] private int maxHealth;
         [SerializeField] private int currentHealth;
         private Slider healthBarSlider;
 
-        public static event Action<GameObject> OnPlayerDie;
 
         private void Start()
         {
@@ -24,17 +23,6 @@ namespace Assets.Scripts.Player
             this.maxHealth = maxHealth;
             currentHealth = maxHealth;
             healthBarSlider = slider;
-        }
-        public void TakeDamage(int damage)
-        {
-            currentHealth -= damage;
-            healthBarSlider.value -= damage;
-            if (currentHealth < 0)
-            {
-                currentHealth = 0;
-                OnPlayerDie?.Invoke(gameObject);
-                Debug.Log("===== PLAYER DIE =========");
-            }
         }
 
         public int GetMaxHealth()

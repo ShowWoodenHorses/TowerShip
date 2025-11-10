@@ -9,6 +9,7 @@ namespace Assets.Scripts.Save
     public class SaveLifecycle : MonoBehaviour
     {
         public static SaveData Data { get; private set; }  // доступ к данным сейва из других скриптов
+        bool isSaving = false;
 
         //Bootstrap
         //void Awake()
@@ -129,6 +130,11 @@ namespace Assets.Scripts.Save
 
         public void UpdateGunKillStatistic(string gunId)
         {
+            if (isSaving)
+                return;
+
+            isSaving = true;
+
             int foundIndex = Data.ownedGunStatDict.FindIndex(g => g.gunId == gunId);
 
             if (foundIndex >= 0)
@@ -137,6 +143,8 @@ namespace Assets.Scripts.Save
             }
 
             SaveSystem.Save(Data);
+
+            isSaving = false;
         }
     }
 }

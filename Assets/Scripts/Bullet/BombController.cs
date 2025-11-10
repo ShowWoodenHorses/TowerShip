@@ -27,6 +27,9 @@ namespace Assets.Scripts.Bullet
         private int damageStat;
         private bool setStat = false;
 
+        private IDamagable enemyObject;
+        private bool checkEnemyDied = false;
+
         private Tween anim;
 
         public void InitializeBomb(Vector3 startPos, bool isSetStat)
@@ -46,9 +49,16 @@ namespace Assets.Scripts.Bullet
 
         private void OnTriggerEnter(Collider other)
         {
-            if(other.gameObject.GetComponent<IDamagable>() != null)
+            enemyObject = other.gameObject.GetComponent<IDamagable>();
+            if (enemyObject != null)
             {
                 Explosion();
+
+                if (enemyObject.IsDiedEnemy() && !enemyObject.CheckDiedEnemy())
+                {
+                    SetStatKillData();
+                    enemyObject.SetCheckDiedEnemy();
+                }
             }
         }
 
@@ -58,7 +68,8 @@ namespace Assets.Scripts.Bullet
 
             foreach (Collider hit in hits)
             {
-                hit.gameObject.GetComponent<IDamagable>()?.TakeDamage(damageEnemy);
+                var objectForDamage = hit.gameObject.GetComponent<IDamagable>();
+                objectForDamage?.TakeDamage(damageEnemy);
                 if (setStat)
                 {
                     SetStatData();
@@ -111,6 +122,11 @@ namespace Assets.Scripts.Bullet
                 return;
 
             saveLifecycle.UpdateGunDamageStatistic(gunIdStat, damageStat);
+        }
+
+        private void SetStatKillData()
+        {
+            saveLifecycle.UpdateGunKillStatistic(gunIdStat);
         }
     }
 }

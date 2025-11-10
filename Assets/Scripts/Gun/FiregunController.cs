@@ -100,7 +100,7 @@ namespace Assets.Scripts.Gun
             // Наносим урон раз в 0.1 сек (можно настроить)
             damageTimer -= Time.deltaTime;
             if (damageTimer > 0f) return;
-            damageTimer = 0.1f;
+            damageTimer = 0.2f;
 
             Vector3 origin = shootPosition.position;
             Vector3 forward = shootPosition.forward;
@@ -122,6 +122,12 @@ namespace Assets.Scripts.Gun
                         {
                             health.TakeDamage(damage);
                             saveLifecycle.UpdateGunDamageStatistic(gunId, damage);
+
+                            if (health.IsDiedEnemy() && !health.CheckDiedEnemy())
+                            {
+                                saveLifecycle.UpdateGunKillStatistic(gunId);
+                                health.SetCheckDiedEnemy();
+                            }
                         }
                     }
                 }

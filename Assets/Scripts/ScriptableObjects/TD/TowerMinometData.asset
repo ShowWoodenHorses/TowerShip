@@ -22,11 +22,14 @@ MonoBehaviour:
   reload_level_1: 4
   minDistance_level_1: 30
   maxDistance_level_1: 60
+  cost_level_1: 1000
   damage_level_2: 15
   reload_level_2: 4
   minDistance_level_2: 35
   maxDistance_level_2: 75
+  cost_level_2: 2000
   damage_level_3: 20
   reload_level_3: 5
   minDistance_level_3: 40
   maxDistance_level_3: 90
+  cost_level_3: 3000

@@ -111,7 +111,12 @@ namespace Assets.Scripts
 
                 if (setStat)
                 {
-                    SetStatData();
+                    SetStatDamageData();
+
+                    if (objectForDamage.IsDiedEnemy())
+                    {
+                        SetStatKillData();
+                    }
                 }
 
                 Deactive();
@@ -154,9 +159,14 @@ namespace Assets.Scripts
             SoundPoolManager.Instance.PlaySound(audioSource);
         }
 
-        private void SetStatData()
+        private void SetStatDamageData()
         {
             saveLifecycle.UpdateGunDamageStatistic(gunIdStat, damageStat);
+        }
+
+        private void SetStatKillData()
+        {
+            saveLifecycle.UpdateGunKillStatistic(gunIdStat);
         }
 
         public void SetSettings()

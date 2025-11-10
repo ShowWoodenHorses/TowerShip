@@ -41,5 +41,20 @@ namespace Assets.Scripts.Player
         {
             return maxHealth;
         }
+
+        public bool IsDiedEnemy()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool CheckDiedEnemy()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetCheckDiedEnemy()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
