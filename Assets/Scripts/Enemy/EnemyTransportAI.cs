@@ -1,4 +1,3 @@
-// EnemyTransportAI.cs
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,6 +11,7 @@ public class EnemyTransportAI : MonoBehaviour
     [SerializeField] private Transform pointB;
     private NavMeshAgent agent;
     private EnemyWeaponSystem weaponSystem;
+    private Transform target;
 
     public void Initialize(
         Transform playerTransform, 
@@ -23,22 +23,31 @@ public class EnemyTransportAI : MonoBehaviour
         this.pointB = pointB;
         agent = GetComponent<NavMeshAgent>();
         weaponSystem = GetComponent<EnemyWeaponSystem>();
-
-        transform.position = pointA.position;
-        agent.SetDestination(pointB.position);
-
-        weaponSystem.SetTarget(player);
     }
 
     private void Update()
     {
-        if(Vector3.Distance(pointB.position, transform.position) < destanationDestroyBeforePointB)
+        if (Vector3.Distance(pointB.position, transform.position) < destanationDestroyBeforePointB)
         {
             var enemyController = GetComponent<EnemyController>();
-            if(enemyController != null)
+            if (enemyController != null)
             {
                 enemyController.Die(false);
             }
         }
+    }
+
+
+    public virtual void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
+        weaponSystem?.SetTarget(newTarget);
+        agent.SetDestination(newTarget.position);
+    }
+
+    public virtual void SetStartPosition(Vector3 startPosition)
+    {
+        agent.Warp(startPosition);
+        transform.rotation = Quaternion.identity;
     }
 }

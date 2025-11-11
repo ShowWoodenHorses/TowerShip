@@ -3,6 +3,7 @@ using TMPro;
 using Assets.Scripts.Animation;
 using YG;
 using System.Collections;
+using Assets.Scripts.Game;
 
 namespace Assets.Scripts.UI
 {
@@ -10,12 +11,17 @@ namespace Assets.Scripts.UI
     {
         [SerializeField] private PauseManager pauseManager;
         [SerializeField] private ScoreManager scoreManager;
+        [SerializeField] private GameManager gameManager;
 
         [SerializeField] private GameObject winPanel;
         [SerializeField] private GameObject losePanel;
 
         [SerializeField] private TextMeshProUGUI textMoney;
         [SerializeField] private TextMeshProUGUI textMoneyinStore;
+
+        [Header("Enemy lost")]
+        [SerializeField] private TextMeshProUGUI textEnemyLost;
+        private string textStartEnemyLost;
 
         [Header("Wave text")]
         [SerializeField] private GameObject waveTextObject;
@@ -24,10 +30,16 @@ namespace Assets.Scripts.UI
         private string currentWave;
         private string startText;
 
-        public void Initialize(string waveId, ScoreManager scoreManager)
+        public void Initialize(string waveId, ScoreManager scoreManager, GameManager gameManager)
         {
             this.scoreManager = scoreManager;
+            this.gameManager = gameManager;
             currentWave = waveId;
+
+            textStartEnemyLost = this.gameManager.GetCountStartEnemyLost().ToString();
+            textEnemyLost.text = textStartEnemyLost + "/" + textStartEnemyLost;
+
+            this.gameManager.OnEnemyLost += UpdateCurrentEnemyLost;
 
             SwitchLanguage(YG2.lang);
         }
@@ -39,6 +51,7 @@ namespace Assets.Scripts.UI
         private void OnDisable()
         {
             scoreManager.OnUpdateWave -= UpdateCurrentWave;
+            gameManager.OnEnemyLost -= UpdateCurrentEnemyLost;
         }
 
         private void Start()
@@ -102,6 +115,11 @@ namespace Assets.Scripts.UI
 
             currentWave = waveId;
             ShowWaveText();
+        }
+
+        private void UpdateCurrentEnemyLost(int currentEnemyLost)
+        {
+            textEnemyLost.text = currentEnemyLost.ToString() + "/" + textStartEnemyLost;
         }
 
         private void SwitchLanguage(string lang)

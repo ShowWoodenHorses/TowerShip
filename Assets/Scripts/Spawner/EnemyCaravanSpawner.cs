@@ -60,7 +60,8 @@ public class EnemyCaravanSpawner : SpawnerBase
             if(caravanTransportAI != null)
             {
                 caravanTransportAI.Initialize(playerTransform, pointA, pointB);
-                StartCoroutine(SpawnCaravanGuards(playerTransform, pointA, pointB));
+                caravanTransportAI.SetStartPosition(pointA.position);
+                caravanTransportAI.SetTarget(pointB);
                 return caravanObj;
             }
         }

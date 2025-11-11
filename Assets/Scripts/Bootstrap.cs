@@ -91,14 +91,14 @@ namespace Assets.Scripts
             //shopShipController.Initialize(data.ownedItems, data.selectedShipId, saveLifecycle);
             shopPlayerController.Initialize(data.ownedItems, data.selectedPLayerId, saveLifecycle);
             scoreManager.Initialize(data.currentCoins, data.allCoins, saveLifecycle);
-            uIController.Initialize(data.currentWaveEnemyId, scoreManager);
+            uIController.Initialize(data.currentWaveEnemyId, scoreManager, gameManager);
 
             soundPoolManager.Initialize(mainMixer);
             //rewardsAds.Initialize(scoreManager);
 
             //shipManager.Initialize(data.selectedShipId, data.selectedBulletId, gameplayAnimationController, uiDisplayCannon, shipInput);
             playerManager.Initialize(data.selectedPLayerId, saveLifecycle);
-            gameManager.Initialize(uiController, scoreManager);
+            gameManager.Initialize(uiController);
             enemySpawner.Initialize(data.currentWaveEnemyId, playerTransform, gameplayAnimationController);
 
             towerBuild.Initialize();

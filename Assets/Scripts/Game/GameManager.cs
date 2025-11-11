@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Assets.Scripts.Enemy;
 using Assets.Scripts.Player;
 using Assets.Scripts.Scene;
@@ -11,41 +12,23 @@ namespace Assets.Scripts.Game
 {
     public class GameManager : MonoBehaviour
     {
-        public List<BuildController> buildings;
-
-        [SerializeField] private int countDestroyedBuildingForWin;
+        [SerializeField] private int countLostEnemyForLose;
 
         [SerializeField] private UIController uiController;
         [SerializeField] private ScoreManager scoreManager;
 
-        public void Initialize(UIController uiController, ScoreManager scoreManager)
+        private int currentCountLostEnemyForLose;
+
+        public Action<int> OnEnemyLost;
+
+        public void Initialize(UIController uiController)
         {
             this.uiController = uiController;
-            this.scoreManager = scoreManager;
+            currentCountLostEnemyForLose = countLostEnemyForLose;
 
             PLayerHealth.OnPlayerDie += CheckPlayerHealth;
-
-            //foreach (var build in buildings)
-            //{
-            //    build.Initialize();
-            //    build.OnBuildingDestroyed += CheckCurrentCountBuildings;
-            //}
-
-            //countDestroyedBuildingForWin = buildings.Count;
         }
 
-        private void CheckCurrentCountBuildings(BuildController buildController)
-        {
-            int reward = buildController.GetReward();
-            scoreManager.AddMoney(reward);
-
-            countDestroyedBuildingForWin--;
-            if (countDestroyedBuildingForWin <= 0)
-            {
-                YG2.InterstitialAdvShow();
-                uiController.ShowWinPanel();
-            }
-        }
 
         private void CheckPlayerHealth(GameObject obj)
         {
@@ -55,11 +38,6 @@ namespace Assets.Scripts.Game
 
         private void OnDisable()
         {
-            //foreach (var build in buildings)
-            //{
-            //    build.OnBuildingDestroyed -= CheckCurrentCountBuildings;
-            //}
-
             PLayerHealth.OnPlayerDie -= CheckPlayerHealth;
         }
         public void NewGame()
@@ -77,6 +55,23 @@ namespace Assets.Scripts.Game
         public void DeleteSave()
         {
             SaveSystem.DeleteSave();
+        }
+
+        public void EnemyLost()
+        {
+            currentCountLostEnemyForLose--;
+
+            OnEnemyLost?.Invoke(currentCountLostEnemyForLose);
+
+            if (currentCountLostEnemyForLose <= 0)
+            {
+                uiController.ShowLosePanel();
+            }
+        }
+
+        public int GetCountStartEnemyLost()
+        {
+            return countLostEnemyForLose;
         }
     }
 }
