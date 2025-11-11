@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 using TMPro;
 using Assets.Scripts.Animation;
 using YG;
+using System.Collections;
 
 namespace Assets.Scripts.UI
 {
@@ -17,6 +16,36 @@ namespace Assets.Scripts.UI
 
         [SerializeField] private TextMeshProUGUI textMoney;
         [SerializeField] private TextMeshProUGUI textMoneyinStore;
+
+        [Header("Wave text")]
+        [SerializeField] private GameObject waveTextObject;
+        [SerializeField] private TextMeshProUGUI waveText;
+        public string ru, en, tr;
+        private string currentWave;
+        private string startText;
+
+        public void Initialize(string waveId, ScoreManager scoreManager)
+        {
+            this.scoreManager = scoreManager;
+            currentWave = waveId;
+
+            SwitchLanguage(YG2.lang);
+        }
+
+        private void OnEnable()
+        {
+            scoreManager.OnUpdateWave += UpdateCurrentWave;
+        }
+        private void OnDisable()
+        {
+            scoreManager.OnUpdateWave -= UpdateCurrentWave;
+        }
+
+        private void Start()
+        {
+            startText = waveText.text;
+            ShowWaveText();
+        }
 
         private void Update()
         {
@@ -51,6 +80,44 @@ namespace Assets.Scripts.UI
         {
             losePanel.SetActive(false);
             pauseManager.Resume();
+        }
+
+        public void ShowWaveText()
+        {
+            waveText.text = startText + ": " + currentWave;
+            waveTextObject.SetActive(true);
+
+            StartCoroutine(HideWaveText());
+        }
+
+        private IEnumerator HideWaveText()
+        {
+            yield return new WaitForSeconds(2f);
+            waveTextObject.SetActive(false);
+        }
+
+        private void UpdateCurrentWave(string waveId)
+        {
+            if (currentWave == waveId) return;
+
+            currentWave = waveId;
+            ShowWaveText();
+        }
+
+        private void SwitchLanguage(string lang)
+        {
+            switch (lang)
+            {
+                case "ru":
+                    waveText.text = ru;
+                    break;
+                case "tr":
+                    waveText.text = tr;
+                    break;
+                default:
+                    waveText.text = en;
+                    break;
+            }
         }
     }
 }

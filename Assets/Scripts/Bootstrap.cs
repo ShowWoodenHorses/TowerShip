@@ -14,6 +14,7 @@ using Assets.Scripts.UI;
 using Assets.Scripts.UI.Shop;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem.XR;
 using YG;
 
 namespace Assets.Scripts
@@ -24,6 +25,9 @@ namespace Assets.Scripts
 
         [Header("Platform")]
         [SerializeField] private CheckPLatform platform;
+
+        [Header("UI")]
+        [SerializeField] private UIController uIController;
 
         [Header("Shop")]
         //[SerializeField] private ShopBulletController shopBulletController;
@@ -87,6 +91,7 @@ namespace Assets.Scripts
             //shopShipController.Initialize(data.ownedItems, data.selectedShipId, saveLifecycle);
             shopPlayerController.Initialize(data.ownedItems, data.selectedPLayerId, saveLifecycle);
             scoreManager.Initialize(data.currentCoins, data.allCoins, saveLifecycle);
+            uIController.Initialize(data.currentWaveEnemyId, scoreManager);
 
             soundPoolManager.Initialize(mainMixer);
             //rewardsAds.Initialize(scoreManager);

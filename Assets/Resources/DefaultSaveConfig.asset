@@ -16,8 +16,9 @@ MonoBehaviour:
   allCoins: 10000
   selectedPLayerId: player_cannon
   selectedBulletId: bullet1
-  currentWaveEnemyId: level1
+  currentWaveEnemyId: 1
   ownedItems:
   - player_cannon
   - bullet1
   ownedTowersDict: []
+  ownedGunStatDict: []

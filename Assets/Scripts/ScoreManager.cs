@@ -2,6 +2,7 @@
 using System.Collections;
 using Assets.Scripts.Configs;
 using Assets.Scripts.Save;
+using Assets.Scripts.UI;
 using UnityEngine;
 using YG;
 

@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b8871da951d8040a4847196a0271ed, type: 3}
   m_Name: level4
   m_EditorClassIdentifier: 
-  id: level4
+  id: 4
   enemyTypes:
-  - prefab: {fileID: 6193194426652999280, guid: fa849650c8c64184c857ba6a5818e1b9, type: 3}
-    maxCount: 6
-    currentCount: 0
-  - prefab: {fileID: 477149502635523068, guid: f9e27846cfda7e44a92d7f8e3e484135, type: 3}
-    maxCount: 4
+  - prefab: {fileID: 4716685156279246426, guid: a2be166c16198914bb89ccb475327be8, type: 3}
+    maxCount: 10
     currentCount: 0
   maxLimitEnemy: 10
   intervalSpawn: 0.7
