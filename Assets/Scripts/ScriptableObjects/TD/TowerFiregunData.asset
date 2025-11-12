@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: TowerFiregunData
   m_EditorClassIdentifier: 
   towerName: Firegun
+  towerName_EN: Firegun
+  towerName_RU: "\u041E\u0433\u043D\u0435\u043C\u0435\u0442"
+  towerName_TR: Firegun
   prefab: {fileID: 4296271657542014579, guid: 63720ce4deeed07459fb2e40bee82f7f, type: 3}
   maxLevel: 3
   baseCost: 700

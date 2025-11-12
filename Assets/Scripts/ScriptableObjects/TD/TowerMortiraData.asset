@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: TowerMortiraData
   m_EditorClassIdentifier: 
   towerName: Mortira
+  towerName_EN: Mortira
+  towerName_RU: "\u041C\u043E\u0440\u0442\u0438\u0440\u0430"
+  towerName_TR: Mortira
   prefab: {fileID: 7528530426142328708, guid: 1958059ca231a9d45951a063ce58ecb7, type: 3}
   maxLevel: 3
   baseCost: 500

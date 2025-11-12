@@ -180,5 +180,15 @@ namespace Assets.Scripts.TowerDefence.Controllers
         {
             return maxDistance;
         }
+
+        public float GetReloadTime()
+        {
+            return reloadTime;
+        }
+
+        public int GetDamage()
+        {
+            return damage;
+        }
     }
 }

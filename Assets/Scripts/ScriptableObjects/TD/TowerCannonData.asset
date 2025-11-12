@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: TowerCannonData
   m_EditorClassIdentifier: 
   towerName: Cannon
+  towerName_EN: Cannon
+  towerName_RU: "\u041F\u0443\u0448\u043A\u0430"
+  towerName_TR: Cannon
   prefab: {fileID: 5643410134133757770, guid: 7e59f32d955d14b4c8de46144bd48a00, type: 3}
   maxLevel: 3
   baseCost: 100

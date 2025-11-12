@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: TowerSetkaData
   m_EditorClassIdentifier: 
   towerName: Setka
+  towerName_EN: Setka
+  towerName_RU: "\u0421\u0435\u0442\u043A\u043E\u043C\u0435\u0442"
+  towerName_TR: Setka
   prefab: {fileID: 3869257196057302911, guid: df3c8d6e509d929439fbffcfe09ec057, type: 3}
   maxLevel: 3
   baseCost: 200

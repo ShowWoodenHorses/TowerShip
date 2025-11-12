@@ -4,6 +4,9 @@ using TMPro;
 using UnityEngine.EventSystems;
 using Assets.Scripts.TowerDefence.Controllers;
 using Assets.Scripts.Player;
+using YG.Insides;
+using Assets.Scripts.TowerDefence.Configs;
+using YG;
 
 namespace Assets.Scripts.TowerDefence.UI
 {
@@ -16,9 +19,17 @@ namespace Assets.Scripts.TowerDefence.UI
 
         [Header("UI References")]
         public GameObject panel;                        // Родитель панели
-        public TextMeshProUGUI towerInfoText;           // Текст с данными башни
+        public TextMeshProUGUI towerInfoText;           // Текст с данными о башне
+        public TextMeshProUGUI costUpgradeText;           
+        public TextMeshProUGUI costSellText;           
         public Button upgradeButton;
         public Button sellButton;
+
+        [Header("Textx Info Tower")]
+        [SerializeField] private TextMeshProUGUI damageText;
+        [SerializeField] private TextMeshProUGUI maxDistanceText;
+        [SerializeField] private TextMeshProUGUI minDistanceText;
+        [SerializeField] private TextMeshProUGUI reloadTimeText;
 
         [Header("Offset")]
         public Vector3 worldOffset = new Vector3(0, 2f, 0); // Смещение панели от башни
@@ -29,6 +40,8 @@ namespace Assets.Scripts.TowerDefence.UI
         private bool isVisible => panel.activeSelf;
         [SerializeField] private protected CircleNoFire minDistanceCircle;
         [SerializeField] private protected CircleNoFire maxDistanceCircle;
+
+        private string towerName;
 
         private void Awake()
         {
@@ -110,6 +123,8 @@ namespace Assets.Scripts.TowerDefence.UI
 
                 minDistanceCircle.ShowCircleNoFire();
                 maxDistanceCircle.ShowCircleNoFire();
+
+                UpdateInfoText(towerController, tower);
             }
 
             // Активируем панель
@@ -125,18 +140,10 @@ namespace Assets.Scripts.TowerDefence.UI
             if(tower.GetCurrentLevel() >= tower.GetMaxLEvel())
             {
                 upgradeButton.gameObject.SetActive(false);
-                towerInfoText.text =
-                    $"{tower.data.towerName} L{tower.level}\n" +
-                    $"Sell: {tower.GetSellValue()}$";
             }
-            else
-            {
-                // Обновляем информацию
-                towerInfoText.text =
-                    $"{tower.data.towerName} L{tower.level}\n" +
-                    $"Upgrade: {tower.GetUpgradeCost()}$\n" +
-                    $"Sell: {tower.GetSellValue()}$";
-            }
+
+            costUpgradeText.text = $"{tower.GetUpgradeCost()}";
+            costSellText.text = $"{tower.GetSellValue()}";
         }
 
         public void OnUpgrade()
@@ -174,6 +181,34 @@ namespace Assets.Scripts.TowerDefence.UI
 
             minDistanceCircle.HideCircleNoFire();
             maxDistanceCircle.HideCircleNoFire();
+        }
+
+        private void UpdateInfoText(TowerController towerController, Tower tower)
+        {
+            SetNameTowerFromLang(YG2.lang, tower.data);
+
+            towerInfoText.text = $"{towerName} - {tower.level}";
+
+            damageText.text = $"{towerController.GetDamage()}";
+            maxDistanceText.text = $"{towerController.GetMaxDistance()}";
+            minDistanceText.text = $"{towerController.GetMinDistance()}";
+            reloadTimeText.text = $"{towerController.GetReloadTime()}";
+        }
+
+        private void SetNameTowerFromLang(string lang, TowerData data)
+        {
+            switch (lang)
+            {
+                case "ru":
+                    towerName = data.towerName_RU;
+                    break;
+                case "tr":
+                    towerName = data.towerName_TR;
+                    break;
+                default:
+                    towerName = data.towerName_EN;
+                    break;
+            }
         }
     }
 }

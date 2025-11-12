@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: TowerMinometData
   m_EditorClassIdentifier: 
   towerName: Minomet
+  towerName_EN: Minomet
+  towerName_RU: "\u041C\u0438\u043D\u043E\u043C\u0435\u0442"
+  towerName_TR: Minomet
   prefab: {fileID: 8576572307983309258, guid: 9e3ee92329dff04438b024acc97452e8, type: 3}
   maxLevel: 3
   baseCost: 1000

@@ -7,6 +7,7 @@ namespace Assets.Scripts.TowerDefence.Configs
     public class TowerData : ScriptableObject
     {
         public string towerName;
+        public string towerName_EN, towerName_RU, towerName_TR;
         public GameObject prefab;
         public int maxLevel = 3;
 
