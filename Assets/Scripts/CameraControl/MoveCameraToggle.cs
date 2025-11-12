@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Player;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.CameraControl
 {
@@ -8,12 +9,19 @@ namespace Assets.Scripts.CameraControl
         private CameraController cameraController;
         private PlayerManager playerManager;
 
+        [Header("Images")]
+        private Image baseImage;
+        [SerializeField] private Sprite startImage;
+        [SerializeField] private Sprite moveImage;
+
         private bool canMove = false;
 
         public void Initialize(CameraController cameraController, PlayerManager playerManager)
         {
             this.cameraController = cameraController;
             this.playerManager = playerManager;
+            baseImage = GetComponent<Image>();
+            baseImage.sprite = startImage;
         }
 
         public void ToggleMoveCamera()
@@ -23,11 +31,13 @@ namespace Assets.Scripts.CameraControl
             {
                 cameraController.SetActiveMoving();
                 playerManager.SetDisableShoot();
+                baseImage.sprite = moveImage;
             }
             else
             {
                 cameraController.SetDisableMoving();
                 playerManager.SetCanShoot();
+                baseImage.sprite = startImage;
             }
         }
 
@@ -39,6 +49,7 @@ namespace Assets.Scripts.CameraControl
             canMove = false;
             cameraController.SetDisableMoving();
             playerManager.SetCanShoot();
+            baseImage.sprite = startImage;
         }
 
         public void SwitchToggleOnActiveMove()
@@ -49,6 +60,7 @@ namespace Assets.Scripts.CameraControl
             canMove = true;
             cameraController.SetActiveMoving();
             playerManager.SetDisableShoot();
+            baseImage.sprite = moveImage;
         }
     }
 }

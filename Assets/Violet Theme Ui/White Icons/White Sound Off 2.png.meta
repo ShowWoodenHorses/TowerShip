@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: 623df017cd9375c49946605e46d06755
+AssetOrigin:
+  serializedVersion: 1
+  productId: 235559
+  packageName: Violet Themed UI
+  packageVersion: 1.2
+  assetPath: Assets/Violet Theme Ui/White Icons/White Sound Off 2.png
+  uploadId: 767621
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -52,7 +59,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -104,6 +111,19 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -188,7 +208,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -206,10 +226,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 235559
-  packageName: Violet Themed UI
-  packageVersion: 1.2
-  assetPath: Assets/Violet Theme Ui/White Icons/White Sound Off 2.png
-  uploadId: 767621
