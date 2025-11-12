@@ -358,7 +358,7 @@ MonoBehaviour:
   lifeBeforeDestroy: 5
   effectShotInWater: {fileID: 199582, guid: 02e25b69473c97c4d9226857e0231c35, type: 3}
   effectShotInBuilding: {fileID: 199582, guid: 22f0c762fb1a0bf4bb4afec4df34ea56, type: 3}
-  effectShotInEnemy: {fileID: 199582, guid: 0c313793eb9ceca48942cc8730bea947, type: 3}
+  effectShotInEnemy: {fileID: 8492320648903528133, guid: a553b9ebf44ca5c489c907d5ff302795, type: 3}
   soundShotPrefab: {fileID: 3296352006043120542, guid: 5af1ed4f40785504ca151e25cabc8c6a, type: 3}
   soundShotWavePrefab: {fileID: 3296352006043120542, guid: 4353cb33cf5ba574fbc368b83e9f4d27, type: 3}
   soundTakeDamagePrefab: {fileID: 3296352006043120542, guid: 537eab0cbf38f554a8ec7f74ebc8adc2, type: 3}

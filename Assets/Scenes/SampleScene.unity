@@ -21246,6 +21246,10 @@ MonoBehaviour:
     size: 5
   - prefab: {fileID: 3706355554667330586, guid: e5a4a1d70e40b6b4f9f5d0dea4133492, type: 3}
     size: 3
+  - prefab: {fileID: 8492320648903528133, guid: 9400788861d655740ab81bfe10bb7510, type: 3}
+    size: 3
+  - prefab: {fileID: 8492320648903528133, guid: a553b9ebf44ca5c489c907d5ff302795, type: 3}
+    size: 3
 --- !u!4 &1404347096
 Transform:
   m_ObjectHideFlags: 0
@@ -33866,7 +33870,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 13, y: 13, z: 13}
+  m_Size: {x: 14, y: 14, z: 14}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2146633661
 MonoBehaviour:
