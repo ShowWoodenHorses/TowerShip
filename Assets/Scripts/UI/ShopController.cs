@@ -68,7 +68,7 @@ namespace Assets.Scripts.UI
 
                 if (shopItemData == null) continue;
 
-                shopItemData.Initialize(config, descriptionItem);
+                shopItemData.Initialize(config);
 
                 shopItemData.OnBuyItem += PurchaseHandler;
                 shopItemData.OnSelectItem += ChoiceItemHandler;

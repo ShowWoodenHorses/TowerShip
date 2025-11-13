@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using Assets.Scripts.Configs;
 using System;
+using Assets.Scripts.Enum;
 using YG;
 
 namespace Assets.Scripts.UI.Shop
@@ -28,6 +29,7 @@ namespace Assets.Scripts.UI.Shop
         public Action<ShopItemData> OnSelectItem;
 
         private TextMeshProUGUI descriptionItem;
+        [SerializeField] private ItemStatus itemStatus;
 
         private void AddButtons()
         {
@@ -36,13 +38,12 @@ namespace Assets.Scripts.UI.Shop
             listButtons.Add(SelectItemText);
         }
 
-        public void Initialize(ShopItemConfig shopItemConfig, TextMeshProUGUI descriptionItem)
+        public void Initialize(ShopItemConfig shopItemConfig)
         {
             this.idItem = shopItemConfig.idItem;
             this.costItemText.text = shopItemConfig.costItem.ToString();
             this.costItem = shopItemConfig.costItem;
             this.iconItem.sprite = shopItemConfig.iconItem;
-            this.descriptionItem = descriptionItem;
 
             if (YG2.lang == "en")
             {
@@ -60,13 +61,6 @@ namespace Assets.Scripts.UI.Shop
                 this.nameItemText.text = shopItemConfig.nameItemText;
                 this.description = shopItemConfig.description;
             }
-
-            AddButtons();
-            UpdateButtons(BuyButton);
-
-            BuyButton.GetComponent<Button>().onClick.AddListener(() => BuyClick());
-            SelectButton.GetComponent<Button>().onClick.AddListener(() =>  SelectClick());
-            GetComponent<Button>().onClick.AddListener(() => SetDescription());
         }
 
         public void BuyClick()
@@ -91,6 +85,26 @@ namespace Assets.Scripts.UI.Shop
         public void SetDescription()
         {
             descriptionItem.text = description;
+        }
+
+        public string GetDescription()
+        {
+            return description;
+        }
+
+        public string GetName()
+        {
+            return nameItemText.text;
+        }
+
+        public void SetItemStatus(ItemStatus newStatus)
+        {
+            itemStatus = newStatus;
+        }
+
+        public ItemStatus GetCurrentStatus()
+        {
+            return itemStatus;
         }
     }
 }

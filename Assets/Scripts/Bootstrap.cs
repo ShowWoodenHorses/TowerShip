@@ -32,7 +32,8 @@ namespace Assets.Scripts
         [Header("Shop")]
         //[SerializeField] private ShopBulletController shopBulletController;
         //[SerializeField] private ShopShipController shopShipController;
-        [SerializeField] private ShopPlayerController shopPlayerController;
+        //[SerializeField] private ShopPlayerController shopPlayerController;
+        [SerializeField] private PlayerShop playerShop;
         [SerializeField] private ScoreManager scoreManager;
 
         [Header("Pool")]
@@ -89,7 +90,7 @@ namespace Assets.Scripts
 
             //shopBulletController.Initialize(data.ownedItems, data.selectedBulletId, saveLifecycle);
             //shopShipController.Initialize(data.ownedItems, data.selectedShipId, saveLifecycle);
-            shopPlayerController.Initialize(data.ownedItems, data.selectedPLayerId, saveLifecycle);
+            //shopPlayerController.Initialize(data.ownedItems, data.selectedPLayerId, saveLifecycle);
             scoreManager.Initialize(data.currentCoins, data.allCoins, saveLifecycle);
             uIController.Initialize(data.currentWaveEnemyId, scoreManager, gameManager);
 
@@ -98,6 +99,7 @@ namespace Assets.Scripts
 
             //shipManager.Initialize(data.selectedShipId, data.selectedBulletId, gameplayAnimationController, uiDisplayCannon, shipInput);
             playerManager.Initialize(data.selectedPLayerId, saveLifecycle);
+            playerShop.Initialize(scoreManager, saveLifecycle, playerManager, data.ownedItems, data.selectedPLayerId);
             gameManager.Initialize(uiController);
             enemySpawner.Initialize(data.currentWaveEnemyId, playerTransform, gameplayAnimationController);
 
