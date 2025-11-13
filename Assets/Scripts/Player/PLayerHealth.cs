@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections;
 using Assets.Scripts.Interface;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +10,7 @@ namespace Assets.Scripts.Player
     {
         [SerializeField] private int maxHealth;
         [SerializeField] private int currentHealth;
+        [SerializeField] private TextMeshProUGUI textPlayerHealth;
         private Slider healthBarSlider;
 
         public static event Action<GameObject> OnPlayerDie;
@@ -17,6 +18,7 @@ namespace Assets.Scripts.Player
         private void Start()
         {
             currentHealth = maxHealth;
+            textPlayerHealth.text = currentHealth.ToString();
         }
 
         public void Initialize(int maxHealth, Slider slider)
@@ -29,6 +31,7 @@ namespace Assets.Scripts.Player
         {
             currentHealth -= damage;
             healthBarSlider.value -= damage;
+            textPlayerHealth.text = currentHealth.ToString();
             if (currentHealth < 0)
             {
                 currentHealth = 0;
