@@ -17,7 +17,7 @@ MonoBehaviour:
   nameItemText_TR: '"Katapulta"'
   iconItem: {fileID: 21300000, guid: ec048dbce06d03b429a553f7dd8771f3, type: 3}
   idItem: player_katapulta
-  costItem: 0
+  costItem: 200
   description: 
   description_EN: 
   description_TR: 

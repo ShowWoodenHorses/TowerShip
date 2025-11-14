@@ -26,16 +26,16 @@ namespace Assets.Scripts.UI.Shop
         [SerializeField] private Image itemImage;
         [SerializeField] private TextMeshProUGUI nameItem;
         [SerializeField] private TextMeshProUGUI descriptionItem;
-        [SerializeField] private protected string currentIdItem; //Для сохранения
+        [SerializeField] private string currentIdItem; //Для сохранения
 
         [Header("Create shop")]
-        [SerializeField] private protected ShopItemConfig[] shopItemConfigs;
-        [SerializeField] private protected GameObject prefabShopItem;
-        [SerializeField] private protected Transform parentPosition;
+        [SerializeField] private ShopItemConfig[] shopItemConfigs;
+        [SerializeField] private GameObject prefabShopItem;
+        [SerializeField] private Transform parentPosition;
 
         [Header("Items")]
-        [SerializeField] private protected List<string> avaliableItems; //Для сохранения
-        [SerializeField] private protected List<GameObject> allItems;
+        [SerializeField] private List<string> avaliableItems; //Для сохранения
+        [SerializeField] private List<GameObject> allItems;
 
         [Header("Another")]
         [SerializeField] private GameObject noMoneyObj;
@@ -58,6 +58,19 @@ namespace Assets.Scripts.UI.Shop
             selectButton.GetComponent<Button>().onClick.AddListener(() => ChoiceItemHandler(selectedShopItemData));
         }
 
+        public void LoadCurrentItemInfo() // Вызывается  по клику кнопки открытия магазина
+        {
+            foreach (var item in allItems)
+            {
+                var data = item.GetComponent<ShopItemData>();
+
+                if (data.idItem == currentIdItem)
+                {
+                    UpdateItemInfo(data);
+                }
+            }
+        }
+
         private void UpdateAvaliableItems()
         {
             foreach (var item in allItems)
@@ -67,6 +80,7 @@ namespace Assets.Scripts.UI.Shop
                 if(data.idItem == currentIdItem)
                 {
                     data.SetItemStatus(ItemStatus.AlreadySelect);
+                    UpdateItemInfo(data);
                 }
                 else if (avaliableItems.Contains(data.idItem))
                 {

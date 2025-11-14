@@ -17,7 +17,7 @@ MonoBehaviour:
   nameItemText_TR: '"Balista"'
   iconItem: {fileID: 21300000, guid: d8f5b65affa40f8448f8b837ba357c74, type: 3}
   idItem: player_balista
-  costItem: 0
+  costItem: 300
   description: balista
   description_EN: balista
   description_TR: balista

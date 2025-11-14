@@ -17,7 +17,7 @@ MonoBehaviour:
   nameItemText_TR: '"Minomet"'
   iconItem: {fileID: 21300000, guid: d8f5b65affa40f8448f8b837ba357c74, type: 3}
   idItem: player_minomet
-  costItem: 0
+  costItem: 500
   description: '"Minomet"'
   description_EN: '"Minomet"'
   description_TR: '"Minomet"'

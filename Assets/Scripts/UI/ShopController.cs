@@ -34,99 +34,99 @@ namespace Assets.Scripts.UI
         //    CreateShopItems();
         //}
 
-        private protected void UpdateAvaliableItems()
-        {
-            foreach(var item in allItems)
-            {
-                var data = item.GetComponent<ShopItemData>();
-                foreach(var id in avaliableItems)
-                {
-                    if (data.idItem == currentIdItem)
-                    {
-                        data.UpdateButtons(data.SelectItemText);
-                        continue;
-                    }
+        //private protected void UpdateAvaliableItems()
+        //{
+        //    foreach(var item in allItems)
+        //    {
+        //        var data = item.GetComponent<ShopItemData>();
+        //        foreach(var id in avaliableItems)
+        //        {
+        //            if (data.idItem == currentIdItem)
+        //            {
+        //                data.UpdateButtons(data.SelectItemText);
+        //                continue;
+        //            }
 
-                    if (data.idItem == id)
-                    {
-                        data.UpdateButtons(data.SelectButton);
-                        continue;
-                    }
+        //            if (data.idItem == id)
+        //            {
+        //                data.UpdateButtons(data.SelectButton);
+        //                continue;
+        //            }
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
 
-        private protected void CreateShopItems()
-        {
-            for (int i = 0; i < shopItemConfigs.Length; i++)
-            {
-                ShopItemConfig config = shopItemConfigs[i];
+        //private protected void CreateShopItems()
+        //{
+        //    for (int i = 0; i < shopItemConfigs.Length; i++)
+        //    {
+        //        ShopItemConfig config = shopItemConfigs[i];
 
-                GameObject newItem = Instantiate(prefabShopItem, parentPosition);
-                ShopItemData shopItemData = newItem.GetComponent<ShopItemData>();
+        //        GameObject newItem = Instantiate(prefabShopItem, parentPosition);
+        //        ShopItemData shopItemData = newItem.GetComponent<ShopItemData>();
 
-                if (shopItemData == null) continue;
+        //        if (shopItemData == null) continue;
 
-                shopItemData.Initialize(config);
+        //        shopItemData.Initialize(config);
 
-                shopItemData.OnBuyItem += PurchaseHandler;
-                shopItemData.OnSelectItem += ChoiceItemHandler;
+        //        shopItemData.OnBuyItem += PurchaseHandler;
+        //        shopItemData.OnSelectItem += ChoiceItemHandler;
 
-                allItems.Add(newItem);
-            }
-            UpdateAvaliableItems();
-        }
+        //        allItems.Add(newItem);
+        //    }
+        //    UpdateAvaliableItems();
+        //}
 
-        private protected void PurchaseHandler(ShopItemData itemData)
-        {
-            Debug.Log(itemData.idItem);
+        //private protected void PurchaseHandler(ShopItemData itemData)
+        //{
+        //    Debug.Log(itemData.idItem);
 
-            if (scoreManager.GetCurrentMoney() < itemData.costItem)
-            {
-                noMoneyObj.GetComponent<HopupAnimUI>().Hopup();
-                return;
-            }
+        //    if (scoreManager.GetCurrentMoney() < itemData.costItem)
+        //    {
+        //        noMoneyObj.GetComponent<HopupAnimUI>().Hopup();
+        //        return;
+        //    }
 
-            scoreManager.RemoveMoney(itemData.costItem);
-            itemData.UpdateButtons(itemData.SelectButton);
-            avaliableItems.Add(itemData.idItem);
-            saveLifecycle.BuyItem(itemData.idItem);
+        //    scoreManager.RemoveMoney(itemData.costItem);
+        //    itemData.UpdateButtons(itemData.SelectButton);
+        //    avaliableItems.Add(itemData.idItem);
+        //    saveLifecycle.BuyItem(itemData.idItem);
 
-            YG2.MetricaSend("buyItem", itemData.idItem, itemData.costItem.ToString());
-        }
+        //    YG2.MetricaSend("buyItem", itemData.idItem, itemData.costItem.ToString());
+        //}
 
-        private protected void ChoiceItemHandler(ShopItemData itemData)
-        {
-            Debug.Log(itemData.idItem);
+        //private protected void ChoiceItemHandler(ShopItemData itemData)
+        //{
+        //    Debug.Log(itemData.idItem);
 
-            if (avaliableItems.Contains(itemData.idItem))
-            {
-                UpdateItem(itemData.idItem);
-                currentIdItem = itemData.idItem;
-                itemData.UpdateButtons(itemData.SelectItemText);
+        //    if (avaliableItems.Contains(itemData.idItem))
+        //    {
+        //        UpdateItem(itemData.idItem);
+        //        currentIdItem = itemData.idItem;
+        //        itemData.UpdateButtons(itemData.SelectItemText);
 
-                YG2.MetricaSend("selectItem", itemData.idItem, itemData.costItem.ToString());
+        //        YG2.MetricaSend("selectItem", itemData.idItem, itemData.costItem.ToString());
 
-                UpdateAvaliableItems();
-            }
-        }
+        //        UpdateAvaliableItems();
+        //    }
+        //}
 
         public virtual void UpdateItem(string id)
         {
         }
 
-        private protected void OnDestroy()
-        {
-            foreach(var item in allItems)
-            {
-                var data = item.GetComponent<ShopItemData>();
-                if (data != null)
-                {
-                    data.OnSelectItem -= ChoiceItemHandler;
-                    data.OnBuyItem -= PurchaseHandler;
-                }
-            }
-        }
+        //private protected void OnDestroy()
+        //{
+        //    foreach(var item in allItems)
+        //    {
+        //        var data = item.GetComponent<ShopItemData>();
+        //        if (data != null)
+        //        {
+        //            data.OnSelectItem -= ChoiceItemHandler;
+        //            data.OnBuyItem -= PurchaseHandler;
+        //        }
+        //    }
+        //}
     }
 }

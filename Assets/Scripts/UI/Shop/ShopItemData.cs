@@ -14,29 +14,19 @@ namespace Assets.Scripts.UI.Shop
         public TextMeshProUGUI nameItemText;
         public TextMeshProUGUI costItemText;
 
+        [Header("Main info")]
         public string idItem;
         public int costItem;
         public string description;
-
         public Image iconItem;
 
-        public GameObject BuyButton;
-        public GameObject SelectButton;
-        public GameObject SelectItemText;
-        public List<GameObject> listButtons;
+        [Header("Settings")]
+        [SerializeField] private GameObject lockObject;
+        [SerializeField] private Image backImage;
+        [SerializeField] private Sprite defaultBackImage;
+        [SerializeField] private Sprite selectedBackImage;
 
-        public Action<ShopItemData> OnBuyItem;
-        public Action<ShopItemData> OnSelectItem;
-
-        private TextMeshProUGUI descriptionItem;
         [SerializeField] private ItemStatus itemStatus;
-
-        private void AddButtons()
-        {
-            listButtons.Add(BuyButton);
-            listButtons.Add(SelectButton);
-            listButtons.Add(SelectItemText);
-        }
 
         public void Initialize(ShopItemConfig shopItemConfig)
         {
@@ -44,6 +34,8 @@ namespace Assets.Scripts.UI.Shop
             this.costItemText.text = shopItemConfig.costItem.ToString();
             this.costItem = shopItemConfig.costItem;
             this.iconItem.sprite = shopItemConfig.iconItem;
+
+            UpdateStatus(ItemStatus.CanBuy);
 
             if (YG2.lang == "en")
             {
@@ -63,28 +55,42 @@ namespace Assets.Scripts.UI.Shop
             }
         }
 
-        public void BuyClick()
+        private void UpdateStatus(ItemStatus newstatus)
         {
-            OnBuyItem?.Invoke(this);
-        }
-
-        public void SelectClick()
-        {
-            OnSelectItem?.Invoke(this);
-        }
-
-        public void UpdateButtons(GameObject button)
-        {
-            foreach (var btn in listButtons)
+            switch (newstatus)
             {
-                btn.SetActive(false);
+                case ItemStatus.CanBuy:
+                    lockObject.SetActive(true);
+                    backImage.sprite = defaultBackImage;
+                    break;
+                case ItemStatus.CanSelect:
+                    lockObject.SetActive(false);
+                    backImage.sprite = defaultBackImage;
+                    break;
+                case ItemStatus.AlreadySelect:
+                    lockObject.SetActive(false);
+                    backImage.sprite = selectedBackImage;
+                    break;
+                default:
+                    break;
+
             }
-            button.SetActive(true);
         }
 
-        public void SetDescription()
+        public void SetItemStatus(ItemStatus newStatus)
         {
-            descriptionItem.text = description;
+            itemStatus = newStatus;
+            UpdateStatus(itemStatus);
+        }
+
+        public void DeleteLock()
+        {
+            lockObject.SetActive(false);
+        }
+
+        public ItemStatus GetCurrentStatus()
+        {
+            return itemStatus;
         }
 
         public string GetDescription()
@@ -95,16 +101,6 @@ namespace Assets.Scripts.UI.Shop
         public string GetName()
         {
             return nameItemText.text;
-        }
-
-        public void SetItemStatus(ItemStatus newStatus)
-        {
-            itemStatus = newStatus;
-        }
-
-        public ItemStatus GetCurrentStatus()
-        {
-            return itemStatus;
         }
     }
 }
