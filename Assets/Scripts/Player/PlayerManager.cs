@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using Assets.Scripts.Configs;
+﻿using Assets.Scripts.Configs;
 using Assets.Scripts.Save;
 using Assets.Scripts.UI;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Assets.Scripts.Player
 {
@@ -11,7 +9,6 @@ namespace Assets.Scripts.Player
     {
         [Header("Игрок")]
         [SerializeField] private PlayerDatabase playerDatabase;
-        [SerializeField] private Slider healthBarSlider;
         [SerializeField] private ShipAimLine shipAimLine;
         [SerializeField] private CircleNoFire circleNoFire;
         [SerializeField] private GunController gunController;
@@ -41,9 +38,7 @@ namespace Assets.Scripts.Player
             if (health != null)
             {
                 int maxHealth = health.GetMaxHealth();
-                health.Initialize(maxHealth, healthBarSlider);
-                healthBarSlider.maxValue = maxHealth;
-                healthBarSlider.value = maxHealth;
+                health.Initialize(maxHealth);
             }
         }
 

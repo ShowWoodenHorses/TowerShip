@@ -17,7 +17,6 @@ namespace Assets.Scripts.UI
         [SerializeField] private GameObject losePanel;
 
         [SerializeField] private TextMeshProUGUI textMoney;
-        [SerializeField] private TextMeshProUGUI textMoneyinStore;
 
         [Header("Enemy lost")]
         [SerializeField] private TextMeshProUGUI textEnemyLost;
@@ -63,7 +62,6 @@ namespace Assets.Scripts.UI
         private void Update()
         {
             textMoney.text = scoreManager.GetCurrentMoney().ToString();
-            textMoneyinStore.text = scoreManager.GetCurrentMoney().ToString();
         }
 
         public void PauseButton()

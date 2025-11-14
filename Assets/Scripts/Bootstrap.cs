@@ -30,9 +30,6 @@ namespace Assets.Scripts
         [SerializeField] private UIController uIController;
 
         [Header("Shop")]
-        //[SerializeField] private ShopBulletController shopBulletController;
-        //[SerializeField] private ShopShipController shopShipController;
-        //[SerializeField] private ShopPlayerController shopPlayerController;
         [SerializeField] private PlayerShop playerShop;
         [SerializeField] private ScoreManager scoreManager;
 
@@ -43,8 +40,6 @@ namespace Assets.Scripts
         [SerializeField] private SoundPoolManager soundPoolManager;
 
         [Header("Player")]
-        //[SerializeField] private ShipManager shipManager;
-        //[SerializeField] private ShipMovement shipMovement;
         [SerializeField] private PlayerManager playerManager;
         [SerializeField] private Transform playerTransform;
 
@@ -63,7 +58,6 @@ namespace Assets.Scripts
         [Header("Game")]
         [SerializeField] private GameManager gameManager;
         [SerializeField] private UIController uiController;
-        //[SerializeField] private UIDisplayCannon uiDisplayCannon;
 
         [Header("Camera")]
         [SerializeField] private CameraController cameraController;
@@ -88,16 +82,12 @@ namespace Assets.Scripts
             bulletPool.Initialize();
             effectPool.Initialize();
 
-            //shopBulletController.Initialize(data.ownedItems, data.selectedBulletId, saveLifecycle);
-            //shopShipController.Initialize(data.ownedItems, data.selectedShipId, saveLifecycle);
-            //shopPlayerController.Initialize(data.ownedItems, data.selectedPLayerId, saveLifecycle);
             scoreManager.Initialize(data.currentCoins, data.allCoins, saveLifecycle);
             uIController.Initialize(data.currentWaveEnemyId, scoreManager, gameManager);
 
             soundPoolManager.Initialize(mainMixer);
             //rewardsAds.Initialize(scoreManager);
 
-            //shipManager.Initialize(data.selectedShipId, data.selectedBulletId, gameplayAnimationController, uiDisplayCannon, shipInput);
             playerManager.Initialize(data.selectedPLayerId, saveLifecycle);
             playerShop.Initialize(scoreManager, saveLifecycle, playerManager, data.ownedItems, data.selectedPLayerId);
             gameManager.Initialize(uiController);

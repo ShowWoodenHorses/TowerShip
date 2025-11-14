@@ -18,8 +18,8 @@ public class WaterController : MonoBehaviour
     [SerializeField, Range(0, 1)] private float specularPower = 0.5f;
 
     [Header("Performance")]
-    [SerializeField] private bool updateInEditMode = true;
-    [SerializeField] private float updateRate = 30f;
+    //[SerializeField] private bool updateInEditMode = true;
+    //[SerializeField] private float updateRate = 30f;
 
     private Material waterMaterial;
     private float lastUpdateTime;

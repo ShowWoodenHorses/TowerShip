@@ -28,8 +28,7 @@ namespace Assets.Scripts.Bullet
         private bool setStat = false;
 
         private IDamagable enemyObject;
-        private bool checkEnemyDied = false;
-
+        
         private Tween anim;
 
         public void InitializeBomb(Vector3 startPos, bool isSetStat)
