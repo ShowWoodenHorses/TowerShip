@@ -102,5 +102,10 @@ namespace Assets.Scripts.UI.Shop
         {
             return nameItemText.text;
         }
+
+        public int GetCost()
+        {
+            return costItem;
+        }
     }
 }

@@ -26,6 +26,7 @@ namespace Assets.Scripts.UI.Shop
         [SerializeField] private Image itemImage;
         [SerializeField] private TextMeshProUGUI nameItem;
         [SerializeField] private TextMeshProUGUI descriptionItem;
+        [SerializeField] private TextMeshProUGUI costItem;
         [SerializeField] private string currentIdItem; //Для сохранения
 
         [Header("Create shop")]
@@ -156,6 +157,7 @@ namespace Assets.Scripts.UI.Shop
             itemImage.sprite = data.iconItem.sprite;
             descriptionItem.text = data.GetDescription();
             nameItem.text = data.GetName();
+            costItem.text = data.GetCost().ToString();
             UpdateStatus(data.GetCurrentStatus());
         }
 
