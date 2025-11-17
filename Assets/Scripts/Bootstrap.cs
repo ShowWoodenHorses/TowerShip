@@ -43,9 +43,6 @@ namespace Assets.Scripts
         [Header("Spawner")]
         [SerializeField] private EnemySpawner enemySpawner;
 
-        [Header("Generation")]
-        //[SerializeField] private MapGeneration mapGeneration;
-
         [Header("Save")]
         [SerializeField] private SaveLifecycle saveLifecycle;
 
@@ -63,15 +60,14 @@ namespace Assets.Scripts
         [Header("Sound")]
         [SerializeField] private AudioMixer mainMixer;
 
-        //[Header("Ads")]
-        //[SerializeField] private RewardsAds rewardsAds;
+        [Header("Ads")]
+        [SerializeField] private RewardsAds rewardsAds;
 
         [Header("Towers")]
         [SerializeField] private TowerBuildUI towerBuild; 
         private void Awake()
         {
             data = SaveSystem.Load();
-            //IShipInput shipInput = platform.CheckCurrentPlatform();
 
             saveLifecycle.Initialize(data);
 
@@ -83,7 +79,7 @@ namespace Assets.Scripts
             uIController.Initialize(data.currentWaveEnemyId, scoreManager, gameManager);
 
             soundPoolManager.Initialize(mainMixer);
-            //rewardsAds.Initialize(scoreManager);
+            rewardsAds.Initialize(scoreManager);
 
             playerManager.Initialize(data.selectedPLayerId, data.health, saveLifecycle);
             playerShop.Initialize(scoreManager, saveLifecycle, playerManager, data.ownedItems, data.selectedPLayerId);

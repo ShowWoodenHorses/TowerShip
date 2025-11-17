@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCoins: 10000
   allCoins: 10000
+  health: 500
   selectedPLayerId: player_cannon
   selectedBulletId: bullet1
   currentWaveEnemyId: 1
