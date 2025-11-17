@@ -18,6 +18,7 @@ MonoBehaviour:
   towerName_TR: Minomet
   prefab: {fileID: 8576572307983309258, guid: 9e3ee92329dff04438b024acc97452e8, type: 3}
   maxLevel: 3
+  iconItem: {fileID: 21300000, guid: 423a00c4589d850479b47a6f899179a5, type: 3}
   baseCost: 1000
   upgradeMultiplier: 1.5
   sellRefundFactor: 0.6

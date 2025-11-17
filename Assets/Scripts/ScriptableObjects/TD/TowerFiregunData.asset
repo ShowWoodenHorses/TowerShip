@@ -18,6 +18,7 @@ MonoBehaviour:
   towerName_TR: Firegun
   prefab: {fileID: 4296271657542014579, guid: 63720ce4deeed07459fb2e40bee82f7f, type: 3}
   maxLevel: 3
+  iconItem: {fileID: 21300000, guid: d0d1b304f8de38845ad011f592886fa2, type: 3}
   baseCost: 700
   upgradeMultiplier: 1.5
   sellRefundFactor: 0.6

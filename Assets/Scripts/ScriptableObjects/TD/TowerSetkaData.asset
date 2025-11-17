@@ -18,6 +18,7 @@ MonoBehaviour:
   towerName_TR: Setka
   prefab: {fileID: 3869257196057302911, guid: df3c8d6e509d929439fbffcfe09ec057, type: 3}
   maxLevel: 3
+  iconItem: {fileID: 21300000, guid: 6c4376e794c11734da3f5ce85d8c21f5, type: 3}
   baseCost: 200
   upgradeMultiplier: 1.5
   sellRefundFactor: 0.6

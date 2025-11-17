@@ -18,6 +18,7 @@ MonoBehaviour:
   towerName_TR: Mortira
   prefab: {fileID: 7528530426142328708, guid: 1958059ca231a9d45951a063ce58ecb7, type: 3}
   maxLevel: 3
+  iconItem: {fileID: 21300000, guid: 625c4b80a010f9a48918140a8b4daf98, type: 3}
   baseCost: 500
   upgradeMultiplier: 1.5
   sellRefundFactor: 0.6

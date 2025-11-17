@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.TowerDefence.Configs
 {
@@ -10,6 +9,7 @@ namespace Assets.Scripts.TowerDefence.Configs
         public string towerName_EN, towerName_RU, towerName_TR;
         public GameObject prefab;
         public int maxLevel = 3;
+        public Sprite iconItem;
 
         [Header("Economy")]
         public int baseCost = 100;

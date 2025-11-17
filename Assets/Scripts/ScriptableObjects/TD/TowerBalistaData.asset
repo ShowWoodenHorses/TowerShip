@@ -18,6 +18,7 @@ MonoBehaviour:
   towerName_TR: Balista
   prefab: {fileID: 4718646296728496833, guid: dd7b21f6d19a04e499538077f3e2aa1a, type: 3}
   maxLevel: 3
+  iconItem: {fileID: 21300000, guid: 0504d03201929304c8839e3cbcb09d4c, type: 3}
   baseCost: 150
   upgradeMultiplier: 1.5
   sellRefundFactor: 0.6

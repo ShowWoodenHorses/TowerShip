@@ -18,6 +18,7 @@ MonoBehaviour:
   towerName_TR: Katapulta
   prefab: {fileID: 3124763881611811682, guid: eba2b63ab18b9e043b94413bceeff605, type: 3}
   maxLevel: 3
+  iconItem: {fileID: 21300000, guid: 0b3ad17166d9ed24f8d7284ada8f6833, type: 3}
   baseCost: 300
   upgradeMultiplier: 1.5
   sellRefundFactor: 0.6

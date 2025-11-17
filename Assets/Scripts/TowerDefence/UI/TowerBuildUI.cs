@@ -19,7 +19,8 @@ namespace Assets.Scripts.TowerDefence.UI
                 Button btn = btnObj.GetComponent<Button>();
                 btn.onClick.AddListener(() => OnTowerButtonClick(tower));
 
-                btnObj.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = $"{tower.towerName}\n{tower.baseCost}$";
+                btnObj.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = $"{tower.baseCost}";
+                btnObj.transform.GetChild(0).GetComponent<Image>().sprite = tower.iconItem;
             }
         }
 
