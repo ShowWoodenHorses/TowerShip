@@ -565,6 +565,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FX_shot
       objectReference: {fileID: 0}
+    - target: {fileID: 1379001101477662768, guid: c9fdc8992cda7f04f95f7e9779dd3ace, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8872676618896397349, guid: c9fdc8992cda7f04f95f7e9779dd3ace, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

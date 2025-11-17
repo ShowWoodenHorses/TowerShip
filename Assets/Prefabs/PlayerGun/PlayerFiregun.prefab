@@ -5460,6 +5460,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlameFX
       objectReference: {fileID: 0}
+    - target: {fileID: 6006533956971708589, guid: c783d5647e36a2043b2cf02617a7143f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6563550209792755011, guid: c783d5647e36a2043b2cf02617a7143f, type: 3}
       propertyPath: m_RenderMode
       value: 1

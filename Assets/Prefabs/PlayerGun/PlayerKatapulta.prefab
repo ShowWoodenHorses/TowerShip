@@ -1019,6 +1019,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FX_easy_shoot
       objectReference: {fileID: 0}
+    - target: {fileID: 8160450977352484396, guid: 536754a4a2b246b45bc7993dc1c9de0f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

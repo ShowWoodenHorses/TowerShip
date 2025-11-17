@@ -15,7 +15,7 @@ MonoBehaviour:
   nameItemText: "\"\u0421\u0435\u0442\u043A\u0430\""
   nameItemText_EN: '"setka"'
   nameItemText_TR: '"setka"'
-  iconItem: {fileID: 21300000, guid: d8f5b65affa40f8448f8b837ba357c74, type: 3}
+  iconItem: {fileID: 21300000, guid: 0504d03201929304c8839e3cbcb09d4c, type: 3}
   idItem: player_setka
   costItem: 600
   description: '"setka"'
