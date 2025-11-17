@@ -24,21 +24,20 @@ namespace Assets.Scripts.Player
         private PLayerHealth health;
         private SaveLifecycle saveLifecycle;
 
-        public void Initialize(string playerId, SaveLifecycle saveLifecycle)
+        public void Initialize(string playerId, int currentHealth, SaveLifecycle saveLifecycle)
         {
-            SetHealth();
             this.saveLifecycle = saveLifecycle;
+            SetHealth(currentHealth);
             UpgradePlayer(playerId);
         }
 
-        private void SetHealth()
+        private void SetHealth(int currentHealth)
         {
             health = GetComponent<PLayerHealth>();
 
             if (health != null)
             {
-                int maxHealth = health.GetMaxHealth();
-                health.Initialize(maxHealth);
+                health.Initialize(currentHealth, saveLifecycle);
             }
         }
 

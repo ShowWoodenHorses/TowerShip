@@ -10,6 +10,7 @@ namespace Assets.Scripts.Configs
         [Header("Стартовые значения")]
         public int currentCoins = 10000;
         public int allCoins = 10000;
+        public int health = 100;
         public string selectedPLayerId = "player_cannon";
         public string selectedBulletId = "bullet_basic";
         public string currentWaveEnemyId = "wave_1";

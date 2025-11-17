@@ -2,8 +2,6 @@
 using Assets.Scripts.CameraControl;
 using Assets.Scripts.Control;
 using Assets.Scripts.Game;
-using Assets.Scripts.Generation;
-using Assets.Scripts.Interface;
 using Assets.Scripts.ObjectPool;
 using Assets.Scripts.Player;
 using Assets.Scripts.Save;
@@ -14,7 +12,6 @@ using Assets.Scripts.UI;
 using Assets.Scripts.UI.Shop;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.InputSystem.XR;
 using YG;
 
 namespace Assets.Scripts
@@ -88,7 +85,7 @@ namespace Assets.Scripts
             soundPoolManager.Initialize(mainMixer);
             //rewardsAds.Initialize(scoreManager);
 
-            playerManager.Initialize(data.selectedPLayerId, saveLifecycle);
+            playerManager.Initialize(data.selectedPLayerId, data.health, saveLifecycle);
             playerShop.Initialize(scoreManager, saveLifecycle, playerManager, data.ownedItems, data.selectedPLayerId);
             gameManager.Initialize(uiController);
             enemySpawner.Initialize(data.currentWaveEnemyId, playerTransform, gameplayAnimationController);

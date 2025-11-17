@@ -20,6 +20,7 @@ public static class SaveSystem
             version = 3,
             currentCoins = defaultConfig.currentCoins,
             allCoins = defaultConfig.allCoins,
+            health = defaultConfig.health,
             selectedPLayerId = defaultConfig.selectedPLayerId,
             selectedBulletId = defaultConfig.selectedBulletId,
             currentWaveEnemyId = defaultConfig.currentWaveEnemyId,

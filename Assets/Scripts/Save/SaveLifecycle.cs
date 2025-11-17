@@ -146,5 +146,14 @@ namespace Assets.Scripts.Save
 
             isSaving = false;
         }
+
+        public void UpdateHealth(int newHealth)
+        {
+            if (newHealth != Data.health)
+            {
+                Data.health = newHealth;
+                SaveSystem.Save(Data);
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using Assets.Scripts.Interface;
+using Assets.Scripts.Save;
 using TMPro;
 using UnityEngine;
 
@@ -13,21 +14,22 @@ namespace Assets.Scripts.Player
 
         public static event Action<GameObject> OnPlayerDie;
 
-        private void Start()
-        {
-            currentHealth = maxHealth;
-            textPlayerHealth.text = currentHealth.ToString();
-        }
+        private SaveLifecycle saveLifecycle;
 
-        public void Initialize(int maxHealth)
+        public void Initialize(int maxHealth, SaveLifecycle saveLifecycle)
         {
             this.maxHealth = maxHealth;
             currentHealth = maxHealth;
+            textPlayerHealth.text = currentHealth.ToString();
+            this.saveLifecycle = saveLifecycle;
         }
         public void TakeDamage(int damage)
         {
             currentHealth -= damage;
             textPlayerHealth.text = currentHealth.ToString();
+
+            saveLifecycle.UpdateHealth(currentHealth);
+
             if (currentHealth < 0)
             {
                 currentHealth = 0;

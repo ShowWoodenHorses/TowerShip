@@ -9,6 +9,7 @@ namespace Assets.Scripts.Save
         public int version = 1;
         public int currentCoins = 0;
         public int allCoins = 0;
+        public int health = 100;
 
         public string selectedPLayerId;
         public string selectedBulletId;
