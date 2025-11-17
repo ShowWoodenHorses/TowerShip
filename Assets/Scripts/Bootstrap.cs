@@ -29,6 +29,7 @@ namespace Assets.Scripts
         [Header("Shop")]
         [SerializeField] private PlayerShop playerShop;
         [SerializeField] private ScoreManager scoreManager;
+        [SerializeField] private AddHealth addHealth;
 
         [Header("Pool")]
         [SerializeField] private EnemyObjectPool enemyPool;
@@ -38,6 +39,7 @@ namespace Assets.Scripts
 
         [Header("Player")]
         [SerializeField] private PlayerManager playerManager;
+        [SerializeField] private PLayerHealth pLayerHealth;
         [SerializeField] private Transform playerTransform;
 
         [Header("Spawner")]
@@ -81,8 +83,10 @@ namespace Assets.Scripts
             soundPoolManager.Initialize(mainMixer);
             rewardsAds.Initialize(scoreManager);
 
-            playerManager.Initialize(data.selectedPLayerId, data.health, saveLifecycle);
+            playerManager.Initialize(data.selectedPLayerId, saveLifecycle);
+            pLayerHealth.Initialize(data.health, saveLifecycle);
             playerShop.Initialize(scoreManager, saveLifecycle, playerManager, data.ownedItems, data.selectedPLayerId);
+            addHealth.Initialize(pLayerHealth, scoreManager);
             gameManager.Initialize(uiController);
             enemySpawner.Initialize(data.currentWaveEnemyId, playerTransform, gameplayAnimationController);
 

@@ -21,24 +21,12 @@ namespace Assets.Scripts.Player
         [SerializeField] private ReloadPlayerUI reloadPlayerUI;
 
         private GameObject currentPlayerInstance;
-        private PLayerHealth health;
         private SaveLifecycle saveLifecycle;
 
-        public void Initialize(string playerId, int currentHealth, SaveLifecycle saveLifecycle)
+        public void Initialize(string playerId, SaveLifecycle saveLifecycle)
         {
             this.saveLifecycle = saveLifecycle;
-            SetHealth(currentHealth);
             UpgradePlayer(playerId);
-        }
-
-        private void SetHealth(int currentHealth)
-        {
-            health = GetComponent<PLayerHealth>();
-
-            if (health != null)
-            {
-                health.Initialize(currentHealth, saveLifecycle);
-            }
         }
 
         public void UpgradePlayer(string playerId)

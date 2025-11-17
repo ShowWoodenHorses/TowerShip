@@ -43,6 +43,14 @@ namespace Assets.Scripts.Player
             return maxHealth;
         }
 
+        public void UpdateHealth(int health)
+        {
+            currentHealth += health;
+            textPlayerHealth.text = currentHealth.ToString();
+            saveLifecycle.UpdateHealth(currentHealth);
+
+        }
+
         public bool IsDiedEnemy()
         {
             throw new NotImplementedException();
