@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cae8acb3c72c2f4e88bcdb8d718d089, type: 3}
+  m_Name: all_damage_achiev
+  m_EditorClassIdentifier: 
+  name_EN: all damage
+  name_RU: "\u041E\u0431\u0449\u0438\u0439 \u0443\u0440\u043E\u043D"
+  name_TR: all damage
+  description_EN: all damage
+  description_RU: "\u041E\u0431\u0449\u0438\u0439 \u0443\u0440\u043E\u043D"
+  description_TR: all damage
+  achievementId: 
+  gunId: 
+  icon: {fileID: 7611526432734126174, guid: 044c09bcaef1acb42aaf0be97aba2cf1, type: 3}
+  countPointsForFinish: 50000
+  damage: damage
+  kill: kill

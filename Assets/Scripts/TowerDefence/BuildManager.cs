@@ -138,7 +138,9 @@ namespace Assets.Scripts.TowerDefence
 
         public void CancelBuildMode()
         {
-            selectedTowerItem.UnselectedItem();
+            if(selectedTowerItem != null)
+                selectedTowerItem.UnselectedItem();
+
             selectedTowerData = null;
             DestroyGhost();
             HighlightAvailableTiles(false);

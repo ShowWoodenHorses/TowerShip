@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Achievements;
 using Assets.Scripts.Animation;
+using Assets.Scripts.Save;
 using Assets.Scripts.Scene;
 using Assets.Scripts.Sound;
 using UnityEngine;
@@ -10,6 +11,8 @@ namespace Assets.Scripts.Game
 {
     public class StartGameManager : MonoBehaviour
     {
+        private SaveData data;
+
         [SerializeField] private GameObject ContinueButton;
         [SerializeField] private GameObject ConfirmationPanel;
 
@@ -18,6 +21,9 @@ namespace Assets.Scripts.Game
         [SerializeField] private AudioMixer audioMixer;
         [SerializeField] private MusicManager musicManager;
         [SerializeField] private AchievementManager achievementManager;
+
+        [Header("Save")]
+        [SerializeField] private SaveLifecycle saveLifecycle;
         private void Awake()
         {
             ContinueButton.SetActive(false);
@@ -27,6 +33,10 @@ namespace Assets.Scripts.Game
             {
                 ContinueButton.SetActive(true);
             }
+
+            data = SaveSystem.Load();
+
+            saveLifecycle.Initialize(data);
         }
 
         private void Start()

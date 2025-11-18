@@ -14,8 +14,7 @@ namespace Assets.Scripts.Achievements
         [Header("Text")]
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI desciptionText;
-        [SerializeField] private TextMeshProUGUI currentCountPointsText;
-        [SerializeField] private TextMeshProUGUI finishCountPointsText;
+        [SerializeField] private TextMeshProUGUI pointsText;
 
         private string gunId;
         private int finishCountPoints;
@@ -30,9 +29,9 @@ namespace Assets.Scripts.Achievements
             gunId = data.gunId;
             iconAchievement.sprite = data.icon;
             finishCountPoints = data.countPointsForFinish;
-            finishCountPointsText.text = data.countPointsForFinish.ToString();
+            pointsText.text = "0/" + data.countPointsForFinish.ToString();
 
-            if(ACHIEVEMENT_ID_DAMAGE == data.achievementId)
+            if (ACHIEVEMENT_ID_DAMAGE == data.achievementId)
             {
                 achievementId = ACHIEVEMENT_ID_DAMAGE;
             }
@@ -70,7 +69,7 @@ namespace Assets.Scripts.Achievements
 
         public void SetCurrentPoints(int points)
         {
-            currentCountPointsText.text = points.ToString();
+            pointsText.text = points.ToString()+ "/" + finishCountPoints.ToString();
         }
 
         public int GetCountFinishPoints()

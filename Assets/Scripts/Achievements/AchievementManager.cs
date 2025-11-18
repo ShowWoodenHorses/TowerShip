@@ -2,6 +2,7 @@
 using System.Linq;
 using Assets.Scripts.Achievements.Configs;
 using Assets.Scripts.Save;
+using TMPro;
 using UnityEngine;
 using static UnityEditor.Progress;
 
@@ -12,6 +13,8 @@ namespace Assets.Scripts.Achievements
         [SerializeField] private AchievementData[] achievementsData;
         [SerializeField] private GameObject acievementPrefab;
         [SerializeField] private Transform parentPosition;
+
+        [SerializeField] private TextMeshProUGUI generalCountAchievText;
 
         [Header("Special Achievements")]
         [SerializeField] private AchievementData achievForAllDamage;
@@ -24,6 +27,9 @@ namespace Assets.Scripts.Achievements
         private const string ACHIEVEMENT_ID_DAMAGE = "damage";
         private const string ACHIEVEMENT_ID_KILL = "kill";
 
+        private int countAllAchievements;
+        private int countReceviedAchievements;
+
         private int allDamage;
         private int allKill;
 
@@ -32,6 +38,7 @@ namespace Assets.Scripts.Achievements
             CreateAchevementDialog();
             InitializeFromSave();
             CreateSpecialAchievements();
+            UpdateGeneralCountAchievements();
         }
 
         private void CreateAchevementDialog()
@@ -52,6 +59,8 @@ namespace Assets.Scripts.Achievements
                     {
                         allAchievementsForKill.Add(achievementItem);
                     }
+
+                    countAllAchievements++;
                 }
             }
         }
@@ -70,6 +79,7 @@ namespace Assets.Scripts.Achievements
                     if (gunStatDict.damage >= item.GetCountFinishPoints())
                     {
                         item.SetGetAchievement();
+                        countReceviedAchievements++;
                     }
                 }
                 else
@@ -89,6 +99,7 @@ namespace Assets.Scripts.Achievements
                     if (gunStatDict.countKill >= item.GetCountFinishPoints())
                     {
                         item.SetGetAchievement();
+                        countReceviedAchievements++;
                     }
                 }
                 else
@@ -107,6 +118,8 @@ namespace Assets.Scripts.Achievements
 
         private void CreateSpecialAchievForDamage()
         {
+            if (achievForAllDamage == null) return;
+
             GameObject achievObj = Instantiate(acievementPrefab, parentPosition);
             AchievementItem achievementItem = achievObj.GetComponent<AchievementItem>();
             if (achievementItem != null)
@@ -116,12 +129,16 @@ namespace Assets.Scripts.Achievements
                 if(allDamage >= achievementItem.GetCountFinishPoints())
                 {
                     achievementItem.SetGetAchievement();
+                    countReceviedAchievements++;
                 }
+                countAllAchievements++;
             }
         }
 
         private void CreateSpecialAchievForKill()
         {
+            if (achievForAllKill == null) return;
+
             GameObject achievObj = Instantiate(acievementPrefab, parentPosition);
             AchievementItem achievementItem = achievObj.GetComponent<AchievementItem>();
             if (achievementItem != null)
@@ -131,12 +148,16 @@ namespace Assets.Scripts.Achievements
                 if (allKill >= achievementItem.GetCountFinishPoints())
                 {
                     achievementItem.SetGetAchievement();
+                    countReceviedAchievements++;
                 }
+                countAllAchievements++;
             }
         }
 
         private void CreateSpecialAchievForMoney()
         {
+            if (achievForAllMoney == null) return;
+
             int allMoney = SaveLifecycle.Data.allCoins;
 
             GameObject achievObj = Instantiate(acievementPrefab, parentPosition);
@@ -148,8 +169,15 @@ namespace Assets.Scripts.Achievements
                 if (allMoney >= achievementItem.GetCountFinishPoints())
                 {
                     achievementItem.SetGetAchievement();
+                    countReceviedAchievements++;
                 }
+                countAllAchievements++;
             }
+        }
+
+        private void UpdateGeneralCountAchievements()
+        {
+            generalCountAchievText.text = $"{countReceviedAchievements}/{countAllAchievements}";
         }
     }
 }
