@@ -16,6 +16,11 @@ namespace Assets.Scripts.Achievements
         [SerializeField] private TextMeshProUGUI desciptionText;
         [SerializeField] private TextMeshProUGUI pointsText;
 
+        [Header("Dop Image icon")]
+        [SerializeField] private Image dopIcon;
+        [SerializeField] private Sprite iconDamage;
+        [SerializeField] private Sprite iconKill;
+
         private string gunId;
         private int finishCountPoints;
 
@@ -34,10 +39,12 @@ namespace Assets.Scripts.Achievements
             if (ACHIEVEMENT_ID_DAMAGE == data.achievementId)
             {
                 achievementId = ACHIEVEMENT_ID_DAMAGE;
+                dopIcon.sprite = iconDamage;
             }
-            else
+            else if (ACHIEVEMENT_ID_KILL == data.achievementId)
             {
                 achievementId = ACHIEVEMENT_ID_KILL;
+                dopIcon.sprite = iconKill;
             }
 
             switch (YG2.lang)
