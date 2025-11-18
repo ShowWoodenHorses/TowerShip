@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Animation;
+﻿using Assets.Scripts.Achievements;
+using Assets.Scripts.Animation;
 using Assets.Scripts.Scene;
 using Assets.Scripts.Sound;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace Assets.Scripts.Game
         [SerializeField] private SoundPoolManager soundPoolManager;
         [SerializeField] private AudioMixer audioMixer;
         [SerializeField] private MusicManager musicManager;
+        [SerializeField] private AchievementManager achievementManager;
         private void Awake()
         {
             ContinueButton.SetActive(false);
@@ -32,6 +34,7 @@ namespace Assets.Scripts.Game
             audioSettingsManager.Initialize();
             soundPoolManager.Initialize(audioMixer);
             musicManager.Initialize(audioSettingsManager, audioMixer);
+            achievementManager.Initialize();
         }
 
         public void LoadGame()
