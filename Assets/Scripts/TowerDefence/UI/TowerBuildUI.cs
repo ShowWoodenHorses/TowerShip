@@ -11,22 +11,43 @@ namespace Assets.Scripts.TowerDefence.UI
         public Transform buttonContainer;
         public TowerData[] towerOptions;
 
+        private TowerItemUI currentSelectedTiwerItem;
+
         public void Initialize()
         {
             foreach (var tower in towerOptions)
             {
                 GameObject btnObj = Instantiate(buttonPrefab, buttonContainer);
                 Button btn = btnObj.GetComponent<Button>();
-                btn.onClick.AddListener(() => OnTowerButtonClick(tower));
+                TowerItemUI towerUi = btnObj?.GetComponent<TowerItemUI>();
+                btn.onClick.AddListener(() => OnTowerButtonClick(tower, towerUi));
 
-                btnObj.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = $"{tower.baseCost}";
-                btnObj.transform.GetChild(0).GetComponent<Image>().sprite = tower.iconItem;
+                if(towerUi != null)
+                {
+                    towerUi.Initialize(tower.baseCost.ToString(), tower.iconItem);
+                }
             }
         }
 
-        private void OnTowerButtonClick(TowerData tower)
+        private void OnTowerButtonClick(TowerData tower, TowerItemUI towerItemUi)
         {
-            BuildManager.Instance.SelectTowerType(tower);
+            if(currentSelectedTiwerItem != null)
+            {
+                currentSelectedTiwerItem.UnselectedItem();
+            }
+
+            towerItemUi.SelectedItem();
+            currentSelectedTiwerItem = towerItemUi;
+
+            BuildManager.Instance.SelectTowerType(tower, towerItemUi);
+        }
+
+        public void UnselectedCurrentItem() // Из инспектора
+        {
+            if (currentSelectedTiwerItem != null)
+            {
+                currentSelectedTiwerItem.UnselectedItem();
+            }
         }
 
         public void ClosePanel()

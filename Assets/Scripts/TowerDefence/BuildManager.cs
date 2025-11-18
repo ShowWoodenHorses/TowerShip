@@ -29,6 +29,7 @@ namespace Assets.Scripts.TowerDefence
 
         // runtime
         private TowerData selectedTowerData;
+        private TowerItemUI selectedTowerItem;
         private GameObject ghostInstance;
         private Renderer[] ghostRenderers;
         private Tile hoveredTile;
@@ -120,7 +121,7 @@ namespace Assets.Scripts.TowerDefence
             }
         }
 
-        public void SelectTowerType(TowerData data)
+        public void SelectTowerType(TowerData data, TowerItemUI towerItem)
         {
             TowerActionUI.Instance?.Close();
             if (selectedTowerData == data)
@@ -129,6 +130,7 @@ namespace Assets.Scripts.TowerDefence
                 return;
             }
 
+            selectedTowerItem = towerItem;
             selectedTowerData = data;
             CreateGhost();
             HighlightAvailableTiles(true);
@@ -136,6 +138,7 @@ namespace Assets.Scripts.TowerDefence
 
         public void CancelBuildMode()
         {
+            selectedTowerItem.UnselectedItem();
             selectedTowerData = null;
             DestroyGhost();
             HighlightAvailableTiles(false);

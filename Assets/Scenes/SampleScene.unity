@@ -8037,7 +8037,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &432859149
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20523,8 +20523,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -27378,6 +27378,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1414493819999826920, guid: eda5f340978843d4b98e8f71f923e0ab, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414493819999826920, guid: eda5f340978843d4b98e8f71f923e0ab, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300046, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
     - target: {fileID: 1414493820369423862, guid: eda5f340978843d4b98e8f71f923e0ab, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -27422,13 +27430,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Timer Before Ads
       objectReference: {fileID: 0}
+    - target: {fileID: 1414493820822186969, guid: eda5f340978843d4b98e8f71f923e0ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4365728972544723230, guid: eda5f340978843d4b98e8f71f923e0ab, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 0eaf1d74900237740af7cf35e55cf721, type: 2}
     - target: {fileID: 4365728972544723230, guid: eda5f340978843d4b98e8f71f923e0ab, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 280446050889733353, guid: 0eaf1d74900237740af7cf35e55cf721, type: 2}
+    - target: {fileID: 4365728972544723230, guid: eda5f340978843d4b98e8f71f923e0ab, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
