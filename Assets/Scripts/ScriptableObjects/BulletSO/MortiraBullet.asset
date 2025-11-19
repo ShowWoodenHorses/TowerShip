@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fd7dbcaf578286489dd82fb698404a7, type: 3}
-  m_Name: Bullet3
+  m_Name: MortiraBullet
   m_EditorClassIdentifier: 
-  id: bullet3
+  id: MortiraBullet
   speed: 40
   damageEnemy: 40
   damageBuilding: 30
   lifeBeforeDestroy: 5
-  bulletPrefab: {fileID: 3822898065735450096, guid: 6108bcc6dc1ec6e468f20cbd010f162e, type: 3}
-  soundShotPrefab: {fileID: 3296352006043120542, guid: f0ba57352db93524cb5d61ae5cecf5b5, type: 3}
+  bulletPrefab: {fileID: 9079957325069467876, guid: fb84a091825a97847b3dda903760d584, type: 3}
+  soundShotPrefab: {fileID: 3296352006043120542, guid: f985112cea023304b91df837a021645e, type: 3}

@@ -18653,10 +18653,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
-  - prefab: {fileID: 3296352006043120542, guid: 5af1ed4f40785504ca151e25cabc8c6a, type: 3}
-    size: 3
-  - prefab: {fileID: 3296352006043120542, guid: b99db62625d2ad04e8a39eefc1f2b2e2, type: 3}
-    size: 3
+  - prefab: {fileID: 3296352006043120542, guid: e082f057936c6e9498fbce994475c05a, type: 3}
+    size: 1
+  - prefab: {fileID: 3296352006043120542, guid: f0ba57352db93524cb5d61ae5cecf5b5, type: 3}
+    size: 1
   - prefab: {fileID: 3296352006043120542, guid: f55bce617e31cd345bd9d9ad96fbc05a, type: 3}
     size: 3
   - prefab: {fileID: 3296352006043120542, guid: 552e0fea8872dc04f921e67aaa5027aa, type: 3}
@@ -18669,6 +18669,12 @@ MonoBehaviour:
     size: 3
   - prefab: {fileID: 3296352006043120542, guid: 4b1d62ccb2ce1f8409bd47dfbcf3c75e, type: 3}
     size: 2
+  - prefab: {fileID: 3296352006043120542, guid: f985112cea023304b91df837a021645e, type: 3}
+    size: 1
+  - prefab: {fileID: 3296352006043120542, guid: bfac480169815a64bbe1e6b0be338aec, type: 3}
+    size: 1
+  - prefab: {fileID: 3296352006043120542, guid: a4c284db7c66ee849b849e224d269f5c, type: 3}
+    size: 1
   sfxGroup: {fileID: -4873237511761742332, guid: f19320005adc7ae4b99d7e83722f3cd6, type: 2}
   maxSimultaneousSameSound: 5
 --- !u!4 &1480056284

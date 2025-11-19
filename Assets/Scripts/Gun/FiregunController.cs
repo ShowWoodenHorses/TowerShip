@@ -12,7 +12,7 @@ namespace Assets.Scripts.Gun
         [Header("Flamethrower Settings")]
         [SerializeField] private ParticleSystem flameEffect;
         [SerializeField] private ParticleSystem smokeEffect;
-        //[SerializeField] private AudioSource flameSound;
+        [SerializeField] private AudioSource flameSound;
         [SerializeField] private int damage = 5;
         [SerializeField] private float fireRange = 5f;
         [SerializeField] private LayerMask damageLayer;
@@ -82,7 +82,7 @@ namespace Assets.Scripts.Gun
 
             flameEffect.Play();
             smokeEffect.Play();
-            //flameSound.Stop();
+            flameSound.Play();
         }
 
         private void StopFire()
@@ -92,7 +92,7 @@ namespace Assets.Scripts.Gun
 
             flameEffect.Stop();
             smokeEffect.Stop();
-            //flameSound.Stop();
+            flameSound.Stop();
         }
 
         private void ApplyFireDamage()

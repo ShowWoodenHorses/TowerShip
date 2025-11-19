@@ -102,7 +102,7 @@ MonoBehaviour:
   effectShotInWater: {fileID: 199582, guid: 02e25b69473c97c4d9226857e0231c35, type: 3}
   effectShotInBuilding: {fileID: 199582, guid: 22f0c762fb1a0bf4bb4afec4df34ea56, type: 3}
   effectShotInEnemy: {fileID: 199582, guid: 0c313793eb9ceca48942cc8730bea947, type: 3}
-  soundShotPrefab: {fileID: 3296352006043120542, guid: 5af1ed4f40785504ca151e25cabc8c6a, type: 3}
+  soundShotPrefab: {fileID: 3296352006043120542, guid: e082f057936c6e9498fbce994475c05a, type: 3}
   soundShotWavePrefab: {fileID: 3296352006043120542, guid: 4353cb33cf5ba574fbc368b83e9f4d27, type: 3}
   soundTakeDamagePrefab: {fileID: 3296352006043120542, guid: 537eab0cbf38f554a8ec7f74ebc8adc2, type: 3}
   bulletConfig: {fileID: 11400000, guid: 2cbf0e22d7033474ab67b22fa83092d6, type: 2}
