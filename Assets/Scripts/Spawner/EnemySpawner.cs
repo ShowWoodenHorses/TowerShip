@@ -128,15 +128,17 @@ public class EnemySpawner : MonoBehaviour
         currentTotalEnemies--;
 
         var enemyController = enemy.GetComponent<EnemyController>();
+
+        if (enemyController.IsReward())
+        {
+            scoreManager.AddMoney(enemyController.GetReward());
+        }
+
         foreach (EnemyType enemyType in enemyTypes)
         {
             if (enemyType.prefab == enemyController.prefabRef)
             {
                 enemyType.currentCount--;
-                if (enemyController.IsReward())
-                {
-                    scoreManager.AddMoney(enemyController.GetReward());
-                }
                 break;
             }
         }
