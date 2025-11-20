@@ -717,14 +717,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc27070dec4a244596c4deae01b6d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 8
   sails: {fileID: 8171224320309636820}
-  orbitRadius: 35
-  minOrbitRadius: 33
-  maxOrbitRadius: 48
+  orbitRadius: 70
+  minOrbitRadius: 65
+  maxOrbitRadius: 75
   orbitPointsCount: 20
   waypointAdvanceDistance: 5
-  enterOrbitDistance: 50
+  enterOrbitDistance: 90
   exitOrbitDistance: 100
   turnRateDegPerSec: 180
 --- !u!114 &7123929774919357799
@@ -740,7 +740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabRef: {fileID: 0}
-  maxHealth: 120
+  maxHealth: 200
   currentHealth: 0
   reward: 60
   isReward: 1
@@ -1376,6 +1376,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
+      propertyPath: fireRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
       value: 60
       objectReference: {fileID: 0}
@@ -1500,6 +1504,10 @@ PrefabInstance:
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: drawGizmos
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
+      propertyPath: fireRadius
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -1700,6 +1708,10 @@ PrefabInstance:
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: drawGizmos
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
+      propertyPath: fireRadius
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -1948,6 +1960,10 @@ PrefabInstance:
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: drawGizmos
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
+      propertyPath: fireRadius
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed

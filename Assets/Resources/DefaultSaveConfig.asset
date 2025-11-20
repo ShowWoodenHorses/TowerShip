@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eabc07c22353d074cb23a5e52883bd67, type: 3}
   m_Name: DefaultSaveConfig
   m_EditorClassIdentifier: 
-  currentCoins: 10000
-  allCoins: 10000
+  currentCoins: 0
+  allCoins: 0
   health: 500
   selectedPLayerId: player_cannon
   selectedBulletId: bullet1

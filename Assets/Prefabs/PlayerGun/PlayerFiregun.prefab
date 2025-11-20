@@ -369,7 +369,7 @@ MonoBehaviour:
   flameEffect: {fileID: 4633395504598007949}
   smokeEffect: {fileID: 3923291800399791170}
   flameSound: {fileID: 3403230257421927271}
-  damage: 20
+  damage: 100
   fireRange: 100
   damageLayer:
     serializedVersion: 2

@@ -590,14 +590,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc27070dec4a244596c4deae01b6d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 7
   sails: {fileID: 8148661567227415262}
-  orbitRadius: 45
-  minOrbitRadius: 35
-  maxOrbitRadius: 55
+  orbitRadius: 70
+  minOrbitRadius: 65
+  maxOrbitRadius: 80
   orbitPointsCount: 20
   waypointAdvanceDistance: 5
-  enterOrbitDistance: 50
+  enterOrbitDistance: 90
   exitOrbitDistance: 100
   turnRateDegPerSec: 180
 --- !u!114 &97215329225786903
@@ -613,7 +613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabRef: {fileID: 0}
-  maxHealth: 400
+  maxHealth: 450
   currentHealth: 0
   reward: 200
   isReward: 1

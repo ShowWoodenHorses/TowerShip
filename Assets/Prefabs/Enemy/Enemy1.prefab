@@ -224,14 +224,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc27070dec4a244596c4deae01b6d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 10
   sails: {fileID: 8333423734340907929}
-  orbitRadius: 35
-  minOrbitRadius: 33
-  maxOrbitRadius: 49
+  orbitRadius: 65
+  minOrbitRadius: 65
+  maxOrbitRadius: 70
   orbitPointsCount: 20
   waypointAdvanceDistance: 5
-  enterOrbitDistance: 50
+  enterOrbitDistance: 90
   exitOrbitDistance: 100
   turnRateDegPerSec: 180
 --- !u!114 &7784886049041464042
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabRef: {fileID: 0}
-  maxHealth: 30
+  maxHealth: 75
   currentHealth: 0
   reward: 10
   isReward: 1
@@ -688,7 +688,23 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
+      propertyPath: fireRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
+      propertyPath: rotationSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: aimToleranceDeg
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
+      propertyPath: maxLeftRotation
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
+      propertyPath: maxRightRotation
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}

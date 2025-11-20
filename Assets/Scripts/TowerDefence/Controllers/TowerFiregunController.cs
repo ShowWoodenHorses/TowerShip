@@ -103,10 +103,10 @@ namespace Assets.Scripts.TowerDefence.Controllers
 
         private void ApplyFireDamage()
         {
-            // Наносим урон раз в 0.1 сек (можно настроить)
+            // Наносим урон раз в 0.5 сек (можно настроить)
             damageTimer -= Time.deltaTime;
             if (damageTimer > 0f) return;
-            damageTimer = 0.1f;
+            damageTimer = 0.5f;
 
             var health = target.gameObject.GetComponent<IDamagable>();
             if (health != null)

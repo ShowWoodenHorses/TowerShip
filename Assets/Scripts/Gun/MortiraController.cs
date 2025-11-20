@@ -14,7 +14,7 @@ namespace Assets.Scripts.Gun
             currentTimeReloading -= Time.deltaTime;
             HandleRotate();
 
-            if (Input.GetMouseButtonDown(0) && canShoot)
+            if (Input.GetMouseButton(0) && canShoot)
             {
                 if (currentTimeReloading <= 0f)
                 {

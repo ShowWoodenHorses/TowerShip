@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: MortiraBullet
   speed: 40
-  damageEnemy: 40
+  damageEnemy: 100
   damageBuilding: 30
   lifeBeforeDestroy: 5
   bulletPrefab: {fileID: 9079957325069467876, guid: fb84a091825a97847b3dda903760d584, type: 3}

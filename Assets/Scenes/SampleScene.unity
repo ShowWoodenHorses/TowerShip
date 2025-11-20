@@ -5116,12 +5116,12 @@ MonoBehaviour:
   currentIdItem: 
   shopItemConfigs:
   - {fileID: 11400000, guid: 65a0b71a1e67d404a994cf6484e041f6, type: 2}
+  - {fileID: 11400000, guid: c688b0ad60e2dc346977650bf9979ce2, type: 2}
+  - {fileID: 11400000, guid: 920ba2a5e3c3ebb49ab3efb128fdd535, type: 2}
   - {fileID: 11400000, guid: 40241b335c9cfe8448816a0777425fb0, type: 2}
   - {fileID: 11400000, guid: 12919b4de253db14eb954525355d1673, type: 2}
-  - {fileID: 11400000, guid: c688b0ad60e2dc346977650bf9979ce2, type: 2}
-  - {fileID: 11400000, guid: e249ab5caba82bc47a324f8a35785738, type: 2}
   - {fileID: 11400000, guid: de51f529d45338b4eaba976953472ad2, type: 2}
-  - {fileID: 11400000, guid: 920ba2a5e3c3ebb49ab3efb128fdd535, type: 2}
+  - {fileID: 11400000, guid: e249ab5caba82bc47a324f8a35785738, type: 2}
   prefabShopItem: {fileID: 4648295784192438448, guid: 7698aa595fa39d24cbcc223fbfc6a78b, type: 3}
   parentPosition: {fileID: 828136591}
   avaliableItems: []
@@ -7142,12 +7142,12 @@ MonoBehaviour:
   buttonPrefab: {fileID: 3036025430991261401, guid: 44f94d58a738fb14e8359ce3769f975d, type: 3}
   buttonContainer: {fileID: 1930576919}
   towerOptions:
-  - {fileID: 11400000, guid: 0303dbe72cd12a1429d4eaf02fb7ea55, type: 2}
   - {fileID: 11400000, guid: 85fea5d89cb01594a92ae95bf1083cdc, type: 2}
-  - {fileID: 11400000, guid: 73dbdb9a73d274d40962666d6ff3cb53, type: 2}
+  - {fileID: 11400000, guid: 0303dbe72cd12a1429d4eaf02fb7ea55, type: 2}
   - {fileID: 11400000, guid: caf0541e93038a24e8d07b87387716a0, type: 2}
-  - {fileID: 11400000, guid: 33661d9637473604fb663708a920fc41, type: 2}
+  - {fileID: 11400000, guid: 73dbdb9a73d274d40962666d6ff3cb53, type: 2}
   - {fileID: 11400000, guid: c2da30a0362a6794c8e3cd9386ede5a4, type: 2}
+  - {fileID: 11400000, guid: 33661d9637473604fb663708a920fc41, type: 2}
   - {fileID: 11400000, guid: 5de7ad8acf568e14dabfb49a0a48fbb8, type: 2}
 --- !u!114 &381003618
 MonoBehaviour:

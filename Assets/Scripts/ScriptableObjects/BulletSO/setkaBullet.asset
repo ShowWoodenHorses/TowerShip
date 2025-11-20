@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fd7dbcaf578286489dd82fb698404a7, type: 3}
-  m_Name: Bullet1
+  m_Name: setkaBullet
   m_EditorClassIdentifier: 
-  id: bullet1
-  speed: 50
-  damageEnemy: 10
-  damageBuilding: 10
-  lifeBeforeDestroy: 2
-  bulletPrefab: {fileID: 7273499422308683942, guid: d2a1e930eea8fa44886e561d30721381, type: 3}
-  soundShotPrefab: {fileID: 3296352006043120542, guid: f55bce617e31cd345bd9d9ad96fbc05a, type: 3}
+  id: bullet4
+  speed: 80
+  damageEnemy: 20
+  damageBuilding: 1
+  lifeBeforeDestroy: 5
+  bulletPrefab: {fileID: 5939533147341158565, guid: 6af66280037a0d3499fed44e6914fb43, type: 3}
+  soundShotPrefab: {fileID: 3296352006043120542, guid: bfac480169815a64bbe1e6b0be338aec, type: 3}

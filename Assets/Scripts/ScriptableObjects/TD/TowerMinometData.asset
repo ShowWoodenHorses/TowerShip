@@ -19,21 +19,21 @@ MonoBehaviour:
   prefab: {fileID: 8576572307983309258, guid: 9e3ee92329dff04438b024acc97452e8, type: 3}
   maxLevel: 3
   iconItem: {fileID: 21300000, guid: 423a00c4589d850479b47a6f899179a5, type: 3}
-  baseCost: 1000
+  baseCost: 500
   upgradeMultiplier: 1.5
   sellRefundFactor: 0.6
   damage_level_1: 10
   reload_level_1: 4
   minDistance_level_1: 30
   maxDistance_level_1: 60
-  cost_level_1: 1000
+  cost_level_1: 500
   damage_level_2: 15
   reload_level_2: 4
   minDistance_level_2: 35
   maxDistance_level_2: 75
-  cost_level_2: 2000
+  cost_level_2: 500
   damage_level_3: 20
   reload_level_3: 5
   minDistance_level_3: 40
   maxDistance_level_3: 90
-  cost_level_3: 3000
+  cost_level_3: 500

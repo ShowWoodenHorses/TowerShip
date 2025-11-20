@@ -738,7 +738,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3822898065735450096, guid: 6108bcc6dc1ec6e468f20cbd010f162e, type: 3}
   shootPosition: {fileID: 4344636373047627078}
   gunTransform: {fileID: 8699523203416760571}
-  reloading: 2
+  reloading: 1.5
   minAngel: 0
   maxAngel: 0
   minDistance: 80

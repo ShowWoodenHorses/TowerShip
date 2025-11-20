@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69ea3d8317ec0bf488a6ce8ef65b07ff, type: 3}
-  m_Name: PlayerConfig2
+  m_Name: FiregunConfig
   m_EditorClassIdentifier: 
-  nameItemText: "\"\u041C\u043E\u0440\u0442\u0438\u0440\u0430\""
-  nameItemText_EN: '"Mortira"'
-  nameItemText_TR: '"Mortira"'
-  iconItem: {fileID: 21300000, guid: 625c4b80a010f9a48918140a8b4daf98, type: 3}
-  idItem: player_mortira
-  costItem: 100
-  description: 
-  description_EN: 
-  description_TR: 
+  nameItemText: "\"\u041E\u0433\u043D\u0435\u043C\u0435\u0442\""
+  nameItemText_EN: '"Firegun"'
+  nameItemText_TR: '"Firegun"'
+  iconItem: {fileID: 21300000, guid: d0d1b304f8de38845ad011f592886fa2, type: 3}
+  idItem: player_firegun
+  costItem: 2000
+  description: Firegun
+  description_EN: Firegun
+  description_TR: Firegun

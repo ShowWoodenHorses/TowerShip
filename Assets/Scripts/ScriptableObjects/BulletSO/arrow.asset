@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: arrow
   speed: 150
-  damageEnemy: 100
+  damageEnemy: 50
   damageBuilding: 30
   lifeBeforeDestroy: 5
   bulletPrefab: {fileID: 4907689107591143649, guid: 3ec9d20305ad89f4eb1425444ac308a5, type: 3}

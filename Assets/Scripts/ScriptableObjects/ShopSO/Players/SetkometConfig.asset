@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69ea3d8317ec0bf488a6ce8ef65b07ff, type: 3}
-  m_Name: PlayerConfig6
+  m_Name: SetkometConfig
   m_EditorClassIdentifier: 
-  nameItemText: "\"\u041C\u0438\u043D\u043E\u043C\u0435\u0442\""
-  nameItemText_EN: '"Minomet"'
-  nameItemText_TR: '"Minomet"'
-  iconItem: {fileID: 21300000, guid: 423a00c4589d850479b47a6f899179a5, type: 3}
-  idItem: player_minomet
-  costItem: 500
-  description: '"Minomet"'
-  description_EN: '"Minomet"'
-  description_TR: '"Minomet"'
+  nameItemText: "\"\u0421\u0435\u0442\u043A\u0430\""
+  nameItemText_EN: '"setka"'
+  nameItemText_TR: '"setka"'
+  iconItem: {fileID: 21300000, guid: 6c4376e794c11734da3f5ce85d8c21f5, type: 3}
+  idItem: player_setka
+  costItem: 200
+  description: '"setka"'
+  description_EN: '"setka"'
+  description_TR: '"setka"'

@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d64ef590d64dd94ebf886de38bc8791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageEnemy: 70
+  damageEnemy: 100
   rangeDamage: 5
   lifeBeforeDestroy: 10
   posY: 1.5

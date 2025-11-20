@@ -97,10 +97,10 @@ namespace Assets.Scripts.Gun
 
         private void ApplyFireDamage()
         {
-            // Наносим урон раз в 0.1 сек (можно настроить)
+            // Наносим урон раз в 0.5 сек (можно настроить)
             damageTimer -= Time.deltaTime;
             if (damageTimer > 0f) return;
-            damageTimer = 0.2f;
+            damageTimer = 0.5f;
 
             Vector3 origin = shootPosition.position;
             Vector3 forward = shootPosition.forward;

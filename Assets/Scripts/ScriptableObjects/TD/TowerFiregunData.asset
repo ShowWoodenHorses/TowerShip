@@ -22,17 +22,17 @@ MonoBehaviour:
   baseCost: 700
   upgradeMultiplier: 1.5
   sellRefundFactor: 0.6
-  damage_level_1: 5
+  damage_level_1: 25
   reload_level_1: 0
   minDistance_level_1: 0
   maxDistance_level_1: 30
   cost_level_1: 700
-  damage_level_2: 10
+  damage_level_2: 40
   reload_level_2: 0
   minDistance_level_2: 0
   maxDistance_level_2: 45
   cost_level_2: 1100
-  damage_level_3: 20
+  damage_level_3: 70
   reload_level_3: 0
   minDistance_level_3: 0
   maxDistance_level_3: 55

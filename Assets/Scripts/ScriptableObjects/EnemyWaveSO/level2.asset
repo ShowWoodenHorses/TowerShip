@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   enemyTypes:
-  - prefab: {fileID: 4716685156279246426, guid: a2be166c16198914bb89ccb475327be8, type: 3}
+  - prefab: {fileID: 4851598311652638919, guid: b0952a464d38b8c4481ac800efddbe35, type: 3}
     maxCount: 6
-    currentCount: 1
+    currentCount: 5
   maxLimitEnemy: 6
   intervalSpawn: 0.3

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fd7dbcaf578286489dd82fb698404a7, type: 3}
-  m_Name: Bullet4
+  m_Name: katapultaCore
   m_EditorClassIdentifier: 
-  id: bullet4
-  speed: 80
-  damageEnemy: 10
-  damageBuilding: 1
+  id: bullet3
+  speed: 60
+  damageEnemy: 150
+  damageBuilding: 30
   lifeBeforeDestroy: 5
-  bulletPrefab: {fileID: 5939533147341158565, guid: 6af66280037a0d3499fed44e6914fb43, type: 3}
-  soundShotPrefab: {fileID: 3296352006043120542, guid: bfac480169815a64bbe1e6b0be338aec, type: 3}
+  bulletPrefab: {fileID: 3822898065735450096, guid: 6108bcc6dc1ec6e468f20cbd010f162e, type: 3}
+  soundShotPrefab: {fileID: 3296352006043120542, guid: f0ba57352db93524cb5d61ae5cecf5b5, type: 3}
