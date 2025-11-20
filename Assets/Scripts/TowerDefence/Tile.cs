@@ -9,6 +9,10 @@ public class Tile : MonoBehaviour
     [HideInInspector] public Tower tower;
     public Color baseColor = Color.white;
     public Color highlightColor = Color.green;
+
+    public Material baseMaterial;
+    public Material highlightMaterial;
+
     public Renderer rend;
     public int index;
 
@@ -41,7 +45,8 @@ public class Tile : MonoBehaviour
     public void SetHighlight(bool on)
     {
         if (rend == null) return;
-        rend.material.color = on && IsEmpty ? highlightColor : baseColor;
+        //rend.material.color = on && IsEmpty ? highlightColor : baseColor;
+        rend.material = on && IsEmpty ? highlightMaterial : baseMaterial;
     }
 
     private void OnMouseDown()

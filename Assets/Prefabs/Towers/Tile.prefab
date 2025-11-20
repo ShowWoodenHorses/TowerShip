@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6445394168050627897}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &2145916510727349504
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -124,5 +124,7 @@ MonoBehaviour:
   tower: {fileID: 0}
   baseColor: {r: 1, g: 1, b: 1, a: 0}
   highlightColor: {r: 0, g: 1, b: 0, a: 1}
+  baseMaterial: {fileID: 2100000, guid: 0a53adc56d70d0743844b5e88fab0280, type: 2}
+  highlightMaterial: {fileID: 2100000, guid: 7b095a93a615c804485fbc4a3b9ba856, type: 2}
   rend: {fileID: 0}
   index: 0
