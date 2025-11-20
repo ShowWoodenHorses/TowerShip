@@ -53,17 +53,17 @@ namespace Assets.Scripts.Player
 
         public bool IsDiedEnemy()
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public bool CheckDiedEnemy()
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public void SetCheckDiedEnemy()
         {
-            throw new NotImplementedException();
+            return;
         }
     }
 }

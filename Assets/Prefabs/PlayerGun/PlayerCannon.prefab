@@ -171,8 +171,8 @@ MonoBehaviour:
   reloading: 1
   minAngel: -45
   maxAngel: 45
-  minDistance: 60
-  distanceFireRadius: 90
+  minDistance: 62
+  distanceFireRadius: 95
   shipAimLine: {fileID: 0}
   aimLinePos: {fileID: 1999742353458696816}
   circleNoFire: {fileID: 0}
