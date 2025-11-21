@@ -5094,7 +5094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4821609070449815818
 Transform:
   m_ObjectHideFlags: 0
@@ -14854,8 +14854,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b4bce52305e1e44a871448f90024a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadTime: 0
-  range: 70
   bulletPrefab: {fileID: 0}
   bulletPos: {fileID: 3248798629288005134}
   layerMask:
@@ -14865,14 +14863,17 @@ MonoBehaviour:
   rotationSpeed: 10
   gunAnimation: {fileID: 11880938729102955}
   shotEffect: {fileID: 0}
+  reloadTime: 0
+  maxDistance: 0
+  minDistance: 0
   damage: 20
   effectsObject: {fileID: 2053666578717452832}
   flameEffect: {fileID: 5574509684129581604}
   smokeEffect: {fileID: 2039413965824061666}
   coefDistanceSpeed: 1
   minSpeed: 1
-  maxSpeed: 2
-  coefDistanceLife: 1
+  maxSpeed: 4
+  coefDistanceLife: 3
   minLife: 0.1
   maxLife: 1
 --- !u!114 &11880938729102955

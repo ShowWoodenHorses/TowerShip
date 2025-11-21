@@ -47,6 +47,9 @@ public abstract class EnemyMovementBase : MonoBehaviour, IBrakingable
     {
         agent.Warp(startPosition);
         transform.rotation = Quaternion.identity;
+        agent.speed = moveSpeed;
+        sails.SetActive(true);
+        StopCoroutine(nameof(StartBraking));
     }
 
     protected void MoveTo(Vector3 position)

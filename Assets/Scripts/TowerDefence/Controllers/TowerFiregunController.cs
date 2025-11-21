@@ -73,22 +73,27 @@ namespace Assets.Scripts.TowerDefence.Controllers
             if (isFiring) return;
             isFiring = true;
 
-            float distance = Vector3.Distance(target.position, transform.position);
-
-            if (distance < minDistance)
-                return;
-
             flameEffect.transform.position = bulletPos.position;
             flameEffect.transform.rotation = bulletPos.rotation;
 
-            // Настраиваем параметры длины пламени
-            var main = flameEffect.main;
-            main.startSpeed = Mathf.Clamp(distance * coefDistanceSpeed, minSpeed, maxSpeed);
-            main.startLifetime = Mathf.Clamp(distance * coefDistanceLife, minLife, maxLife);
-
             flameEffect.Play();
             smokeEffect.Play();
-            //flameSound.Stop();
+            //flameSound.Play();
+        }
+
+        private void UpdateFlameParameters()
+        {
+            if (target == null) return;
+
+            float distance = Vector3.Distance(target.position, bulletPos.position);
+
+            // нормализуем дистанцию в диапазон 0…1
+            float t = Mathf.Clamp01(distance / maxDistance);
+
+            var main = flameEffect.main;
+
+            main.startSpeed = Mathf.Lerp(minSpeed, maxSpeed, t);
+            main.startLifetime = Mathf.Lerp(minLife, maxLife, t);
         }
 
         private void StopFire()
@@ -118,7 +123,8 @@ namespace Assets.Scripts.TowerDefence.Controllers
             if (target == null)
                 return;
 
-            StartFire();
+            StartFire();          // запускаем один раз
+            UpdateFlameParameters();
             ApplyFireDamage();
         }
     }
