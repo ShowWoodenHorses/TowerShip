@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: barrel
   m_EditorClassIdentifier: 
   id: barrel
-  speed: 50
-  damageEnemy: 1
+  speed: 80
+  damageEnemy: 10
   damageBuilding: 1
   lifeBeforeDestroy: 5
   bulletPrefab: {fileID: 7760085849738785313, guid: 0a38adfc780d87d48a71e3dea4f7b564, type: 3}

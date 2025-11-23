@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: arrow
   m_EditorClassIdentifier: 
   id: arrow
-  speed: 150
+  speed: 200
   damageEnemy: 50
   damageBuilding: 30
   lifeBeforeDestroy: 5

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: katapultaCore
   m_EditorClassIdentifier: 
   id: bullet3
-  speed: 60
+  speed: 150
   damageEnemy: 150
   damageBuilding: 30
   lifeBeforeDestroy: 5
