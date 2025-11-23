@@ -1,34 +1,41 @@
+using Assets.Scripts.Enemy;
+using Assets.Scripts.Spawner;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyPatrolAI : MonoBehaviour
 {
-    public Transform[] patrolPoints;
+    [SerializeField] private StandCannon[] cannons;
 
-    public float detectionRadius = 30f;
-    public float chaseRadius = 40f;
-    public float orbitRadius = 15f;
-    public float orbitSpeed = 5f;
-
+    private Transform[] patrolPoints;
     private NavMeshAgent agent;
-    [SerializeField] private Transform player;
-    private EnemyWeaponSystem weaponSystem;
+    private Transform player;
+    private SpawnFromShip spawner;
 
     private int currentPoint = 0;
-    private enum State { Patrolling, Chasing, Orbiting }
-    private State currentState = State.Patrolling;
 
     public void Initialize(Transform[] points, Transform playerTarget)
     {
         patrolPoints = points;
         player = playerTarget;
-        weaponSystem = GetComponent<EnemyWeaponSystem>();
-        if (weaponSystem != null)
-            weaponSystem.SetTarget(player);
 
         transform.position = patrolPoints[Random.Range(0, patrolPoints.Length)].position;
 
         agent = GetComponent<NavMeshAgent>();
+
+        if(cannons.Length > 0)
+        {
+            foreach (var cannon in cannons)
+            {
+                cannon.Initialize(playerTarget);
+            }
+        }
+
+        if(spawner == null)
+        {
+            spawner = GetComponent<SpawnFromShip>();
+        }
+        spawner.Initialize(playerTarget);
 
         if (patrolPoints != null && patrolPoints.Length > 0)
             agent.SetDestination(patrolPoints[0].position);
@@ -39,30 +46,7 @@ public class EnemyPatrolAI : MonoBehaviour
         if (patrolPoints == null || patrolPoints.Length == 0 || player == null)
             return;
 
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-        switch (currentState)
-        {
-            case State.Patrolling:
-                Patrol();
-                if (distanceToPlayer <= detectionRadius)
-                    currentState = State.Chasing;
-                break;
-
-            case State.Chasing:
-                agent.SetDestination(player.position);
-                if (distanceToPlayer <= orbitRadius)
-                    currentState = State.Orbiting;
-                else if (distanceToPlayer > chaseRadius)
-                    currentState = State.Patrolling;
-                break;
-
-            case State.Orbiting:
-                OrbitAroundPlayer();
-                if (distanceToPlayer > orbitRadius + 5f)
-                    currentState = State.Chasing;
-                break;
-        }
+        Patrol();
     }
 
     void Patrol()
@@ -72,12 +56,5 @@ public class EnemyPatrolAI : MonoBehaviour
             currentPoint = (currentPoint + 1) % patrolPoints.Length;
             agent.SetDestination(patrolPoints[currentPoint].position);
         }
-    }
-
-    void OrbitAroundPlayer()
-    {
-        Vector3 dir = (transform.position - player.position).normalized;
-        Vector3 orbitPos = player.position + Quaternion.Euler(0, 90, 0) * dir * orbitRadius;
-        agent.SetDestination(orbitPos);
     }
 }

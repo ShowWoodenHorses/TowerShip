@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using Assets.Scripts.ObjectPool;
+﻿using Assets.Scripts.ObjectPool;
 using UnityEngine;
 
 namespace Assets.Scripts.Enemy
@@ -21,9 +19,9 @@ namespace Assets.Scripts.Enemy
         [SerializeField] private GameObject effectShot;
 
         private float timeCooldown;
-
-        private void Start()
+        public void Initialize(Transform playerTransform)
         {
+            target = playerTransform;
             timeCooldown = timeReload;
         }
 
@@ -31,12 +29,6 @@ namespace Assets.Scripts.Enemy
         {
             if (target == null) return;
             HandleLogic();
-        }
-
-        public void Initialize(Transform playerTransform)
-        {
-            target = playerTransform;
-            timeCooldown = timeReload;
         }
 
         private void HandleLogic()
