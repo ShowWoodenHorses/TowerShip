@@ -64,6 +64,7 @@ namespace Assets.Scripts
 
         [Header("Ads")]
         [SerializeField] private RewardsAds rewardsAds;
+        [SerializeField] private RateGame rateGame;
 
         [Header("Towers")]
         [SerializeField] private TowerBuildUI towerBuild; 
@@ -82,6 +83,7 @@ namespace Assets.Scripts
 
             soundPoolManager.Initialize(mainMixer);
             rewardsAds.Initialize(scoreManager);
+            rateGame.Initialize(scoreManager);
 
             playerManager.Initialize(data.selectedPLayerId, saveLifecycle);
             pLayerHealth.Initialize(data.health, saveLifecycle);

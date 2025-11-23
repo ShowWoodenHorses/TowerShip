@@ -15,8 +15,8 @@ MonoBehaviour:
   Authorization:
     playerPhotoSize: 1
     authorized: 1
-    playerName: Player current
-    uniqueID: 000
+    playerName: demo
+    uniqueID: 666
     playerPhoto: demo image
     payingStatus: 0
   InterstitialAdv:
@@ -201,7 +201,8 @@ MonoBehaviour:
     syncInitSDK: 0
     loadSceneIfSDKLate: 0
     loadSceneIndex: 0
-    simulationLoadScene: 0
+    initDelaySimulation: 0
+    buildNumber: 0
   Simulation:
     device: 0
     language: ru
@@ -245,6 +246,7 @@ MonoBehaviour:
     showFirstAdv: 0
     interAdvInterval: 0
     postponeCallByFail: 0
+    setLanguageMod: 0
     useYandexMetrica: 0
     metricaCounterID: 0
     skipInterAdvAfterReward: 0
