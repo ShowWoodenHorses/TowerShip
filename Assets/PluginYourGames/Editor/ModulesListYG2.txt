@@ -4,4 +4,5 @@ InterstitialAdv v1.01
 Leaderboards v1.01
 Localization v1.01
 Metrica v1.02
+Review v1.0
 RewardedAdv v1.011
