@@ -937,7 +937,7 @@ MonoBehaviour:
   prefabRef: {fileID: 0}
   maxHealth: 800
   currentHealth: 0
-  reward: 420
+  reward: 500
   isReward: 1
   HealthObject: {fileID: 8000158001483333131}
   timeShowHealth: 2

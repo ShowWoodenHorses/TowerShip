@@ -15,41 +15,61 @@ MonoBehaviour:
   minValueEnemies:
   - minScore: 0
     enemyWaveId: 1
-  - minScore: 40
+  - minScore: 200
     enemyWaveId: 2
-  - minScore: 100
+  - minScore: 520
     enemyWaveId: 3
-  - minScore: 240
+  - minScore: 1000
     enemyWaveId: 4
-  - minScore: 400
+  - minScore: 1420
     enemyWaveId: 5
-  - minScore: 790
+  - minScore: 2320
     enemyWaveId: 6
-  - minScore: 1230
+  - minScore: 3500
     enemyWaveId: 7
-  - minScore: 1780
+  - minScore: 6500
     enemyWaveId: 8
-  - minScore: 2640
+  - minScore: 8100
     enemyWaveId: 9
-  - minScore: 3650
+  - minScore: 10100
     enemyWaveId: 10
-  - minScore: 5480
+  - minScore: 10800
     enemyWaveId: 11
-  - minScore: 8000
-    enemyWaveId: 12
-  - minScore: 10000
-    enemyWaveId: 13
   - minScore: 12000
+    enemyWaveId: 12
+  - minScore: 15500
+    enemyWaveId: 13
+  - minScore: 19100
     enemyWaveId: 14
-  - minScore: 14060
+  - minScore: 24100
     enemyWaveId: 15
-  - minScore: 16000
+  - minScore: 29100
     enemyWaveId: 16
-  - minScore: 18000
+  - minScore: 34900
     enemyWaveId: 17
-  - minScore: 18500
+  - minScore: 44900
     enemyWaveId: 18
-  - minScore: 19000
+  - minScore: 57900
     enemyWaveId: 19
-  - minScore: 25850
+  - minScore: 65500
     enemyWaveId: 20
+  - minScore: 67000
+    enemyWaveId: 21
+  - minScore: 68800
+    enemyWaveId: 22
+  - minScore: 78800
+    enemyWaveId: 23
+  - minScore: 89300
+    enemyWaveId: 24
+  - minScore: 90900
+    enemyWaveId: 25
+  - minScore: 96700
+    enemyWaveId: 26
+  - minScore: 109700
+    enemyWaveId: 27
+  - minScore: 114500
+    enemyWaveId: 28
+  - minScore: 130000
+    enemyWaveId: 29
+  - minScore: 145000
+    enemyWaveId: 30

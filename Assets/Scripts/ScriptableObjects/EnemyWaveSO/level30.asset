@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8b8871da951d8040a4847196a0271ed, type: 3}
-  m_Name: level14
+  m_Name: level30
   m_EditorClassIdentifier: 
-  id: 14
+  id: 30
   enemyTypes:
-  - prefab: {fileID: 4716685156279246426, guid: a2be166c16198914bb89ccb475327be8, type: 3}
+  - prefab: {fileID: 1224564754865152093, guid: db2e0361dfbcaa24eaaddf2b2cc72523, type: 3}
     maxCount: 5
+    currentCount: 0
+  - prefab: {fileID: 5893470179215616035, guid: 36e30decb22ab89439eebf04d4244571, type: 3}
+    maxCount: 1
     currentCount: 0
   - prefab: {fileID: 1834302381995290884, guid: d69d896e31aeb0549a9eb78145abf6c1, type: 3}
     maxCount: 5
     currentCount: 0
-  - prefab: {fileID: 1224564754865152093, guid: db2e0361dfbcaa24eaaddf2b2cc72523, type: 3}
-    maxCount: 5
-    currentCount: 0
-  maxLimitEnemy: 15
-  intervalSpawn: 2
+  maxLimitEnemy: 11
+  intervalSpawn: 3

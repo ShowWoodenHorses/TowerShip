@@ -15,10 +15,13 @@ MonoBehaviour:
   id: 16
   enemyTypes:
   - prefab: {fileID: 1224564754865152093, guid: db2e0361dfbcaa24eaaddf2b2cc72523, type: 3}
-    maxCount: 5
-    currentCount: 5
+    maxCount: 10
+    currentCount: 0
   - prefab: {fileID: 4716685156279246426, guid: a2be166c16198914bb89ccb475327be8, type: 3}
-    maxCount: 15
-    currentCount: 13
+    maxCount: 5
+    currentCount: 0
+  - prefab: {fileID: 4851598311652638919, guid: b0952a464d38b8c4481ac800efddbe35, type: 3}
+    maxCount: 5
+    currentCount: 0
   maxLimitEnemy: 20
   intervalSpawn: 2
