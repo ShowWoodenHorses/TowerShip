@@ -2,6 +2,6 @@ Authorization v1.022
 EnvirData v1.0031
 InterstitialAdv v1.01
 Leaderboards v1.01
-Localization v1.0011
-Metrica v1.01
-RewardedAdv v1.01
+Localization v1.01
+Metrica v1.02
+RewardedAdv v1.011
