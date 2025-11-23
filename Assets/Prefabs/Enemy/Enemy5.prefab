@@ -1718,7 +1718,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -1868,7 +1868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -2018,7 +2018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -2239,7 +2239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -2385,7 +2385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -2531,7 +2531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -2677,7 +2677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -2823,7 +2823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -2969,7 +2969,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -3119,7 +3119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -3269,7 +3269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -3419,7 +3419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -3565,7 +3565,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -3711,7 +3711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -3857,7 +3857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -4133,7 +4133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -4283,7 +4283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -4433,7 +4433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -4583,7 +4583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -4729,7 +4729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed

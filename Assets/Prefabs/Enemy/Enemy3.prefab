@@ -264,7 +264,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.2, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5334472586043006914}
@@ -769,8 +769,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 5, z: 7}
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Size: {x: 3, y: 7, z: 7}
+  m_Center: {x: 0, y: 3, z: 0}
 --- !u!114 &1170715712466329796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1305,7 +1305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 647493516926440470, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.45
+      value: 3.02
       objectReference: {fileID: 0}
     - target: {fileID: 647493516926440470, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1381,7 +1381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -1447,7 +1447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 647493516926440470, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.45
+      value: 3.02
       objectReference: {fileID: 0}
     - target: {fileID: 647493516926440470, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1515,7 +1515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -1589,11 +1589,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 421344, guid: 03e335e01be7c0f4a9bdf8df02b9757e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.273
+      value: 1.74
       objectReference: {fileID: 0}
     - target: {fileID: 421344, guid: 03e335e01be7c0f4a9bdf8df02b9757e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3
+      value: 4.6
       objectReference: {fileID: 0}
     - target: {fileID: 421344, guid: 03e335e01be7c0f4a9bdf8df02b9757e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1655,7 +1655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 647493516926440470, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.45
+      value: 3.02
       objectReference: {fileID: 0}
     - target: {fileID: 647493516926440470, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1723,7 +1723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
@@ -1903,7 +1903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 647493516926440470, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.45
+      value: 3.02
       objectReference: {fileID: 0}
     - target: {fileID: 647493516926440470, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1979,7 +1979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8815254016045209626, guid: 6150d5e16a6733e49ae0ac11c865589b, type: 3}
       propertyPath: rotationSpeed
