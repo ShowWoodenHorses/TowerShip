@@ -30,7 +30,7 @@ namespace Assets.Scripts.Player
 
             saveLifecycle.UpdateHealth(currentHealth);
 
-            if (currentHealth < 0)
+            if (currentHealth <= 0)
             {
                 currentHealth = 0;
                 OnPlayerDie?.Invoke(gameObject);

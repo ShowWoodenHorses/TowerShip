@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: bullet_enemy
   speed: 100
-  damageEnemy: 10
+  damageEnemy: 20
   damageBuilding: 0
   lifeBeforeDestroy: 2
   bulletPrefab: {fileID: 1739030181810302911, guid: b9cd5c4fb33c44941862672d207fe272, type: 3}

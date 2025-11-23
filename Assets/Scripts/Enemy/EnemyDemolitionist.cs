@@ -17,16 +17,21 @@ namespace Assets.Scripts.Enemy
         [Header("Settings")]
         [SerializeField] private int startHealth;
         [SerializeField] private int damage;
+        [SerializeField] private float minDistanceForDamage = 1f;
 
         [Header("Effect")]
         [SerializeField] private GameObject effectExplosion;
 
         private int currentHealth;
+        private Transform target;
+        private Vector3 finishPos;
+        private bool isDied = false;
 
         public void Initialize(GameObject prefabRef)
         {
             currentHealth = startHealth;
             this.prefabRef = prefabRef;
+            isDied = false;
 
             if (agent == null)
             {
@@ -35,15 +40,30 @@ namespace Assets.Scripts.Enemy
 
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void Update()
         {
-            var player = other.gameObject.GetComponent<PLayerHealth>();
-            if (player != null)
+            if (finishPos == null) return;
+
+            if (target == null) return;
+
+            if (isDied) return; 
+
+            float  distance = Vector3.Distance(finishPos, transform.position);
+            if(distance < minDistanceForDamage)
             {
+                PLayerHealth player = target.gameObject.GetComponent<PLayerHealth>();
                 player.TakeDamage(damage);
                 Die();
             }
         }
+
+        //private void OnTriggerEnter(Collider other)
+        //{
+        //    var player = other.gameObject.GetComponent<PLayerHealth>();
+        //    if (player != null)
+        //    {
+        //    }
+        //}
 
         public void TakeDamage(int damage)
         {
@@ -62,11 +82,16 @@ namespace Assets.Scripts.Enemy
 
         public void SetTarget(Transform target)
         {
-            agent.SetDestination(target.position);
+            this.target = target;
+            var playerCollider = target.GetComponent<BoxCollider>();
+            Vector3 closestPoint = playerCollider.ClosestPoint(transform.position);
+            finishPos = closestPoint;
+            agent.SetDestination(closestPoint);
         }
 
         private void Die()
         {
+            isDied = true;
             SpawnEffect();
             Deactive();
         }
