@@ -24,6 +24,8 @@ namespace Assets.Scripts.Game
 
         [Header("Save")]
         [SerializeField] private SaveLifecycle saveLifecycle;
+
+        private bool hasSaveAtStartGame = false;
         private void Awake()
         {
             ContinueButton.SetActive(false);
@@ -32,6 +34,7 @@ namespace Assets.Scripts.Game
             if (SaveSystem.IsExistsSave())
             {
                 ContinueButton.SetActive(true);
+                hasSaveAtStartGame = true;
             }
 
             data = SaveSystem.Load();
@@ -62,7 +65,7 @@ namespace Assets.Scripts.Game
 
         public void ShowConfirmationOrNewGame()
         {
-            if (SaveSystem.IsExistsSave())
+            if (hasSaveAtStartGame)
             {
                 ConfirmationPanel.GetComponent<HopupAnimUI>().Hopup();
             }
