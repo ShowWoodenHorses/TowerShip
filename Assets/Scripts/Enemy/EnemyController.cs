@@ -5,6 +5,7 @@ using System.Collections;
 using UnityEngine.UI;
 using DG.Tweening;
 using Assets.Scripts.Animation;
+using Assets.Scripts.Enemy;
 
 public class EnemyController : MonoBehaviour, IDamagable, IReward
 {
@@ -41,7 +42,13 @@ public class EnemyController : MonoBehaviour, IDamagable, IReward
     {
         currentHealth = maxHealth;
         isDead = false;
+        EnemyManager.Instance.Register(transform);
         InitializeSliderHealth();
+    }
+
+    private void OnDisable()
+    {
+        EnemyManager.Instance.Unregister(transform);
     }
 
     public void Initialize(GameObject prefabRef, GameplayAnimationController gameplayAnimation)

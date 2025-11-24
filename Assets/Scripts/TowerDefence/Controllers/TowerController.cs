@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Animation;
+using Assets.Scripts.Enemy;
 using Assets.Scripts.Player;
 using UnityEngine;
 
@@ -20,7 +21,8 @@ namespace Assets.Scripts.TowerDefence.Controllers
         [Header("Effect")]
         [SerializeField] private protected ParticleSystem shotEffect;
 
-        private protected Transform target;
+        [SerializeField] private protected Transform target;
+        [SerializeField] private Transform lastInvalidTarget;
         private protected float currentReloadTime;
         private protected float detectionTimer;
         private protected Collider[] enemies = new Collider[16];
@@ -76,50 +78,77 @@ namespace Assets.Scripts.TowerDefence.Controllers
 
         private protected void CheckTarget()
         {
-            int found = Physics.OverlapSphereNonAlloc(transform.position, maxDistance, enemies, layerMask);
+            var list = EnemyManager.Instance.GetEnemies();
 
-            Transform nearest = null;
-            float nearestSqr = float.MaxValue;
+            Transform best = null;
+            float bestSqr = float.MaxValue;
 
-            for (int i = 0; i < found; i++)
+            foreach (var enemy in list)
             {
-                var c = enemies[i];
-                if (c == null) continue;
+                if (enemy == null) continue;
+                if (!enemy.gameObject.activeInHierarchy) continue;
 
-                // Защита: объект может быть уничтожен раньше чем мы отработаем
-                Transform candidate = c.transform;
-                if (!candidate.gameObject.activeInHierarchy) continue;
+                float sqr = (enemy.position - transform.position).sqrMagnitude;
 
-                float sqr = (candidate.position - transform.position).sqrMagnitude;
-                if (sqr < nearestSqr)
+                if (sqr < bestSqr &&
+                    sqr < maxDistance * maxDistance &&
+                    sqr > minDistance * minDistance)
                 {
-                    nearestSqr = sqr;
-                    nearest = candidate;
+                    bestSqr = sqr;
+                    best = enemy;
                 }
             }
 
-            target = nearest;
+            target = best;
         }
+
 
         private protected void ValidateTarget()
         {
-            if (target == null) return;
+            if (target == null)
+                return;
 
-            // Если цель дальше, чем range (любой вариант - для простоты проверим расстояние до позиции)
             float sqrDist = (target.position - transform.position).sqrMagnitude;
-            if (sqrDist > maxDistance * maxDistance)
+
+            // Враг вышел из зоны -> сразу ищем новую цель
+            if (sqrDist > maxDistance)
             {
-                target = null;
+                TrySwitchTarget();
                 return;
             }
 
-            // Если цель уничтожена/неактивна
+            // Враг в мёртвой зоне -> сразу ищем новую цель
+            if (sqrDist < minDistance)
+            {
+                TrySwitchTarget();
+                return;
+            }
+
+            // Враг уничтожен -> сразу ищем новую цель
             if (!target.gameObject.activeInHierarchy)
             {
-                target = null;
+                TrySwitchTarget();
                 return;
             }
         }
+
+        private void TrySwitchTarget()
+        {
+            // Запоминаем плохую цель
+            lastInvalidTarget = target;
+
+            target = null;
+            CheckTarget();
+
+            // Если выбрана та же плохая цель — сбрасываем и ищем ещё раз
+            //if (target == lastInvalidTarget)
+            //{
+            //    target = null;
+            //    CheckTarget();
+            //}
+        }
+
+
 
         private protected virtual void Shoot()
         {
