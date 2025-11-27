@@ -30804,6 +30804,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Timer Before Ads
       objectReference: {fileID: 0}
+    - target: {fileID: 1414493820369423864, guid: eda5f340978843d4b98e8f71f923e0ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1414493820822186969, guid: eda5f340978843d4b98e8f71f923e0ab, type: 3}
       propertyPath: m_IsActive
       value: 0

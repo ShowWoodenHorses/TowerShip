@@ -205,8 +205,8 @@ MonoBehaviour:
     buildNumber: 0
   Simulation:
     device: 0
-    language: tr
-    advIntervalSimulation: 60
+    language: ru
+    advIntervalSimulation: 999
     durationAdv: 0.5
     loadAdv: 0
     testFailAds: 0
