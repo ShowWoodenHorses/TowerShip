@@ -10,7 +10,7 @@ namespace Assets.Scripts.Enemy
 
         [SerializeField] private List<Transform> enemies = new List<Transform>();
 
-        private void Awake()
+        public void Initialize()
         {
             Instance = this;
         }

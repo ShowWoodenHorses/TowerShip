@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ea3d8317ec0bf488a6ce8ef65b07ff, type: 3}
   m_Name: SetkometConfig
   m_EditorClassIdentifier: 
-  nameItemText: "\"\u0421\u0435\u0442\u043A\u0430\""
-  nameItemText_EN: '"setka"'
-  nameItemText_TR: '"setka"'
+  nameItemText: "\"\u0421\u0435\u0442\u043A\u043E\u043C\u0435\u0442\""
+  nameItemText_EN: '"Net thrower"'
+  nameItemText_TR: "\"A\u011F at\u0131c\u0131s\u0131\""
   iconItem: {fileID: 21300000, guid: 6c4376e794c11734da3f5ce85d8c21f5, type: 3}
   idItem: player_setka
   costItem: 200
-  description: '"setka"'
-  description_EN: '"setka"'
-  description_TR: '"setka"'
+  description: "\u0421\u0442\u0440\u0435\u043B\u044F\u0435\u0442 \u0441\u0435\u0442\u044F\u043C\u0438:
+    \u0437\u0430\u043C\u0435\u0434\u043B\u044F\u0435\u0442 \u043A\u043E\u0440\u0430\u0431\u043B\u0438
+    \u0438 \u043D\u0430\u043D\u043E\u0441\u0438\u0442 \u0443\u043C\u0435\u0440\u0435\u043D\u043D\u044B\u0439
+    \u0443\u0440\u043E\u043D. \u041E\u0442\u043B\u0438\u0447\u043D\u0430\u044F \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0430."
+  description_EN: Fires nets, slowing ships and dealing moderate damage. Excellent
+    support.
+  description_TR: "A\u011Flar\u0131 ate\u015Fler, gemileri yava\u015Flat\u0131r ve
+    orta d\xFCzeyde hasar verir. M\xFCkemmel destek."

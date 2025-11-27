@@ -984,7 +984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ru: "\u0412\u044B\u0431\u0440\u0430\u0442\u044C"
   en: Select
-  tr: Select
+  tr: "Se\xE7mek"
 --- !u!1 &49317821
 GameObject:
   m_ObjectHideFlags: 0
@@ -3333,6 +3333,7 @@ MonoBehaviour:
   saveLifecycle: {fileID: 1564413788}
   gameplayAnimationController: {fileID: 339796675}
   gameManager: {fileID: 868381101}
+  enemyManager: {fileID: 1506377649}
   uiController: {fileID: 950126500}
   cameraController: {fileID: 330585549}
   moveCameraToggle: {fileID: 1909044666}
@@ -3415,7 +3416,7 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0eaf1d74900237740af7cf35e55cf721, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 280446050889733353, guid: 0eaf1d74900237740af7cf35e55cf721, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3480,7 +3481,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &159973900
@@ -3828,7 +3829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ru: "+ 100 \u043C\u043E\u043D\u0435\u0442"
   en: + 100 coins
-  tr: + 100 coins
+  tr: + 100 jeton
 --- !u!114 &172567220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4627,7 +4628,7 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0eaf1d74900237740af7cf35e55cf721, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 280446050889733353, guid: 0eaf1d74900237740af7cf35e55cf721, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6294,7 +6295,7 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0eaf1d74900237740af7cf35e55cf721, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 280446050889733353, guid: 0eaf1d74900237740af7cf35e55cf721, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9049,7 +9050,7 @@ MonoBehaviour:
   ru: "+500 \u043C\u043E\u043D\u0435\u0442 \u0437\u0430 \u043E\u0442\u0437\u044B\u0432
     \u043E\u0431 \u0438\u0433\u0440\u0435"
   en: +500 coins for a game review
-  tr: +500 coins for a game review
+  tr: "Oyun incelemesi i\xE7in +500 jeton"
 --- !u!114 &473355318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11983,7 +11984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ru: "\u0423\u0436\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"
   en: 'Already select '
-  tr: 'Already select '
+  tr: "Zaten se\xE7ili"
 --- !u!1 &686042893
 GameObject:
   m_ObjectHideFlags: 0
@@ -13016,7 +13017,7 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0eaf1d74900237740af7cf35e55cf721, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 280446050889733353, guid: 0eaf1d74900237740af7cf35e55cf721, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13081,7 +13082,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &768265380
@@ -14224,7 +14225,7 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0eaf1d74900237740af7cf35e55cf721, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 280446050889733353, guid: 0eaf1d74900237740af7cf35e55cf721, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14289,7 +14290,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &898983422
@@ -14686,7 +14687,7 @@ MonoBehaviour:
   waveText: {fileID: 360633070}
   ru: "\u0412\u043E\u043B\u043D\u0430"
   en: Wave
-  tr: Wave
+  tr: Dalga
 --- !u!114 &950126501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20603,7 +20604,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25, y: 0}
+  m_AnchoredPosition: {x: 25, y: -25}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1458996250
@@ -21386,7 +21387,7 @@ MonoBehaviour:
   m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0eaf1d74900237740af7cf35e55cf721, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 280446050889733353, guid: 0eaf1d74900237740af7cf35e55cf721, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -21498,6 +21499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409b6fc46dc090143b9b05e8f6b37261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies: []
 --- !u!1 &1507683325
 GameObject:
   m_ObjectHideFlags: 0
@@ -29352,7 +29354,7 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0eaf1d74900237740af7cf35e55cf721, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 280446050889733353, guid: 0eaf1d74900237740af7cf35e55cf721, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -29417,7 +29419,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &2107467942

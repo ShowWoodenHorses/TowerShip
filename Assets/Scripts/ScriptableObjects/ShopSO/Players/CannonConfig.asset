@@ -14,10 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameItemText: "\"\u041F\u0443\u0448\u043A\u0430\""
   nameItemText_EN: '"Cannon"'
-  nameItemText_TR: '"Cannon"'
+  nameItemText_TR: '"Silah"'
   iconItem: {fileID: 21300000, guid: 66aa790ff2fa5fb458201060551f6d50, type: 3}
   idItem: player_cannon
   costItem: 0
-  description: 
-  description_EN: 
-  description_TR: 
+  description: "\u041A\u043B\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043A\u043E\u0435
+    \u043E\u0440\u0443\u0434\u0438\u0435: \u043C\u043E\u0449\u043D\u044B\u0439 \u0437\u0430\u043B\u043F
+    \u0438 \u0432\u044B\u0441\u043E\u043A\u0430\u044F \u0443\u0431\u043E\u0439\u043D\u043E\u0441\u0442\u044C.
+    \u0421\u0442\u0440\u0435\u043B\u044F\u0435\u0442 \u0431\u044B\u0441\u0442\u0440\u043E,
+    \u043F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0436\u0430\u0435\u0442\u0441\u044F
+    \u043C\u0435\u0434\u043B\u0435\u043D\u043D\u0435\u0435 \u0431\u0430\u043B\u043B\u0438\u0441\u0442\u044B"
+  description_EN: 'A classic weapon: powerful volley and high damage. It fires quickly
+    and reloads slower than a ballista.'
+  description_TR: "Klasik bir silah: G\xFC\xE7l\xFC at\u0131\u015F ve y\xFCksek hasar.
+    H\u0131zl\u0131 ate\u015F eder ve bir manc\u0131n\u0131ktan daha yava\u015F doldurulur."

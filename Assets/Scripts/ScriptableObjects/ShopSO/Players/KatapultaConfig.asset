@@ -13,11 +13,18 @@ MonoBehaviour:
   m_Name: KatapultaConfig
   m_EditorClassIdentifier: 
   nameItemText: "\"\u041A\u0430\u0442\u0430\u043F\u0443\u043B\u044C\u0442\u0430\""
-  nameItemText_EN: '"Katapulta"'
-  nameItemText_TR: '"Katapulta"'
+  nameItemText_EN: '"Catapult"'
+  nameItemText_TR: "\"Manc\u0131n\u0131k\""
   iconItem: {fileID: 21300000, guid: 0b3ad17166d9ed24f8d7284ada8f6833, type: 3}
   idItem: player_katapulta
   costItem: 500
-  description: 
-  description_EN: 
-  description_TR: 
+  description: "\u0411\u044B\u0441\u0442\u0440\u044B\u0439 \u043D\u0430\u0432\u0435\u0441\u043D\u043E\u0439
+    \u0441\u043D\u0430\u0440\u044F\u0434 \u0441 \u0445\u043E\u0440\u043E\u0448\u0438\u043C
+    \u0443\u0440\u043E\u043D\u043E\u043C. \u041D\u043E \u0442\u0440\u0435\u0431\u0443\u0435\u0442
+    \u0431\u043E\u043B\u044C\u0448\u0435 \u0434\u0438\u0441\u0442\u0430\u043D\u0446\u0438\u0438
+    \u0434\u043B\u044F \u0432\u044B\u0441\u0442\u0440\u0435\u043B\u0430."
+  description_EN: A fast, high-explosive projectile with good damage, but requires
+    a longer range to fire.
+  description_TR: "H\u0131zl\u0131, y\xFCksek patlay\u0131c\u0131 g\xFCce sahip,
+    iyi hasar veren ancak ate\u015F etmek i\xE7in daha uzun menzil gerektiren bir
+    mermi."

@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Animation;
 using Assets.Scripts.CameraControl;
 using Assets.Scripts.Control;
+using Assets.Scripts.Enemy;
 using Assets.Scripts.Game;
 using Assets.Scripts.ObjectPool;
 using Assets.Scripts.Player;
@@ -53,6 +54,7 @@ namespace Assets.Scripts
 
         [Header("Game")]
         [SerializeField] private GameManager gameManager;
+        [SerializeField] private EnemyManager enemyManager;
         [SerializeField] private UIController uiController;
 
         [Header("Camera")]
@@ -73,6 +75,8 @@ namespace Assets.Scripts
             data = SaveSystem.Load();
 
             saveLifecycle.Initialize(data);
+
+            enemyManager.Initialize();
 
             enemyPool.Initialize();
             bulletPool.Initialize();

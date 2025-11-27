@@ -13,11 +13,17 @@ MonoBehaviour:
   m_Name: FiregunConfig
   m_EditorClassIdentifier: 
   nameItemText: "\"\u041E\u0433\u043D\u0435\u043C\u0435\u0442\""
-  nameItemText_EN: '"Firegun"'
-  nameItemText_TR: '"Firegun"'
+  nameItemText_EN: '"Flamethrower"'
+  nameItemText_TR: '"Alev makinesi"'
   iconItem: {fileID: 21300000, guid: d0d1b304f8de38845ad011f592886fa2, type: 3}
   idItem: player_firegun
   costItem: 2000
-  description: Firegun
-  description_EN: Firegun
-  description_TR: Firegun
+  description: "\u041F\u043E\u0441\u0442\u043E\u044F\u043D\u043D\u044B\u0439 \u043F\u043E\u0442\u043E\u043A
+    \u0443\u0440\u043E\u043D\u0430 \u0431\u0435\u0437 \u043F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0434\u043A\u0438.
+    \u0411\u043B\u0438\u0437\u043A\u0430\u044F \u0434\u0438\u0441\u0442\u0430\u043D\u0446\u0438\u044F,
+    \u043D\u043E \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439
+    \u0443\u0440\u043E\u043D \u0432 \u043C\u0438\u043D\u0443\u0442\u0443"
+  description_EN: A constant stream of damage with no cooldown. Close range, but
+    maximum damage per minute.
+  description_TR: "Hi\xE7bir bekleme s\xFCresi olmadan s\xFCrekli bir hasar ak\u0131\u015F\u0131.
+    Yak\u0131n mesafeden, ancak dakika ba\u015F\u0131na maksimum hasar."

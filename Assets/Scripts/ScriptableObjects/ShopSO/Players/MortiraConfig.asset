@@ -13,11 +13,16 @@ MonoBehaviour:
   m_Name: MortiraConfig
   m_EditorClassIdentifier: 
   nameItemText: "\"\u041C\u043E\u0440\u0442\u0438\u0440\u0430\""
-  nameItemText_EN: '"Mortira"'
-  nameItemText_TR: '"Mortira"'
+  nameItemText_EN: '"Mortar"'
+  nameItemText_TR: "\"Har\xE7\""
   iconItem: {fileID: 21300000, guid: 625c4b80a010f9a48918140a8b4daf98, type: 3}
   idItem: player_mortira
   costItem: 350
-  description: 
-  description_EN: 
-  description_TR: 
+  description: "\u0422\u044F\u0436\u0451\u043B\u044B\u0435 \u043D\u0430\u0432\u0435\u0441\u043D\u044B\u0435
+    \u0441\u043D\u0430\u0440\u044F\u0434\u044B: \u043C\u0435\u0434\u043B\u0435\u043D\u043D\u044B\u0439
+    \u043F\u043E\u043B\u0451\u0442, \u043D\u043E \u043E\u0433\u0440\u043E\u043C\u043D\u044B\u0439
+    \u0443\u0440\u043E\u043D \u043F\u043E \u0446\u0435\u043B\u0438."
+  description_EN: 'Heavy overhead projectiles: slow flight, causing huge damage to
+    the target.'
+  description_TR: "A\u011F\u0131r yukar\u0131dan at\u0131lan mermiler: Yava\u015F
+    u\xE7u\u015F, hedefe b\xFCy\xFCk hasar verir."

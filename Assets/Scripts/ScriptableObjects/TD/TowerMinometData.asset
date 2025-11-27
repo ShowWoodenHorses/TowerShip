@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: TowerMinometData
   m_EditorClassIdentifier: 
   towerName: Minomet
-  towerName_EN: Minomet
+  towerName_EN: Grenade launcher
   towerName_RU: "\u041C\u0438\u043D\u043E\u043C\u0435\u0442"
-  towerName_TR: Minomet
+  towerName_TR: "El bombas\u0131 f\u0131rlat\u0131c\u0131s\u0131"
   prefab: {fileID: 8576572307983309258, guid: 9e3ee92329dff04438b024acc97452e8, type: 3}
   maxLevel: 3
   iconItem: {fileID: 21300000, guid: 423a00c4589d850479b47a6f899179a5, type: 3}
