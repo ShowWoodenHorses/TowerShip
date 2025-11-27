@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cae8acb3c72c2f4e88bcdb8d718d089, type: 3}
   m_Name: setka_damage_achiev
   m_EditorClassIdentifier: 
-  name_EN: Achiev setka damage
-  name_RU: "\u0421\u0435\u0442\u043A\u043E\u043C\u0435\u0442 \u0437\u0430 \u0443\u0440\u043E\u043D"
-  name_TR: Achiev setka damage
-  description_EN: Achiev setka damage
-  description_RU: "\u0421\u0435\u0442\u043A\u043E\u043C\u0435\u0442 \u0437\u0430
-    \u0443\u0440\u043E\u043D"
-  description_TR: Achiev setka damage
+  name_EN: "\xABThe Big Catch\xBB"
+  name_RU: "\xAB\u0411\u043E\u043B\u044C\u0448\u043E\u0439 \u0423\u043B\u043E\u0432\xBB"
+  name_TR: "\xABB\xFCy\xFCk Yakalama\xBB"
+  description_EN: Deal 1,000 damage with the Net Launcher.
+  description_RU: "\u041D\u0430\u043D\u0435\u0441\u0438\u0442\u0435 1 000 \u0443\u0440\u043E\u043D\u0430
+    \u0421\u0435\u0442\u043A\u043E\u043C\u0451\u0442\u043E\u043C."
+  description_TR: "A\u011F F\u0131rlat\u0131c\u0131 ile 1.000 hasar ver."
   achievementId: damage
   gunId: player_setka
   icon: {fileID: 21300000, guid: 6c4376e794c11734da3f5ce85d8c21f5, type: 3}
-  countPointsForFinish: 558
+  countPointsForFinish: 1000
   damage: damage
   kill: kill

@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cae8acb3c72c2f4e88bcdb8d718d089, type: 3}
   m_Name: firegun_damage_achiev
   m_EditorClassIdentifier: 
-  name_EN: Achiev firegun damage
-  name_RU: "\u041E\u0433\u043D\u0435\u043C\u0435\u0442 \u0437\u0430 \u0443\u0440\u043E\u043D"
-  name_TR: Achiev firegun damage
-  description_EN: Achiev firegun damage
-  description_RU: "\u041E\u0433\u043D\u0435\u043C\u0435\u0442 \u0437\u0430 \u0443\u0440\u043E\u043D"
-  description_TR: Achiev firegun damage
+  name_EN: "\xABAsh Trail\xBB"
+  name_RU: "\xAB\u041F\u0435\u043F\u0435\u043B\u044C\u043D\u044B\u0439 \u0421\u043B\u0435\u0434\xBB"
+  name_TR: "\xABK\xFCl Yolu\xBB"
+  description_EN: Deal 20,000 damage with Flamethrower.
+  description_RU: "\u041D\u0430\u043D\u0435\u0441\u0438\u0442\u0435 20 000 \u0443\u0440\u043E\u043D\u0430
+    \u041E\u0433\u043D\u0435\u043C\u0451\u0442\u043E\u043C."
+  description_TR: Alev Makinesi ile 20.000 hasar ver.
   achievementId: damage
   gunId: player_firegun
   icon: {fileID: 21300000, guid: d0d1b304f8de38845ad011f592886fa2, type: 3}
-  countPointsForFinish: 3321
+  countPointsForFinish: 20000
   damage: damage
   kill: kill

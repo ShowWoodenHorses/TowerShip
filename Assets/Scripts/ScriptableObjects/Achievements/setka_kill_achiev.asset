@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cae8acb3c72c2f4e88bcdb8d718d089, type: 3}
   m_Name: setka_kill_achiev
   m_EditorClassIdentifier: 
-  name_EN: Achiev setka kill
-  name_RU: "\u0421\u0435\u0442\u043A\u043E\u043C\u0435\u0442 \u0437\u0430 \u043A\u0438\u043B\u043B\u044B"
-  name_TR: Achiev setka kill
-  description_EN: Achiev setka kill
-  description_RU: "\u0421\u0435\u0442\u043A\u043E\u043C\u0435\u0442 \u0437\u0430
-    \u043A\u0438\u043B\u043B\u044B"
-  description_TR: Achiev setka kill
+  name_EN: "\xABCatch the Big Fish\xBB"
+  name_RU: "\xAB\u041B\u043E\u0432\u0438 \u041A\u0440\u0443\u043F\u043D\u0443\u044E
+    \u0420\u044B\u0431\u043A\u0443\xBB"
+  name_TR: "\xABB\xFCy\xFCk Bal\u0131\u011F\u0131 Yakala\xBB"
+  description_EN: Bind and finish off 25 ships with the Net Launcher.
+  description_RU: "\u0421\u0432\u044F\u0436\u0438\u0442\u0435 \u0438 \u0434\u043E\u0431\u0435\u0439\u0442\u0435
+    25 \u043A\u043E\u0440\u0430\u0431\u043B\u0435\u0439 \u0421\u0435\u0442\u043A\u043E\u043C\u0451\u0442\u043E\u043C."
+  description_TR: "A\u011F F\u0131rlat\u0131c\u0131 ile 25 gemiyi ba\u011Fla ve bitir."
   achievementId: kill
   gunId: player_setka
   icon: {fileID: 21300000, guid: 6c4376e794c11734da3f5ce85d8c21f5, type: 3}
-  countPointsForFinish: 50
+  countPointsForFinish: 25
   damage: damage
   kill: kill

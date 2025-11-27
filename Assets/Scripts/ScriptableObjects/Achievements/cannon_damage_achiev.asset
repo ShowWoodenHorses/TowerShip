@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cae8acb3c72c2f4e88bcdb8d718d089, type: 3}
   m_Name: cannon_damage_achiev
   m_EditorClassIdentifier: 
-  name_EN: Achiev cannon
-  name_RU: "\u041F\u0443\u0448\u043A\u0430 \u0437\u0430 \u0443\u0440\u043E\u043D"
-  name_TR: Achiev cannon
-  description_EN: Achiev cannon
-  description_RU: "\u041F\u0443\u0448\u043A\u0430 \u0437\u0430 \u0443\u0440\u043E\u043D"
-  description_TR: Achiev cannon
+  name_EN: "\xABIron Argument\xBB"
+  name_RU: "\xAB\u0416\u0435\u043B\u0435\u0437\u043D\u044B\u0439 \u0410\u0440\u0433\u0443\u043C\u0435\u043D\u0442\xBB"
+  name_TR: "\xABDemir Arg\xFCman\xBB"
+  description_EN: Deal 7500 damage with the Cannon.
+  description_RU: "\u041D\u0430\u043D\u0435\u0441\u0438\u0442\u0435 7500 \u0443\u0440\u043E\u043D\u0430
+    \u041F\u0443\u0448\u043A\u043E\u0439."
+  description_TR: Top ile 7500 hasar ver.
   achievementId: damage
   gunId: player_cannon
   icon: {fileID: 21300000, guid: 66aa790ff2fa5fb458201060551f6d50, type: 3}
-  countPointsForFinish: 2000
+  countPointsForFinish: 7500
   damage: damage
   kill: kill

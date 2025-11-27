@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cae8acb3c72c2f4e88bcdb8d718d089, type: 3}
   m_Name: all_kill_achiev
   m_EditorClassIdentifier: 
-  name_EN: all kill
-  name_RU: "\u0423\u043D\u0438\u0447\u0442\u043E\u0436\u0435\u043D\u043E \u0432\u0441\u0435\u0433\u043E"
-  name_TR: all kill
-  description_EN: all kill
-  description_RU: "\u041E\u0431\u0449\u0435\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
-    \u0443\u043D\u0438\u0447\u0442\u043E\u0436\u0435\u043D\u043D\u044B\u0445 \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A\u043E\u0432"
-  description_TR: all kill
+  name_EN: "\xABThe Fleet is Broken\xBB"
+  name_RU: "\xAB\u0424\u043B\u043E\u0442 \u0420\u0430\u0437\u0431\u0438\u0442\xBB"
+  name_TR: "\xABFilo Bozuldu\xBB"
+  description_EN: Destroy 1000 ships.
+  description_RU: "\u0423\u043D\u0438\u0447\u0442\u043E\u0436\u044C\u0442\u0435 1000
+    \u043A\u043E\u0440\u0430\u0431\u043B\u0435\u0439."
+  description_TR: 1000 gemiyi yok et.
   achievementId: 
   gunId: 
   icon: {fileID: -2739807658926110822, guid: 18050bc5ddbcb9f4e8a573db7f543236, type: 3}
-  countPointsForFinish: 500
+  countPointsForFinish: 1000
   damage: damage
   kill: kill

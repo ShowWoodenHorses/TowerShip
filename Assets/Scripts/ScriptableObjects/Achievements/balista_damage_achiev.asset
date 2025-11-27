@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cae8acb3c72c2f4e88bcdb8d718d089, type: 3}
   m_Name: balista_damage_achiev
   m_EditorClassIdentifier: 
-  name_EN: Achiev balista damage
-  name_RU: "\u0411\u0430\u043B\u0438\u0441\u0442\u0430 \u0437\u0430 \u0443\u0440\u043E\u043D"
-  name_TR: Achiev balista damage
-  description_EN: Achiev balista damage
-  description_RU: "\u0411\u0430\u043B\u0438\u0441\u0442\u0430 \u0437\u0430 \u0443\u0440\u043E\u043D"
-  description_TR: Achiev balista damage
+  name_EN: "\xABSteel Awl\xBB"
+  name_RU: "\xAB\u0421\u0442\u0430\u043B\u044C\u043D\u043E\u0435 \u0428\u0438\u043B\u043E\xBB"
+  name_TR: "\xAB\xC7elik B\u0131z\xBB"
+  description_EN: Deal 5000 damage with Ballista.
+  description_RU: "\u041D\u0430\u043D\u0435\u0441\u0438\u0442\u0435 5000 \u0443\u0440\u043E\u043D\u0430
+    \u0411\u0430\u043B\u043B\u0438\u0441\u0442\u043E\u0439."
+  description_TR: Ballista ile 5000 hasar ver.
   achievementId: damage
   gunId: player_balista
   icon: {fileID: 21300000, guid: 0504d03201929304c8839e3cbcb09d4c, type: 3}
-  countPointsForFinish: 50
+  countPointsForFinish: 5000
   damage: damage
   kill: kill

@@ -12,13 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cae8acb3c72c2f4e88bcdb8d718d089, type: 3}
   m_Name: all_money_achiev
   m_EditorClassIdentifier: 
-  name_EN: all money
-  name_RU: "\u0417\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u043D\u043E \u0432\u0441\u0435\u0433\u043E"
-  name_TR: all money
-  description_EN: all money
-  description_RU: "\u041E\u0431\u0449\u0435\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
-    \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u043D\u043D\u044B\u0445 \u043C\u043E\u043D\u0435\u0442"
-  description_TR: all money
+  name_EN: "\xABThe Rich Captain\xBB"
+  name_RU: "\xAB\u0411\u043E\u0433\u0430\u0442\u044B\u0439 \u043A\u0430\u043F\u0438\u0442\u0430\u043D\xBB"
+  name_TR: "\xABZengin Kaptan\xBB"
+  description_EN: Collect 70,000 coins.
+  description_RU: "\u0421\u043E\u0431\u0435\u0440\u0438\u0442\u0435 70 000 \u043C\u043E\u043D\u0435\u0442."
+  description_TR: 70.000 jeton topla.
   achievementId: 
   gunId: 
   icon: {fileID: 5659230168238626165, guid: b6bf64f3818ea7048adcf794dea42649, type: 3}
