@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ea3d8317ec0bf488a6ce8ef65b07ff, type: 3}
   m_Name: BalistaConfig
   m_EditorClassIdentifier: 
-  nameItemText: "\"\u0411\u0430\u043Bk\u0438\u0441\u0442\u0430\""
+  nameItemText: "\"\u0411\u0430\u043B\u043B\u0438\u0441\u0442\u0430\""
   nameItemText_EN: '"Ballista"'
   nameItemText_TR: '"Balistas"'
   iconItem: {fileID: 21300000, guid: 0504d03201929304c8839e3cbcb09d4c, type: 3}

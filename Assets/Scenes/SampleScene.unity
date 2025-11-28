@@ -1417,10 +1417,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Assets.Scripts.Player.PlayerManager, Assembly-CSharp
-        m_MethodName: SetCanShoot
-        m_Mode: 1
+      - m_Target: {fileID: 408006363}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2240,10 +2240,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Assets.Scripts.Player.PlayerManager, Assembly-CSharp
-        m_MethodName: SetDisableShoot
-        m_Mode: 1
+      - m_Target: {fileID: 408006363}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -26429,7 +26429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1871807479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30806,7 +30806,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1414493820369423864, guid: eda5f340978843d4b98e8f71f923e0ab, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1414493820822186969, guid: eda5f340978843d4b98e8f71f923e0ab, type: 3}
       propertyPath: m_IsActive

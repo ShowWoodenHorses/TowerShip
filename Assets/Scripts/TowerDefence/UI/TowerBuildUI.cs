@@ -44,6 +44,7 @@ namespace Assets.Scripts.TowerDefence.UI
 
         public void UnselectedCurrentItem() // Из инспектора
         {
+            TowerActionUI.Instance.Close();
             if (currentSelectedTiwerItem != null)
             {
                 currentSelectedTiwerItem.UnselectedItem();
