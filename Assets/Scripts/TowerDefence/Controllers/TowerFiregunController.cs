@@ -13,12 +13,10 @@ namespace Assets.Scripts.TowerDefence.Controllers
         [SerializeField] private ParticleSystem smokeEffect;
 
         [Header("Speed particle")]
-        [SerializeField] private float coefDistanceSpeed = 0.8f;
         [SerializeField] private float minSpeed = 1f;
         [SerializeField] private float maxSpeed = 10f;
 
         [Header("life particle")]
-        [SerializeField] private float coefDistanceLife = 0.2f;
         [SerializeField] private float minLife = 0.1f;
         [SerializeField] private float maxLife = 1f;
 
