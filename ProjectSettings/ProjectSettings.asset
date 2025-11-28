@@ -821,23 +821,23 @@ PlayerSettings:
   webGLCloseOnQuit: 0
   webWasm2023: 0
   scriptingDefineSymbols:
-    Android: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg
+    Android: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg;OpenURL_yg
     EmbeddedLinux: DOTWEEN
     GameCoreScarlett: DOTWEEN
     GameCoreXboxOne: DOTWEEN
-    LinuxHeadlessSimulation: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg
-    Nintendo Switch: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg
-    PS4: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg
-    PS5: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg
+    LinuxHeadlessSimulation: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg;OpenURL_yg
+    Nintendo Switch: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg;OpenURL_yg
+    PS4: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg;OpenURL_yg
+    PS5: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg;OpenURL_yg
     QNX: DOTWEEN
     ReservedCFE: DOTWEEN
-    Standalone: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;POSEIDON;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg
+    Standalone: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;POSEIDON;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg;OpenURL_yg
     VisionOS: DOTWEEN
-    WebGL: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg
-    Windows Store Apps: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg
-    XboxOne: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg
-    iPhone: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg
-    tvOS: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg
+    WebGL: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg;OpenURL_yg
+    Windows Store Apps: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg;OpenURL_yg
+    XboxOne: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg;OpenURL_yg
+    iPhone: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg;OpenURL_yg
+    tvOS: DOTWEEN;PLUGIN_YG_2;TMP_YG2;RU_YG2;InterstitialAdv_yg;EnvirData_yg;Leaderboards_yg;Authorization_yg;YandexGamesPlatform_yg;Localization_yg;Metrica_yg;RewardedAdv_yg;Review_yg;OpenURL_yg
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
