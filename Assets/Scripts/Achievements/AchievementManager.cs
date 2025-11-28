@@ -4,7 +4,7 @@ using Assets.Scripts.Achievements.Configs;
 using Assets.Scripts.Save;
 using TMPro;
 using UnityEngine;
-using static UnityEditor.Progress;
+using YG;
 
 namespace Assets.Scripts.Achievements
 {
@@ -39,6 +39,8 @@ namespace Assets.Scripts.Achievements
             InitializeFromSave();
             CreateSpecialAchievements();
             UpdateGeneralCountAchievements();
+
+            YG2.MetricaSend("openAchievements");
         }
 
         private void CreateAchevementDialog()

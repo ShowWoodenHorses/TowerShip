@@ -154,6 +154,7 @@ namespace Assets.Scripts.TowerDefence.UI
 
             if (tower.TryUpgrade(scoreManager))
             {
+                YG2.MetricaSend("upgradeTower", tower.GetTowerName(), tower.GetCurrentLevel().ToString());
                 OpenForTower(currentTile); // обновляем данные
             }
         }
@@ -170,6 +171,7 @@ namespace Assets.Scripts.TowerDefence.UI
 
             Destroy(tower.gameObject);
             currentTile.ClearTower();
+            YG2.MetricaSend("sellTower", tower.GetTowerName(), tower.GetCurrentLevel().ToString());
             Close();
         }
 

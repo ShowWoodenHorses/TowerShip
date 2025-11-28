@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using Assets.Scripts.TowerDefence.Configs;
+﻿using Assets.Scripts.TowerDefence.Configs;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Assets.Scripts.TowerDefence.UI;
-using UnityEngine.SceneManagement;
 using Assets.Scripts.Save;
 using System.Linq;
+using YG;
 
 namespace Assets.Scripts.TowerDefence
 {
@@ -184,7 +183,8 @@ namespace Assets.Scripts.TowerDefence
                 tower.Initialize(saveLifecycle, selectedTowerData, tile.index);
                 tile.PlaceTower(tower);
                 saveLifecycle.UpdateTileTower(tile.index, selectedTowerData.towerName);
-                Debug.Log($"Built {selectedTowerData.towerName} at tile {tile.name}. Remaining money: {scoreManager.GetCurrentMoney()}");
+
+                YG2.MetricaSend("buyTower", tower.GetTowerName(), tower.data.baseCost.ToString());
             }
 
             // ghost остаётся (позволяет ставить ещё)

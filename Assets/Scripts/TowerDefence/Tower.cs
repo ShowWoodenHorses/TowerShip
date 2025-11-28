@@ -85,6 +85,11 @@ namespace Assets.Scripts.TowerDefence
             return level;
         }
 
+        public string GetTowerName()
+        {
+            return data.towerName;
+        }
+
         public TowerController GetTowerController()
         {
             return towerController;

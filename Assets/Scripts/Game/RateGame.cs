@@ -27,6 +27,7 @@ namespace Assets.Scripts.Game
         {
             if (canReview)
             {
+                YG2.MetricaSend("rateUs");
                 scoreManager.AddMoney(rewardCoins);
             }
         }

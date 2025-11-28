@@ -74,5 +74,10 @@ namespace Assets.Scripts.Game
                 NewGame();
             }
         }
+
+        public void SendMetricaOpenMoreGames()
+        {
+            YG2.MetricaSend("moreGames");
+        }
     }
 }
