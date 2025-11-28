@@ -1,3 +1,3 @@
-﻿Build path: C:/Users/Vladimir/Unity/Projects/ReadyProjects/Tower_ship_1
-Build number: 34
+﻿Build path: C:/Users/Vladimir/Unity/Projects/ReadyProjects/Tower_ship_2
+Build number: 35
 PluginYG version: 2.007

@@ -9,15 +9,15 @@ namespace Assets.Scripts.Game
 
         private ScoreManager scoreManager;
 
-        private void OnEnable()
-        {
-            YG2.onReviewSent += Reward;
-        }
+        //private void OnEnable()
+        //{
+        //    YG2.onReviewSent += Reward;
+        //}
 
-        private void OnDisable()
-        {
-            YG2.onReviewSent -= Reward;
-        }
+        //private void OnDisable()
+        //{
+        //    YG2.onReviewSent -= Reward;
+        //}
         public void Initialize(ScoreManager scoreManager)
         {
             this.scoreManager = scoreManager;
@@ -30,6 +30,12 @@ namespace Assets.Scripts.Game
                 YG2.MetricaSend("rateUs");
                 scoreManager.AddMoney(rewardCoins);
             }
+        }
+
+        public void GetReward()
+        {
+            YG2.MetricaSend("rateUs");
+            scoreManager.AddMoney(rewardCoins);
         }
     }
 }
